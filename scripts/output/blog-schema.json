@@ -1,0 +1,72 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "title",
+      "name": "タイトル",
+      "kind": "text",
+      "required": true
+    },
+    {
+      "fieldId": "content",
+      "name": "本文",
+      "kind": "richEditorV2",
+      "required": true
+    },
+    {
+      "fieldId": "excerpt",
+      "name": "抜粋",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "category",
+      "name": "カテゴリ",
+      "kind": "relation",
+      "required": true,
+      "referencedApiEndpoint": "categories"
+    },
+    {
+      "fieldId": "thumbnail",
+      "name": "サムネイル画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "author",
+      "name": "著者",
+      "kind": "custom",
+      "required": true,
+      "customFieldCreatedAt": "2026-03-08T04:42:49.600Z"
+    }
+  ],
+  "customFields": [
+    {
+      "fieldId": "author_detail",
+      "name": "著者",
+      "createdAt": "2026-03-08T04:42:49.600Z",
+      "updatedAt": "2026-03-08T04:42:49.601Z",
+      "fields": [
+        {
+          "idValue": "author-name-0-y425wrzw",
+          "fieldId": "name",
+          "name": "著者名",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "author-avatar-1-xu2z4jud",
+          "fieldId": "avatar",
+          "name": "著者画像",
+          "kind": "media",
+          "required": false
+        }
+      ],
+      "position": [
+        [
+          "author-name-0-y425wrzw",
+          "author-avatar-1-xu2z4jud"
+        ]
+      ]
+    }
+  ]
+}

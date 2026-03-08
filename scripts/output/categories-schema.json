@@ -1,0 +1,11 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "name",
+      "name": "カテゴリ名",
+      "kind": "text",
+      "required": true
+    }
+  ],
+  "customFields": []
+}

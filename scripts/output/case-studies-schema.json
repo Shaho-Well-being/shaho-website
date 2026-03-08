@@ -1,0 +1,171 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "title",
+      "name": "タイトル",
+      "kind": "text",
+      "required": true
+    },
+    {
+      "fieldId": "content",
+      "name": "本文",
+      "kind": "richEditorV2",
+      "required": true
+    },
+    {
+      "fieldId": "excerpt",
+      "name": "抜粋",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "company",
+      "name": "企業情報",
+      "kind": "custom",
+      "required": true,
+      "customFieldCreatedAt": "2026-03-08T04:42:49.601Z"
+    },
+    {
+      "fieldId": "results",
+      "name": "実績指標",
+      "kind": "repeat",
+      "required": false,
+      "repeatCustomFieldIds": [
+        "results_item"
+      ]
+    },
+    {
+      "fieldId": "thumbnail",
+      "name": "サムネイル画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "testimonial",
+      "name": "お客様の声",
+      "kind": "custom",
+      "required": false,
+      "customFieldCreatedAt": "2026-03-08T04:42:49.601Z"
+    }
+  ],
+  "customFields": [
+    {
+      "fieldId": "company_detail",
+      "name": "企業情報",
+      "createdAt": "2026-03-08T04:42:49.601Z",
+      "updatedAt": "2026-03-08T04:42:49.601Z",
+      "fields": [
+        {
+          "idValue": "company-name-0-cmb055hx",
+          "fieldId": "name",
+          "name": "企業名",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "company-industry-1-kh8ywh8d",
+          "fieldId": "industry",
+          "name": "業種",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "company-size-2-j4e43rly",
+          "fieldId": "size",
+          "name": "規模",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "company-logo-3-2gd2d987",
+          "fieldId": "logo",
+          "name": "企業ロゴ",
+          "kind": "media",
+          "required": false
+        }
+      ],
+      "position": [
+        [
+          "company-name-0-cmb055hx"
+        ],
+        [
+          "company-industry-1-kh8ywh8d"
+        ],
+        [
+          "company-size-2-j4e43rly"
+        ],
+        [
+          "company-logo-3-2gd2d987"
+        ]
+      ]
+    },
+    {
+      "fieldId": "results_item",
+      "name": "実績指標（1件）",
+      "createdAt": "2026-03-08T04:42:49.601Z",
+      "updatedAt": "2026-03-08T04:42:49.601Z",
+      "fields": [
+        {
+          "idValue": "results-metric-0-mj3kulcm",
+          "fieldId": "metric",
+          "name": "指標名",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "results-value-1-7losyq9f",
+          "fieldId": "value",
+          "name": "数値・結果",
+          "kind": "text",
+          "required": true
+        }
+      ],
+      "position": [
+        [
+          "results-metric-0-mj3kulcm",
+          "results-value-1-7losyq9f"
+        ]
+      ]
+    },
+    {
+      "fieldId": "testimonial_detail",
+      "name": "お客様の声",
+      "createdAt": "2026-03-08T04:42:49.601Z",
+      "updatedAt": "2026-03-08T04:42:49.601Z",
+      "fields": [
+        {
+          "idValue": "testimonial-quote-0-uynbyy0n",
+          "fieldId": "quote",
+          "name": "引用文",
+          "kind": "textArea",
+          "required": false
+        },
+        {
+          "idValue": "testimonial-author-1-0om0ynh6",
+          "fieldId": "author",
+          "name": "発言者名・役職",
+          "kind": "text",
+          "required": false
+        },
+        {
+          "idValue": "testimonial-role-2-lwtw3w58",
+          "fieldId": "role",
+          "name": "会社名",
+          "kind": "text",
+          "required": false
+        }
+      ],
+      "position": [
+        [
+          "testimonial-quote-0-uynbyy0n"
+        ],
+        [
+          "testimonial-author-1-0om0ynh6"
+        ],
+        [
+          "testimonial-role-2-lwtw3w58"
+        ]
+      ]
+    }
+  ]
+}
