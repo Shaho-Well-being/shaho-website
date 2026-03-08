@@ -4,27 +4,16 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, Quote, Building2 } from "lucide-react";
-import { mockCaseStudies, isMicroCMSConfigured, getCaseStudy, getCaseStudies } from "@/lib/microcms";
+import { fetchCaseStudy, fetchCaseStudyStaticParams } from "@/lib/data/case-studies";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-async function getData(id: string) {
-  if (isMicroCMSConfigured()) {
-    try {
-      return await getCaseStudy(id);
-    } catch {
-      return mockCaseStudies.find((cs) => cs.id === id);
-    }
-  }
-  return mockCaseStudies.find((cs) => cs.id === id);
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const caseStudy = await getData(id);
-  
+  const caseStudy = await fetchCaseStudy(id);
+
   if (!caseStudy) {
     return { title: "導入事例が見つかりません | 社宝" };
   }
@@ -36,20 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  if (isMicroCMSConfigured()) {
-    try {
-      const data = await getCaseStudies({ limit: 100 });
-      return data.contents.map((cs) => ({ id: cs.id }));
-    } catch {
-      return mockCaseStudies.map((cs) => ({ id: cs.id }));
-    }
-  }
-  return mockCaseStudies.map((cs) => ({ id: cs.id }));
+  return fetchCaseStudyStaticParams();
 }
 
 export default async function CaseStudyDetailPage({ params }: Props) {
   const { id } = await params;
-  const caseStudy = await getData(id);
+  const caseStudy = await fetchCaseStudy(id);
 
   if (!caseStudy) {
     notFound();
@@ -70,7 +51,6 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
       {/* Hero */}
       <section className="mx-auto mt-8 max-w-4xl px-4 sm:px-6 lg:px-8">
-        {/* Company Info */}
         <div className="flex items-center gap-4">
           <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-muted text-2xl font-bold text-muted-foreground">
             {caseStudy.company.name.slice(0, 1)}
@@ -83,18 +63,13 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Title */}
         <h1 className="mt-8 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {caseStudy.title}
         </h1>
 
-        {/* Results Summary */}
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {caseStudy.results.map((result) => (
-            <div
-              key={result.metric}
-              className="rounded-xl bg-muted/50 p-6 text-center"
-            >
+            <div key={result.metric} className="rounded-xl bg-muted/50 p-6 text-center">
               <div className="text-3xl font-bold text-accent">{result.value}</div>
               <div className="mt-1 text-sm text-muted-foreground">{result.metric}</div>
             </div>
@@ -142,8 +117,8 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                 {caseStudy.testimonial.quote}
               </blockquote>
               <div className="mt-6">
-                <p className="font-medium text-foreground">{caseStudy.testimonial?.author ?? "—"}</p>
-                <p className="text-sm text-muted-foreground">{caseStudy.testimonial?.role ?? ""}</p>
+                <p className="font-medium text-foreground">{caseStudy.testimonial.author}</p>
+                <p className="text-sm text-muted-foreground">{caseStudy.testimonial.role}</p>
               </div>
             </CardContent>
           </Card>

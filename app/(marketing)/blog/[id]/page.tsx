@@ -3,45 +3,19 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, Clock, Share2, Twitter, Linkedin } from "lucide-react";
-import { mockBlogPosts, isMicroCMSConfigured, getBlogPost, getBlogPosts } from "@/lib/microcms";
+import { BlogCard } from "@/components/blog/blog-card";
+import { fetchBlogPost, fetchBlogPosts, fetchBlogStaticParams } from "@/lib/data/blog";
+import { formatDate } from "@/lib/utils";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-async function getData(id: string) {
-  if (isMicroCMSConfigured()) {
-    try {
-      return await getBlogPost(id);
-    } catch {
-      return mockBlogPosts.find((post) => post.id === id);
-    }
-  }
-  return mockBlogPosts.find((post) => post.id === id);
-}
-
-async function getRelatedPosts(currentId: string) {
-  const allPosts = isMicroCMSConfigured()
-    ? (await getBlogPosts({ limit: 10 })).contents
-    : mockBlogPosts;
-  return allPosts.filter((post) => post.id !== currentId).slice(0, 3);
-}
-
-function formatDate(dateString: string) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("ja-JP", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const post = await getData(id);
-  
+  const post = await fetchBlogPost(id);
+
   if (!post) {
     return { title: "記事が見つかりません | 社宝" };
   }
@@ -53,26 +27,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  if (isMicroCMSConfigured()) {
-    try {
-      const data = await getBlogPosts({ limit: 100 });
-      return data.contents.map((post) => ({ id: post.id }));
-    } catch {
-      return mockBlogPosts.map((post) => ({ id: post.id }));
-    }
-  }
-  return mockBlogPosts.map((post) => ({ id: post.id }));
+  return fetchBlogStaticParams();
 }
 
 export default async function BlogDetailPage({ params }: Props) {
   const { id } = await params;
-  const post = await getData(id);
+  const [post, allPosts] = await Promise.all([
+    fetchBlogPost(id),
+    fetchBlogPosts(10),
+  ]);
 
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = await getRelatedPosts(id);
+  const relatedPosts = allPosts.filter((p) => p.id !== id).slice(0, 3);
 
   return (
     <div className="py-16 lg:py-24">
@@ -90,7 +59,6 @@ export default async function BlogDetailPage({ params }: Props) {
       {/* Article Header */}
       <article className="mx-auto mt-8 max-w-3xl px-4 sm:px-6 lg:px-8">
         <header>
-          {/* Meta */}
           <div className="flex items-center gap-3 text-sm">
             <span className="rounded-full bg-secondary px-3 py-1 text-secondary-foreground">
               {post.category?.name ?? "—"}
@@ -101,13 +69,11 @@ export default async function BlogDetailPage({ params }: Props) {
             </span>
           </div>
 
-          {/* Title */}
           <h1 className="mt-6 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             {post.title}
           </h1>
 
-          {/* Author */}
-          {(post.author?.name != null && post.author.name !== "") && (
+          {post.author?.name && (
             <div className="mt-6 flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted text-lg font-semibold text-muted-foreground">
                 {post.author.name.slice(0, 1)}
@@ -190,54 +156,27 @@ export default async function BlogDetailPage({ params }: Props) {
       </article>
 
       {/* Related Posts */}
-      <section className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-foreground">関連記事</h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {relatedPosts.map((relatedPost) => (
-            <Link key={relatedPost.id} href={`/blog/${relatedPost.id}`} className="group">
-              <Card className="h-full transition-all hover:border-foreground/20 hover:shadow-lg">
-                <CardContent className="flex h-full flex-col p-0">
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
-                    {relatedPost.thumbnail?.url ? (
-                      <Image
-                        src={relatedPost.thumbnail.url}
-                        alt={relatedPost.title}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                        sizes="(max-width: 1024px) 50vw, 33vw"
-                      />
-                    ) : (
-                      <div className="flex h-full items-center justify-center text-2xl text-muted-foreground/20">
-                        {relatedPost.category?.name?.slice(0, 1) ?? "?"}
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="rounded-full bg-secondary px-2.5 py-0.5 text-secondary-foreground">
-                      {relatedPost.category?.name ?? "—"}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold leading-snug text-foreground group-hover:text-accent">
-                    {relatedPost.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
-                    {relatedPost.excerpt}
-                  </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {relatedPosts.length > 0 && (
+        <section className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground">関連記事</h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedPosts.map((relatedPost) => (
+              <BlogCard
+                key={relatedPost.id}
+                post={relatedPost}
+                sizes="(max-width: 1024px) 50vw, 33vw"
+                showDate={false}
+                showAuthor={false}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="mx-auto mt-16 max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl bg-foreground px-6 py-12 text-center sm:px-12">
-          <h2 className="text-2xl font-bold text-background">
-            健康経営を始めませんか？
-          </h2>
+          <h2 className="text-2xl font-bold text-background">健康経営を始めませんか？</h2>
           <p className="mt-3 text-background/80">
             社宝で福利厚生と健康管理を一元化。まずは無料デモをお試しください。
           </p>
