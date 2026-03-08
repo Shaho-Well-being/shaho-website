@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Target, Heart, Users, Sparkles } from "lucide-react";
+import { TeamAvatar } from "@/components/about/team-avatar";
 
 export const metadata: Metadata = {
   title: "会社概要 | 社宝",
@@ -37,21 +38,25 @@ const team = [
     name: "田中 太郎",
     role: "代表取締役CEO",
     bio: "大手人材会社にて人事コンサルティングを経験後、社宝を創業。",
+    image: "/images/team/ceo.jpg",
   },
   {
     name: "佐藤 花子",
     role: "取締役CTO",
     bio: "外資系IT企業にてエンジニアリングリードを経験。",
+    image: "/images/team/cto.jpg",
   },
   {
     name: "山田 一郎",
     role: "取締役COO",
     bio: "コンサルティングファームにて事業戦略を担当。",
+    image: "/images/team/coo.jpg",
   },
   {
     name: "鈴木 美咲",
     role: "執行役員 プロダクト責任者",
     bio: "HR SaaSスタートアップにてプロダクトマネジメントを経験。",
+    image: "/images/team/product.jpg",
   },
 ];
 
@@ -125,8 +130,13 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="flex aspect-square items-center justify-center rounded-2xl bg-muted">
-            <span className="text-6xl text-muted-foreground/20">社</span>
+          <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-muted">
+            {/* public/images/hero-office-1.jpg を表示。別画像を使う場合は about-story.jpg を public/images/ に置き、以下を src="/images/about-story.jpg" に変更 */}
+            <img
+              src="/images/hero-office-1.jpg"
+              alt="私たちのストーリー"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -143,8 +153,14 @@ export default function AboutPage() {
           {team.map((member) => (
             <Card key={member.name}>
               <CardContent className="p-6 text-center">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-muted text-2xl font-semibold text-muted-foreground">
-                  {member.name.slice(0, 1)}
+                <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full bg-muted">
+                  {member.image ? (
+                    <TeamAvatar src={member.image} name={member.name} />
+                  ) : (
+                    <span className="flex h-full w-full items-center justify-center text-2xl font-semibold text-muted-foreground">
+                      {member.name.slice(0, 1)}
+                    </span>
+                  )}
                 </div>
                 <h3 className="mt-4 font-semibold text-foreground">{member.name}</h3>
                 <p className="text-sm text-accent">{member.role}</p>
