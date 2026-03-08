@@ -8,7 +8,9 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
+  { label: "課題別", href: "/solutions" },
   { label: "機能", href: "/features" },
+  { label: "お役立ち", href: "/resources" },
   { label: "導入事例", href: "/case-studies" },
   { label: "ブログ", href: "/blog" },
   { label: "料金", href: "/pricing" },

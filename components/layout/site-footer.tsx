@@ -2,22 +2,24 @@ import Link from "next/link";
 
 const footerLinks = {
   product: {
-    title: "プロダクト",
+    title: "課題別・機能",
     links: [
-      { label: "福利厚生", href: "/features/benefits" },
-      { label: "健康管理", href: "/features/health" },
-      { label: "健診・ストレスチェック", href: "/features/checkup" },
-      { label: "管理者機能", href: "/features/admin" },
+      { label: "課題別一覧", href: "/solutions" },
+      { label: "ストレスチェック・法令対応", href: "/solutions/stress-check" },
+      { label: "福利厚生・従業員満足度", href: "/solutions/engagement" },
+      { label: "健康経営優良法人認定", href: "/solutions/health-management" },
+      { label: "機能一覧", href: "/features" },
+      { label: "管理画面（人事向け）", href: "/features/admin-web" },
+      { label: "従業員アプリ", href: "/features/employee-app" },
       { label: "料金", href: "/pricing" },
     ],
   },
   resources: {
     title: "リソース",
     links: [
+      { label: "お役立ち資料", href: "/resources" },
       { label: "導入事例", href: "/case-studies" },
       { label: "ブログ", href: "/blog" },
-      { label: "ヘルプセンター", href: "/help" },
-      { label: "API ドキュメント", href: "/docs" },
     ],
   },
   company: {
@@ -26,7 +28,6 @@ const footerLinks = {
       { label: "会社概要", href: "/about" },
       { label: "採用情報", href: "/careers" },
       { label: "お問い合わせ", href: "/contact" },
-      { label: "プレスキット", href: "/press" },
     ],
   },
   legal: {

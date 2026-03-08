@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Gift, Heart, ClipboardCheck, BarChart3, Check } from "lucide-react";
+import { ArrowRight, Gift, Heart, ClipboardCheck, BarChart3, Smartphone, Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "機能紹介 | 社宝",
@@ -55,16 +55,28 @@ const features = [
   },
   {
     icon: BarChart3,
-    title: "管理者機能",
-    description: "人事・総務担当者のための管理ダッシュボード。データ分析から報告書作成まで一元管理。",
-    href: "/features/admin",
+    title: "人事・管理者向け（Web）",
+    description: "人事・総務担当者のための管理ダッシュボード。組織管理、ストレスチェック、ポイント・通知、分析を一元管理。",
+    href: "/features/admin-web",
     image: "/images/features/features-admin.jpg",
     features: [
-      "リアルタイムダッシュボード",
-      "自動レポート生成",
-      "権限・ロール管理",
-      "API連携",
-      "監査ログ",
+      "組織・従業員・権限管理",
+      "ストレスチェック配信・集計・労基署提出",
+      "ポイント付与・プッシュ通知",
+      "ダッシュボード・サブスク管理",
+    ],
+  },
+  {
+    icon: Smartphone,
+    title: "従業員向け（アプリ）",
+    description: "健康記録、ポイント交換、コンテンツ、メンタルケアまで。毎日使いたくなるひとつのアプリで。",
+    href: "/features/employee-app",
+    image: "/images/features/features-health.jpg",
+    features: [
+      "健康管理・フィットネス記録",
+      "福利厚生ポイントで商品・サブスク交換",
+      "健康記事・カタログ閲覧",
+      "AIチャットによるメンタルケア",
     ],
   },
 ];
@@ -82,6 +94,47 @@ export default function FeaturesPage() {
             社宝は、福利厚生、健康管理、健診・ストレスチェックを統合したオールインワンプラットフォーム。
             バラバラだったシステムを一つにまとめ、管理工数を大幅に削減します。
           </p>
+        </div>
+      </section>
+
+      {/* 導線: 管理者向け / 従業員向け */}
+      <section className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-border bg-muted/30 p-6 sm:p-8">
+          <p className="text-center text-sm font-medium text-muted-foreground">
+            社宝は「管理者向けWeb」と「従業員向けアプリ」の2つで構成されています
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <Link
+              href="/features/admin-web"
+              className="group flex items-center justify-between rounded-xl border border-border bg-background p-6 transition-colors hover:border-accent hover:bg-accent/5"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
+                  <BarChart3 className="h-6 w-6 text-accent" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">人事・管理者向け（Web）</p>
+                  <p className="text-sm text-muted-foreground">管理画面の機能を見る</p>
+                </div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/features/employee-app"
+              className="group flex items-center justify-between rounded-xl border border-border bg-background p-6 transition-colors hover:border-accent hover:bg-accent/5"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
+                  <Heart className="h-6 w-6 text-accent" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">従業員向け（アプリ）</p>
+                  <p className="text-sm text-muted-foreground">アプリの機能を見る</p>
+                </div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </section>
 

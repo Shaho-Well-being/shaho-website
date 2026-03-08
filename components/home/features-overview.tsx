@@ -1,35 +1,42 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUpRight, Gift, Heart, ClipboardCheck, BarChart3 } from "lucide-react";
+import { ArrowUpRight, Gift, Heart, ClipboardCheck, BarChart3, Smartphone } from "lucide-react";
 
 const features = [
   {
     icon: Gift,
     title: "福利厚生",
     description: "ポイント制福利厚生で、従業員一人ひとりに合わせた柔軟な制度設計が可能に。",
-    href: "/features/benefits",
+    href: "/features",
     highlights: ["ポイント付与・交換", "10,000以上のギフト・体験", "公平な制度運用"],
   },
   {
     icon: Heart,
     title: "健康管理",
     description: "従業員の健康データを一元管理。予防医療の推進と健康リスクの早期発見をサポート。",
-    href: "/features/health",
+    href: "/features",
     highlights: ["健康データ統合", "リスク分析・予測", "個別健康アドバイス"],
   },
   {
     icon: ClipboardCheck,
     title: "健診・ストレスチェック",
     description: "健康診断の予約から結果管理、ストレスチェックまで、法令遵守をワンストップで。",
-    href: "/features/checkup",
+    href: "/features",
     highlights: ["オンライン予約", "結果の自動取込", "法令対応レポート"],
   },
   {
     icon: BarChart3,
-    title: "管理者機能",
-    description: "人事・総務担当者のための管理ダッシュボード。データ分析から報告書作成まで。",
-    href: "/features/admin",
-    highlights: ["リアルタイム分析", "自動レポート生成", "権限管理"],
+    title: "人事・管理者向け（Web）",
+    description: "管理画面で組織・ストレスチェック・ポイント・分析を一元管理。",
+    href: "/features/admin-web",
+    highlights: ["ダッシュボード", "ストレスチェック", "権限管理"],
+  },
+  {
+    icon: Smartphone,
+    title: "従業員向け（アプリ）",
+    description: "健康記録、ポイント交換、メンタルケアまで。毎日使いたくなるアプリ。",
+    href: "/features/employee-app",
+    highlights: ["健康記録", "ポイント交換", "AIメンタルケア"],
   },
 ];
 
@@ -48,7 +55,7 @@ export function FeaturesOverview() {
         </div>
 
         {/* Features Grid */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {features.map((feature) => (
             <Link key={feature.title} href={feature.href} className="group">
               <Card className="h-full transition-all hover:border-foreground/20 hover:shadow-lg">
