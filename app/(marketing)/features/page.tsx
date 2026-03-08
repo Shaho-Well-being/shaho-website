@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,6 +16,7 @@ const features = [
     title: "福利厚生",
     description: "ポイント制福利厚生で、従業員一人ひとりに合わせた柔軟な制度設計が可能に。10,000以上のギフト・体験から自由に選択できます。",
     href: "/features/benefits",
+    image: "/images/features/features-benefits.jpg",
     features: [
       "ポイント付与・管理機能",
       "10,000以上のギフト・体験カタログ",
@@ -28,6 +30,7 @@ const features = [
     title: "健康管理",
     description: "従業員の健康データを一元管理。予防医療の推進と健康リスクの早期発見をサポートします。",
     href: "/features/health",
+    image: "/images/features/features-health.jpg",
     features: [
       "健康データダッシュボード",
       "ウェアラブル連携",
@@ -41,6 +44,7 @@ const features = [
     title: "健診・ストレスチェック",
     description: "健康診断の予約から結果管理、ストレスチェックまで、法令遵守をワンストップで対応。",
     href: "/features/checkup",
+    image: "/images/features/features-checkup.jpg",
     features: [
       "オンライン健診予約",
       "健診結果の自動取込",
@@ -54,6 +58,7 @@ const features = [
     title: "管理者機能",
     description: "人事・総務担当者のための管理ダッシュボード。データ分析から報告書作成まで一元管理。",
     href: "/features/admin",
+    image: "/images/features/features-admin.jpg",
     features: [
       "リアルタイムダッシュボード",
       "自動レポート生成",
@@ -121,8 +126,20 @@ export default function FeaturesPage() {
               <div className="flex-1">
                 <Card className="overflow-hidden">
                   <CardContent className="p-0">
-                    <div className="flex aspect-[4/3] items-center justify-center bg-muted/50">
-                      <feature.icon className="h-24 w-24 text-muted-foreground/30" />
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted/50">
+                      {feature.image ? (
+                        <Image
+                          src={feature.image}
+                          alt={feature.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                      ) : (
+                        <div className="flex h-full items-center justify-center">
+                          <feature.icon className="h-24 w-24 text-muted-foreground/30" />
+                        </div>
+                      )}
                     </div>
                   </CardContent>
                 </Card>

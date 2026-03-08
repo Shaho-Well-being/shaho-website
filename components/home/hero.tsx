@@ -12,7 +12,8 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mx-auto max-w-3xl text-center lg:text-left">
           {/* Badge */}
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 text-sm">
             <span className="flex h-2 w-2 rounded-full bg-green-500" />
@@ -62,6 +63,17 @@ export function Hero() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Hero image: public/images/hero-office-1.jpg を配置すると表示されます */}
+        <div className="relative mt-12 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted lg:mt-0 lg:aspect-auto lg:min-h-[360px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero-office-1.jpg"
+            alt="オフィスイメージ"
+            className="h-full w-full object-cover"
+          />
+        </div>
         </div>
       </div>
     </section>
