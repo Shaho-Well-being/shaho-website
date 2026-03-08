@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -92,7 +93,7 @@ export default async function BlogDetailPage({ params }: Props) {
           {/* Meta */}
           <div className="flex items-center gap-3 text-sm">
             <span className="rounded-full bg-secondary px-3 py-1 text-secondary-foreground">
-              {post.category.name}
+              {post.category?.name ?? "—"}
             </span>
             <span className="flex items-center gap-1 text-muted-foreground">
               <Clock className="h-4 w-4" />
@@ -106,23 +107,36 @@ export default async function BlogDetailPage({ params }: Props) {
           </h1>
 
           {/* Author */}
-          <div className="mt-6 flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted text-lg font-semibold text-muted-foreground">
-              {post.author.name.slice(0, 1)}
+          {(post.author?.name != null && post.author.name !== "") && (
+            <div className="mt-6 flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted text-lg font-semibold text-muted-foreground">
+                {post.author.name.slice(0, 1)}
+              </div>
+              <div>
+                <p className="font-medium text-foreground">{post.author.name}</p>
+                <p className="text-sm text-muted-foreground">社宝編集部</p>
+              </div>
             </div>
-            <div>
-              <p className="font-medium text-foreground">{post.author.name}</p>
-              <p className="text-sm text-muted-foreground">社宝編集部</p>
-            </div>
-          </div>
+          )}
         </header>
 
         {/* Featured Image */}
         <div className="mt-8 overflow-hidden rounded-2xl">
-          <div className="flex aspect-[16/9] items-center justify-center bg-muted">
-            <div className="text-6xl text-muted-foreground/20">
-              {post.category.name.slice(0, 1)}
-            </div>
+          <div className="relative aspect-[16/9] w-full bg-muted">
+            {post.thumbnail?.url ? (
+              <Image
+                src={post.thumbnail.url}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+              />
+            ) : (
+              <div className="flex h-full items-center justify-center text-6xl text-muted-foreground/20">
+                {post.category?.name?.slice(0, 1) ?? "?"}
+              </div>
+            )}
           </div>
         </div>
 
@@ -182,10 +196,26 @@ export default async function BlogDetailPage({ params }: Props) {
           {relatedPosts.map((relatedPost) => (
             <Link key={relatedPost.id} href={`/blog/${relatedPost.id}`} className="group">
               <Card className="h-full transition-all hover:border-foreground/20 hover:shadow-lg">
-                <CardContent className="flex h-full flex-col p-6">
+                <CardContent className="flex h-full flex-col p-0">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+                    {relatedPost.thumbnail?.url ? (
+                      <Image
+                        src={relatedPost.thumbnail.url}
+                        alt={relatedPost.title}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105"
+                        sizes="(max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center text-2xl text-muted-foreground/20">
+                        {relatedPost.category?.name?.slice(0, 1) ?? "?"}
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-center gap-3 text-sm">
                     <span className="rounded-full bg-secondary px-2.5 py-0.5 text-secondary-foreground">
-                      {relatedPost.category.name}
+                      {relatedPost.category?.name ?? "—"}
                     </span>
                   </div>
                   <h3 className="mt-4 text-lg font-semibold leading-snug text-foreground group-hover:text-accent">
@@ -194,6 +224,7 @@ export default async function BlogDetailPage({ params }: Props) {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
                     {relatedPost.excerpt}
                   </p>
+                  </div>
                 </CardContent>
               </Card>
             </Link>

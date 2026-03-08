@@ -142,8 +142,8 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                 {caseStudy.testimonial.quote}
               </blockquote>
               <div className="mt-6">
-                <p className="font-medium text-foreground">{caseStudy.testimonial.author}</p>
-                <p className="text-sm text-muted-foreground">{caseStudy.testimonial.role}</p>
+                <p className="font-medium text-foreground">{caseStudy.testimonial?.author ?? "—"}</p>
+                <p className="text-sm text-muted-foreground">{caseStudy.testimonial?.role ?? ""}</p>
               </div>
             </CardContent>
           </Card>

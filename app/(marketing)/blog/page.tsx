@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, ArrowRight } from "lucide-react";
@@ -57,17 +58,27 @@ export default async function BlogPage() {
             <Card className="overflow-hidden transition-all hover:border-foreground/20 hover:shadow-lg">
               <CardContent className="grid gap-8 p-0 lg:grid-cols-2">
                 {/* Thumbnail */}
-                <div className="flex aspect-[16/9] items-center justify-center bg-muted lg:aspect-auto lg:h-full">
-                  <div className="text-6xl text-muted-foreground/20">
-                    {featuredPost.category.name.slice(0, 1)}
-                  </div>
+                <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-muted lg:aspect-auto lg:h-full">
+                  {featuredPost.thumbnail?.url ? (
+                    <Image
+                      src={featuredPost.thumbnail.url}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  ) : (
+                    <div className="text-6xl text-muted-foreground/20">
+                      {featuredPost.category?.name?.slice(0, 1) ?? "?"}
+                    </div>
+                  )}
                 </div>
                 
                 {/* Content */}
                 <div className="flex flex-col justify-center p-6 lg:p-8">
                   <div className="flex items-center gap-3 text-sm">
                     <span className="rounded-full bg-accent px-3 py-1 text-accent-foreground">
-                      {featuredPost.category.name}
+                      {featuredPost.category?.name ?? "—"}
                     </span>
                     <span className="flex items-center gap-1 text-muted-foreground">
                       <Clock className="h-4 w-4" />
@@ -80,12 +91,14 @@ export default async function BlogPage() {
                   <p className="mt-4 text-muted-foreground">
                     {featuredPost.excerpt}
                   </p>
-                  <div className="mt-6 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted text-sm font-semibold text-muted-foreground">
-                      {featuredPost.author.name.slice(0, 1)}
+                  {(featuredPost.author?.name != null && featuredPost.author.name !== "") && (
+                    <div className="mt-6 flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted text-sm font-semibold text-muted-foreground">
+                        {featuredPost.author.name.slice(0, 1)}
+                      </div>
+                      <span className="text-sm text-muted-foreground">{featuredPost.author.name}</span>
                     </div>
-                    <span className="text-sm text-muted-foreground">{featuredPost.author.name}</span>
-                  </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -100,10 +113,26 @@ export default async function BlogPage() {
           {otherPosts.map((post) => (
             <Link key={post.id} href={`/blog/${post.id}`} className="group">
               <Card className="h-full transition-all hover:border-foreground/20 hover:shadow-lg">
-                <CardContent className="flex h-full flex-col p-6">
+                <CardContent className="flex h-full flex-col p-0">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+                    {post.thumbnail?.url ? (
+                      <Image
+                        src={post.thumbnail.url}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center text-4xl text-muted-foreground/20">
+                        {post.category?.name?.slice(0, 1) ?? "?"}
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-center gap-3 text-sm">
                     <span className="rounded-full bg-secondary px-2.5 py-0.5 text-secondary-foreground">
-                      {post.category.name}
+                      {post.category?.name ?? "—"}
                     </span>
                     <span className="flex items-center gap-1 text-muted-foreground">
                       <Clock className="h-3.5 w-3.5" />
@@ -116,11 +145,14 @@ export default async function BlogPage() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {post.excerpt}
                   </p>
-                  <div className="mt-4 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-xs font-semibold text-muted-foreground">
-                      {post.author.name.slice(0, 1)}
+                  {(post.author?.name != null && post.author.name !== "") && (
+                    <div className="mt-4 flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-xs font-semibold text-muted-foreground">
+                        {post.author.name.slice(0, 1)}
+                      </div>
+                      <span className="text-sm text-muted-foreground">{post.author.name}</span>
                     </div>
-                    <span className="text-sm text-muted-foreground">{post.author.name}</span>
+                  )}
                   </div>
                 </CardContent>
               </Card>
