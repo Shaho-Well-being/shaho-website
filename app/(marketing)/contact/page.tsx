@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Calendar, FileText, MessageSquare, Check } from "lucide-react";
+import { Mail, MapPin, Calendar, FileText, MessageSquare, Check } from "lucide-react";
 
 const contactTypes = [
   {
@@ -212,9 +212,14 @@ export default function ContactPage() {
                   className="mt-1 h-4 w-4 rounded border-input"
                 />
                 <label htmlFor="privacy" className="text-sm text-muted-foreground">
-                  <Link href="/privacy" className="text-accent hover:underline">
+                  <a
+                    href="https://mobile-app-systems.co.jp/privacypolicy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:underline"
+                  >
                     プライバシーポリシー
-                  </Link>
+                  </a>
                   に同意します <span className="text-destructive">*</span>
                 </label>
               </div>
@@ -244,28 +249,15 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone className="mt-0.5 h-5 w-5 text-muted-foreground" />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">電話</p>
-                      <a
-                        href="tel:03-1234-5678"
-                        className="text-sm text-muted-foreground hover:text-accent"
-                      >
-                        03-1234-5678
-                      </a>
-                      <p className="text-xs text-muted-foreground">平日 10:00〜18:00</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-5 w-5 text-muted-foreground" />
                     <div>
                       <p className="text-sm font-medium text-foreground">住所</p>
                       <p className="text-sm text-muted-foreground">
-                        〒150-0002
+                        〒107-0062
                         <br />
-                        東京都渋谷区渋谷1-1-1
+                        東京都港区南青山2-2-15
                         <br />
-                        渋谷ビル5F
+                        WIN青山531
                       </p>
                     </div>
                   </div>

@@ -2,12 +2,11 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Target, Heart, Users, Sparkles } from "lucide-react";
-import { TeamAvatar } from "@/components/about/team-avatar";
+import { ArrowRight, Target, Heart, Users, Sparkles, Award, Shield, BadgeCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "会社概要 | 社宝",
-  description: "社宝を運営する株式会社社宝の会社概要、ミッション、チームについてご紹介します。",
+  description: "社宝を開発・運営するモバイルアプリシステムズ株式会社の会社概要。ミッション・ビジョン・代表者プロフィールをご紹介します。",
 };
 
 const values = [
@@ -33,40 +32,50 @@ const values = [
   },
 ];
 
-const team = [
+const companyInfo = [
+  { label: "会社名", value: "モバイルアプリシステムズ株式会社" },
+  { label: "英語表記", value: "Mobile App Systems Inc." },
+  { label: "設立", value: "2022年8月" },
+  { label: "代表取締役", value: "小林 慎吾" },
+  { label: "所在地", value: "〒107-0062 東京都港区南青山2-2-15 WIN青山531" },
   {
-    name: "田中 太郎",
-    role: "代表取締役CEO",
-    bio: "大手人材会社にて人事コンサルティングを経験後、社宝を創業。",
-    image: "/images/team/ceo.jpg",
+    label: "事業内容",
+    value:
+      "モバイルアプリ開発（iOS/Android）、Webシステム・SaaS開発、ITコンサルティング、SNS運用管理サービス、CBTシステム開発、健康・ウェルネスサービス（社宝）",
   },
+  { label: "営業時間", value: "平日 9:00〜17:00 ／ 土日 11:00〜15:00" },
   {
-    name: "佐藤 花子",
-    role: "取締役CTO",
-    bio: "外資系IT企業にてエンジニアリングリードを経験。",
-    image: "/images/team/cto.jpg",
-  },
-  {
-    name: "山田 一郎",
-    role: "取締役COO",
-    bio: "コンサルティングファームにて事業戦略を担当。",
-    image: "/images/team/coo.jpg",
-  },
-  {
-    name: "鈴木 美咲",
-    role: "執行役員 プロダクト責任者",
-    bio: "HR SaaSスタートアップにてプロダクトマネジメントを経験。",
-    image: "/images/team/product.jpg",
+    label: "コーポレートサイト",
+    value: "mobile-app-systems.co.jp",
+    href: "https://mobile-app-systems.co.jp/",
   },
 ];
 
-const companyInfo = [
-  { label: "会社名", value: "株式会社社宝" },
-  { label: "設立", value: "2020年4月" },
-  { label: "代表取締役", value: "田中 太郎" },
-  { label: "所在地", value: "東京都渋谷区渋谷1-1-1 渋谷ビル5F" },
-  { label: "事業内容", value: "福利厚生・健康管理プラットフォームの開発・運営" },
-  { label: "従業員数", value: "50名（2024年4月現在）" },
+const certifications = [
+  {
+    icon: Award,
+    title: "健康経営優良法人2026",
+    description:
+      "経済産業省・日本健康会議が認定する「健康経営優良法人2026（中小規模法人部門）」を取得。認定番号：139686。有効期限：2027年3月31日まで。",
+    badge: "中小規模法人部門",
+    year: "2026年認定",
+  },
+  {
+    icon: Shield,
+    title: "SECURITY ACTION 二つ星",
+    description:
+      "独立行政法人情報処理推進機構（IPA）のSECURITY ACTION二つ星を宣言。情報セキュリティ基本方針の策定・公開を完了し、PDCAによる継続改善を推進。",
+    badge: "IPA認定",
+    year: "2025年取得",
+  },
+  {
+    icon: BadgeCheck,
+    title: "東京都セキュリティ支援",
+    description:
+      "東京都の中小企業向けセキュリティ対策支援を活用し、専門家による情報セキュリティ体制の強化を実施。安全なサービス提供基盤を構築しています。",
+    badge: "東京都",
+    year: "2024年12月",
+  },
 ];
 
 export default function AboutPage() {
@@ -79,8 +88,8 @@ export default function AboutPage() {
             会社概要
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            社宝は、働く人の健康と幸福を支援するプラットフォームを開発・運営しています。
-            福利厚生と健康管理を統合し、企業と従業員の双方に価値を提供します。
+            社宝は、モバイルアプリシステムズ株式会社が開発・運営する福利厚生・健康経営プラットフォームです。
+            「働く人が毎日使いたくなるアプリ」を目指し、従業員の健康と幸福を、企業の成長につなげます。
           </p>
         </div>
       </section>
@@ -109,62 +118,94 @@ export default function AboutPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              私たちのストーリー
+              社宝が生まれた背景
             </h2>
             <div className="mt-6 space-y-4 text-muted-foreground">
               <p>
-                社宝は2020年、「働く人の健康と幸福をテクノロジーで支援したい」という想いから生まれました。
+                モバイルアプリシステムズは2022年8月に創業。iOS・Android・Flutterをはじめとするモバイル技術と、フィンテック・教育・労働分野の実務知見を融合させながら、企業の課題解決に取り組んできました。
               </p>
               <p>
-                創業者は、大手企業での人事経験を通じて、福利厚生と健康管理がバラバラに運用されている
-                現状に課題を感じていました。従業員にとっては使いづらく、人事担当者にとっては
-                管理が煩雑。双方にとって最適とは言えない状況でした。
+                その中で、企業の健康経営推進において「バラバラなツール・複雑な管理・使われない福利厚生」という共通課題が浮き彫りになりました。
+                ストレスチェックは別のシステム、健診管理はExcel、福利厚生は紙の申請——従業員にとっても人事担当者にとっても負担の大きい状況でした。
               </p>
               <p>
-                この課題を解決するため、福利厚生、健康管理、健診・ストレスチェックを
-                一つのプラットフォームに統合した「社宝」を開発しました。
+                この課題をまるごと解決するため、健診・ストレスチェック管理、福利厚生ポイント、メンタルヘルスケアを一つのアプリに集約した「社宝」を開発しました。
               </p>
               <p>
-                現在、500社以上の企業様にご利用いただき、50万人以上の従業員の方々の
-                健康と幸福の支援に貢献しています。
+                私たち自身が健康経営優良法人2026の認定を取得した経験を生かし、認定取得を目指す企業の伴走パートナーとして、実践的なサポートを提供しています。
               </p>
             </div>
           </div>
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-muted">
-            {/* public/images/hero-office-1.jpg を表示。別画像を使う場合は about-story.jpg を public/images/ に置き、以下を src="/images/about-story.jpg" に変更 */}
             <img
               src="/images/hero-office-1.jpg"
-              alt="私たちのストーリー"
+              alt="社宝開発チームの様子"
               className="h-full w-full object-cover"
             />
           </div>
         </div>
       </section>
 
-      {/* Team */}
+      {/* Representative */}
       <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">経営チーム</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            多様なバックグラウンドを持つメンバーが、社宝の成長を牽引しています。
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">代表者プロフィール</h2>
+        </div>
+        <div className="mx-auto mt-12 max-w-2xl">
+          <Card>
+            <CardContent className="p-8">
+              <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-muted">
+                  <span className="flex h-full w-full items-center justify-center text-3xl font-semibold text-muted-foreground">
+                    小
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">小林 慎吾</h3>
+                  <p className="text-sm text-accent">代表取締役 CEO ／ データサイエンティスト</p>
+                  <div className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                    <p>
+                      データサイエンティストとして多様な事業開発経験を持ち、東京大学大学院情報理工学系研究科での研究（2026年4月修了予定）と並行して経営を推進。
+                    </p>
+                    <p>
+                      iOS（Swift）・Android（Kotlin）・Flutterなどのモバイル技術に精通するほか、フィンテック・教育・労働法の知識を融合した事業設計を得意とする。
+                    </p>
+                    <p>
+                      AWS Solutions Architect 取得（2020年）、IPA 応用情報技術者 取得（2014年）。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Certifications */}
+      <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">認定・取得実績</h2>
+          <p className="mt-4 text-muted-foreground">
+            自社での取り組みを通じて得た知見を、社宝のサービスに反映しています。
           </p>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((member) => (
-            <Card key={member.name}>
-              <CardContent className="p-6 text-center">
-                <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full bg-muted">
-                  {member.image ? (
-                    <TeamAvatar src={member.image} name={member.name} />
-                  ) : (
-                    <span className="flex h-full w-full items-center justify-center text-2xl font-semibold text-muted-foreground">
-                      {member.name.slice(0, 1)}
-                    </span>
-                  )}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {certifications.map((cert) => (
+            <Card key={cert.title}>
+              <CardContent className="p-6">
+                <div className="flex items-start justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-muted">
+                    <cert.icon className="h-6 w-6 text-foreground" />
+                  </div>
+                  <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                    {cert.badge}
+                  </span>
                 </div>
-                <h3 className="mt-4 font-semibold text-foreground">{member.name}</h3>
-                <p className="text-sm text-accent">{member.role}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{member.bio}</p>
+                <h3 className="mt-4 font-semibold text-foreground">{cert.title}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{cert.year}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {cert.description}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -180,29 +221,24 @@ export default function AboutPage() {
           <div className="divide-y divide-border rounded-xl border border-border bg-card">
             {companyInfo.map((item) => (
               <div key={item.label} className="flex flex-col gap-1 p-4 sm:flex-row sm:gap-8">
-                <span className="w-32 shrink-0 text-sm font-medium text-muted-foreground">
+                <span className="w-36 shrink-0 text-sm font-medium text-muted-foreground">
                   {item.label}
                 </span>
-                <span className="text-foreground">{item.value}</span>
+                {"href" in item && item.href ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:underline"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <span className="text-foreground">{item.value}</span>
+                )}
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Careers CTA */}
-      <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-muted/50 px-6 py-16 text-center sm:px-12">
-          <h2 className="text-2xl font-bold text-foreground">一緒に働きませんか？</h2>
-          <p className="mt-4 text-muted-foreground">
-            社宝では、ミッションに共感し、共に成長できる仲間を募集しています。
-          </p>
-          <Button className="mt-8" asChild>
-            <Link href="/careers">
-              採用情報を見る
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
         </div>
       </section>
 
@@ -213,7 +249,7 @@ export default function AboutPage() {
             お気軽にお問い合わせください
           </h2>
           <p className="mt-4 text-background/80">
-            製品についてのご質問、導入のご相談など、お気軽にご連絡ください。
+            社宝の導入についてのご相談、デモのご依頼など、まずはお気軽にご連絡ください。
           </p>
           <Button
             size="lg"
