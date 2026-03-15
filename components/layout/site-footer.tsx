@@ -34,8 +34,9 @@ const footerLinks = {
     title: "法的情報",
     links: [
       { label: "利用規約", href: "/terms" },
-      { label: "プライバシーポリシー", href: "/privacy" },
-      { label: "セキュリティ", href: "/security" },
+      { label: "プライバシーポリシー", href: "https://mobile-app-systems.co.jp/privacypolicy/", external: true },
+      { label: "セキュリティポリシー", href: "https://mobile-app-systems.co.jp/security-policy/", external: true },
+      { label: "反社会的勢力への対応", href: "https://mobile-app-systems.co.jp/basic-policyagainst-anti-social-forces/", external: true },
       { label: "特定商取引法に基づく表記", href: "/legal" },
     ],
   },
@@ -69,6 +70,7 @@ export function SiteFooter() {
                     <Link
                       href={link.href}
                       className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
                       {link.label}
                     </Link>
