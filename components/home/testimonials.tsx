@@ -5,27 +5,27 @@ import { ArrowRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "社宝の導入で、福利厚生の管理工数が月40時間から5時間に削減。従業員満足度も過去最高を記録しました。",
-    author: "鈴木 一郎",
-    role: "人事部長",
-    company: "株式会社テックイノベーション",
-    industry: "IT・通信",
+    quote: "健康経営優良法人の認定取得を支援する中で、社宝は申請に必要なデータを一元管理できる数少ないツールです。ストレスチェックから健診受診率まで、証跡書類をすぐに揃えられるのが実務上とても助かります。",
+    author: "経営コンサルタント",
+    role: "中小企業診断士",
+    company: "健康経営支援の専門家として",
+    industry: "コンサルティング",
     caseStudyId: "1",
   },
   {
-    quote: "健診データの一元管理により、ハイリスク者への早期介入が可能に。休職者が前年比50%減少しました。",
-    author: "山田 花子",
-    role: "健康経営推進室 室長",
-    company: "グローバルマニュファクチャリング株式会社",
-    industry: "製造業",
+    quote: "外国籍スタッフも多い職場で、これまで福利厚生が「使えない」という声がありました。社宝はPayPayや電子マネー交換に対応しているので、国籍・雇用形態を問わず全員が公平に恩恵を受けられます。",
+    author: "グローバル企業人事担当",
+    role: "HR Manager",
+    company: "多国籍スタッフを抱える事業会社",
+    industry: "IT・サービス業",
     caseStudyId: "2",
   },
   {
-    quote: "ストレスチェックの分析レポートが秀逸。部署ごとの課題が可視化され、的確な組織改善ができています。",
-    author: "中村 健一",
-    role: "産業医",
-    company: "フィナンシャルサービス株式会社",
-    industry: "金融・保険",
+    quote: "福利厚生は要件を満たせば経費として処理できますが、使われない制度は税制上のメリットも活かせません。社宝の電子マネー特化は利用率が上がるため、税務的にも無駄のない制度設計に直結します。",
+    author: "税務アドバイザー",
+    role: "公認会計士・税理士",
+    company: "中小企業の財務・税務支援",
+    industry: "会計・税務",
     caseStudyId: "3",
   },
 ];
@@ -38,10 +38,10 @@ export function Testimonials() {
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              導入企業の声
+              専門家からの評価
             </h2>
             <p className="mt-2 text-lg text-muted-foreground">
-              社宝を導入いただいた企業様からの評価
+              中小企業診断士・税理士・HRの専門家が語る、社宝を選ぶ理由
             </p>
           </div>
           <Button variant="outline" asChild>

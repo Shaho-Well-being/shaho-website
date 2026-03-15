@@ -5,38 +5,38 @@ import { ArrowUpRight, Gift, Heart, ClipboardCheck, BarChart3, Smartphone } from
 const features = [
   {
     icon: Gift,
-    title: "福利厚生",
-    description: "ポイント制福利厚生で、従業員一人ひとりに合わせた柔軟な制度設計が可能に。",
+    title: "電子マネー福利厚生",
+    description: "ポイントをPayPay・Amazonギフト券・QUOカードPayなどの電子マネーに即交換。カタログ不要で全員が使える制度設計。",
     href: "/features",
-    highlights: ["ポイント付与・交換", "10,000以上のギフト・体験", "公平な制度運用"],
+    highlights: ["PayPay・Amazon即交換", "正社員・パート・外国籍対応", "在庫ゼロ・管理工数ゼロ"],
   },
   {
     icon: Heart,
-    title: "健康管理",
-    description: "従業員の健康データを一元管理。予防医療の推進と健康リスクの早期発見をサポート。",
+    title: "スマートフォン健康連携",
+    description: "iPhoneのヘルスケアアプリ・Google Fitと連携。入力不要で歩数・睡眠・体重データが自動集積されます。",
     href: "/features",
-    highlights: ["健康データ統合", "リスク分析・予測", "個別健康アドバイス"],
+    highlights: ["Apple Health連携", "Google Fit対応", "パッシブデータ収集"],
   },
   {
     icon: ClipboardCheck,
     title: "健診・ストレスチェック",
-    description: "健康診断の予約から結果管理、ストレスチェックまで、法令遵守をワンストップで。",
+    description: "厚労省推奨の57設問フォーマット完全準拠。健診結果はOCRで自動取込・端末内保存でセキュアに管理。",
     href: "/features",
-    highlights: ["オンライン予約", "結果の自動取込", "法令対応レポート"],
+    highlights: ["57設問完全対応", "OCR健診結果取込", "労基署提出書類自動生成"],
   },
   {
     icon: BarChart3,
     title: "人事・管理者向け（Web）",
-    description: "管理画面で組織・ストレスチェック・ポイント・分析を一元管理。",
+    description: "受診率・ストレス状況・ポイント利用状況をひとつの画面で把握。法定帳票もワンクリックで出力。",
     href: "/features/admin-web",
-    highlights: ["ダッシュボード", "ストレスチェック", "権限管理"],
+    highlights: ["健康経営ダッシュボード", "集団分析レポート", "部署別リスク可視化"],
   },
   {
     icon: Smartphone,
     title: "従業員向け（アプリ）",
-    description: "健康記録、ポイント交換、メンタルケアまで。毎日使いたくなるアプリ。",
+    description: "健康記録・ポイント交換・AIメンタルケアを1アプリに集約。毎日開きたくなるシンプルなUX。",
     href: "/features/employee-app",
-    highlights: ["健康記録", "ポイント交換", "AIメンタルケア"],
+    highlights: ["AIチャット24時間対応", "電子マネー即時交換", "iOSおよびAndroid対応"],
   },
 ];
 
@@ -50,7 +50,8 @@ export function FeaturesOverview() {
             すべてが、ひとつに
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            バラバラだった福利厚生と健康管理の仕組みを、社宝が一つに統合します。
+            福利厚生・健診・ストレスチェック・AIメンタルケアがひとつのアプリに。
+            人事の管理工数を削減しながら、従業員の使いやすさを両立します。
           </p>
         </div>
 

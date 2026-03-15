@@ -1,81 +1,102 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, CheckCircle2 } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[400px] w-[600px] rounded-full bg-accent/5 blur-[120px]" />
+    <section className="relative w-full overflow-hidden bg-background h-[calc(100vh-4rem)] min-h-[600px] max-h-[900px]">
+      {/* Background Image Area */}
+      {/* Using the image provided by the user. If the file is hero.png, it can be changed to /hero.png */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/Hero-image.png"
+          alt="Modern Corporate Benefits Platform"
+          fill
+          className="object-cover object-[70%_center]"
+          priority
+        />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <div className="mx-auto max-w-3xl text-center lg:text-left">
+      {/* 
+        Gradient Overlay (Left to Right) 
+        This makes the white text readable on the left, while fading out on the right to show the woman.
+      */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent sm:via-white/60 sm:to-transparent dark:from-slate-950/95 dark:via-slate-950/80 dark:to-transparent w-full md:w-3/4 lg:w-2/3" />
+
+      {/* Content Area */}
+      <div className="relative z-10 flex h-full items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl lg:max-w-2xl pt-10 pb-20">
           {/* Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 text-sm">
-            <span className="flex h-2 w-2 rounded-full bg-green-500" />
-            <span className="text-muted-foreground">2024年 健康経営優良法人認定サポート実績 No.1</span>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/50 bg-white/60 dark:bg-slate-900/60 px-5 py-2 text-sm backdrop-blur-md shadow-sm transition-transform hover:scale-105">
+            <span className="flex h-2.5 w-2.5 rounded-full bg-blue-600 animate-pulse" />
+            <span className="font-semibold text-slate-800 dark:text-slate-200 tracking-wide">健康経営優良法人2026 認定取得済み（運営会社）</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="text-balance text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl lg:leading-[1.15]">
             福利厚生と健康管理を、
             <br />
-            <span className="text-accent">これひとつで。</span>
+            <span className="bg-gradient-to-r from-blue-700 to-cyan-600 dark:from-blue-400 dark:to-cyan-300 bg-clip-text text-transparent">これひとつで完結。</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            社宝は、福利厚生、健康診断、ストレスチェック、健康管理を一つのプラットフォームに統合。
-            人事・総務の業務負担を軽減しながら、従業員の健康と幸福を支援します。
+          <p className="mt-6 text-pretty text-lg leading-relaxed text-slate-700 dark:text-slate-300 sm:text-xl max-w-lg font-medium">
+            ポイントはPayPay・Amazonギフト券など電子マネーに即交換。ストレスチェック・健診管理・AIメンタルケアまで、使いやすさとスピードで選ばれるプラットフォームです。
           </p>
 
+          {/* Checkmarks */}
+          <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm font-bold text-slate-700 dark:text-slate-300">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-500" />
+              <span>スタートアップから大手まで導入実績</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-500" />
+              <span>最短1週間で全社展開</span>
+            </div>
+          </div>
+
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="w-full sm:w-auto" asChild>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="h-14 px-8 rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1 text-base w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white" asChild>
               <Link href="/contact?type=demo">
                 無料デモを予約する
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
+            <Button variant="outline" size="lg" className="h-14 px-8 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-md border border-slate-300 dark:border-slate-700 hover:bg-white/80 dark:hover:bg-slate-900/80 transition-all text-base w-full sm:w-auto text-slate-900 dark:text-white" asChild>
               <Link href="/about">
-                <Play className="mr-2 h-4 w-4" />
+                <Play className="mr-2 h-5 w-5 text-blue-600 dark:text-blue-400" />
                 製品紹介を見る
               </Link>
             </Button>
           </div>
 
-          {/* Social Proof */}
-          <div className="mt-16">
-            <p className="text-sm text-muted-foreground">導入企業</p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-              {["企業A", "企業B", "企業C", "企業D", "企業E"].map((company, i) => (
-                <div
-                  key={i}
-                  className="text-lg font-semibold text-muted-foreground/60"
-                >
-                  {company}
-                </div>
+        </div>
+      </div>
+
+      {/* Trust bar - Floating at the bottom */}
+      <div className="absolute bottom-0 w-full border-t border-slate-200/50 dark:border-slate-800/80 bg-white/40 dark:bg-slate-950/40 backdrop-blur-md py-4 z-10 hidden md:block">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-between gap-x-8 text-sm text-slate-600 dark:text-slate-400">
+            <span className="font-semibold tracking-wider">信頼の根拠:</span>
+            <div className="flex flex-wrap gap-x-10 gap-y-1">
+              {[
+                "健康経営優良法人2026 認定（認定番号：139686）",
+                "SECURITY ACTION 二つ星宣言（IPA）",
+                "AWS インフラ × エンドツーエンド暗号化",
+                "厚労省推奨 57設問 完全準拠",
+              ].map((item, i) => (
+                <span key={i} className="font-medium">
+                  {item}
+                </span>
               ))}
             </div>
           </div>
         </div>
-
-        {/* Hero image: public/images/hero-office-1.jpg を配置すると表示されます */}
-        <div className="relative mt-12 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted lg:mt-0 lg:aspect-auto lg:min-h-[360px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/hero-office-1.jpg"
-            alt="オフィスイメージ"
-            className="h-full w-full object-cover"
-          />
-        </div>
-        </div>
       </div>
+
     </section>
   );
 }
