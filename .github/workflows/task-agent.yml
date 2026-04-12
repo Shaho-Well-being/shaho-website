@@ -1,0 +1,60 @@
+name: "AI Task Agent"
+
+on:
+  workflow_dispatch:
+    inputs:
+      discussion_id:
+        description: "Discussion の GraphQL node ID"
+        required: true
+      discussion_number:
+        description: "Discussion 番号"
+        required: true
+      discussion_title:
+        description: "タスクタイトル"
+        required: true
+      discussion_body:
+        description: "タスク本文"
+        required: true
+      department:
+        description: "担当部署"
+        required: true
+
+jobs:
+  investigate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - run: pnpm install
+
+      - name: Run AI Task Agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DISCUSSION_TITLE: ${{ inputs.discussion_title }}
+          DISCUSSION_BODY: ${{ inputs.discussion_body }}
+          DEPARTMENT: ${{ inputs.department }}
+        run: npx tsx scripts/task-agent.ts
+
+      - name: Post result to Discussion (.github repo)
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.ORG_PAT }}
+        run: |
+          if [ ! -f /tmp/task-result.md ]; then
+            echo "❌ 結果ファイルが生成されませんでした。" > /tmp/task-result.md
+          fi
+          BODY=$(cat /tmp/task-result.md)
+          gh api graphql \
+            -f query='mutation($id:ID!, $body:String!) { addDiscussionComment(input:{discussionId:$id, body:$body}) { comment { url } } }' \
+            -f id="${{ inputs.discussion_id }}" \
+            -f body="$BODY"
