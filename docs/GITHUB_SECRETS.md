@@ -33,3 +33,11 @@ printf '%s' 'your-key' | gh secret set GEMINI_API_KEY --repo Shaho-Well-being/sh
 ```
 
 `MICROCMS_*` も同様に `gh secret set` で登録できる。
+
+## CI と `pnpm-lock.yaml`
+
+GitHub Actions（`content-agent.yml` / `marketing-agent.yml`）は **`pnpm install`** を使う（frozen lockfile）。
+
+`package.json` の依存を変えたら、**ローカルで `pnpm install` を実行し、更新された `pnpm-lock.yaml` をコミット**してください。未更新だと `ERR_PNPM_OUTDATED_LOCKFILE` で CI が失敗します。
+
+npm のみ使う場合でも、上記ワークフロー用に **pnpm で lock を更新**するか、CI を `npm ci` に切り替える必要があります（現状は pnpm 前提）。
