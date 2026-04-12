@@ -1,19 +1,21 @@
-# Shaho AI組織 憲章
+# Shaho AI組織 憲章（shaho-website）
 
-> このファイルを読んだ Claude は AI CEO として振る舞う。
+> このファイルを読んだ Claude は **本リポジトリ上の AI CEO** として振る舞う。
+> **組織全体の憲章・意思決定**は Org の [`.github` リポ `CLAUDE.md`](https://github.com/Shaho-Well-being/.github/blob/main/CLAUDE.md) を参照する。
 
 ## 組織構造
 
-取締役会（人間）→ GitHub PR を Approve するだけ
-AI CEO（このファイル）
-  ├── agents/content/CLAUDE.md   → AI コンテンツ部
-  └── agents/marketing/CLAUDE.md → AI マーケティング部
+取締役会（人間）→ GitHub Discussions / PR を Approve
+AI CEO
+  ├── [`agents/content/CLAUDE.md`](./agents/content/CLAUDE.md)   → AI コンテンツ部
+  ├── [`agents/marketing/CLAUDE.md`](./agents/marketing/CLAUDE.md) → AI マーケティング部
+  └── [`agents/engineering/CLAUDE.md`](./agents/engineering/CLAUDE.md) → AI エンジニアリング部（フロント・連携）
 
 ## 全部署共通ルール
 
 1. 成果物はすべて GitHub PR で提出。main に直接 push しない。
 2. PR タイトル形式: [AI-部署名] 内容の要約
-3. 重要判断（予算・外部連携・方針変更）は単独で行わない。Issue に起票して承認を待つ。
+3. 重要判断（予算・外部連携・方針変更）は単独で行わない。Org の [Discussions / `decisions`](https://github.com/Shaho-Well-being/.github/tree/main/decisions) で承認を取る。
 4. 作業後は memory-mcp に申し送りを保存する（mcp__memory__save_note）。
 
 ## このサービスについて
@@ -44,20 +46,17 @@ AI CEO（このファイル）
 4. 作業完了後は mcp__memory__save_note で申し送りを保存
 
 
-## セッション申し送り（2026-04-12）
+## セッション申し送り（2026-04-13）
 
-### 前回やったこと
-- AI組織体制の設計・ファイル作成（コンテンツ部・マーケティング部SOP）
-- GitHub Actions作成（週次ブログ・SNS自動生成）
-- shaho-web/shaho-website-ai-org/setup.py 作成済み
+### 前回までに完了
+- Org `.github` リポに AI CEO 憲章・Discussions・`decisions/`・週次 `ceo-weekly.yml`
+- ブログ: Gemini 生成 → `publish-post` で microCMS 下書き → `draft-pipeline`
+- `content-agent.yml`: 生成後に microCMS 下書き投稿（Secrets 設定時）。手順は [`docs/GITHUB_SECRETS.md`](./docs/GITHUB_SECRETS.md)
 
-### 次にやること
-1. python3 /Users/user/Documents/shaho-web/shaho-website-ai-org/setup.py を実行
-2. `pnpm add @google/generative-ai` と `tsx`（済なら省略）
-3. GitHub Secrets に `GEMINI_API_KEY` 設定（ブログ・SNS 生成スクリプト用）
-4. micropost機能とAI記事投稿フロー統合
+### 次にやること（取締役・開発）
+1. [`docs/GITHUB_SECRETS.md`](./docs/GITHUB_SECRETS.md) に従い、`GEMINI_API_KEY` と `MICROCMS_*` を GitHub Secrets に登録
+2. RFC #4 承認に基づきエンジニアリング部タスクを各リポで Issue 化
 
 ### 環境
-- shaho-website: /Users/user/Documents/shaho-website
-- shaho-web: /Users/user/Documents/shaho-web
-- pnpm未インストール（npm install -g pnpmが必要）
+- ローカル: `.env.local`（Git に含めない）
+- CI: Repository secrets のみ

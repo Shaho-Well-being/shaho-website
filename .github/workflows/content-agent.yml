@@ -35,6 +35,18 @@ jobs:
           else
             npx tsx scripts/generate-blog-post.ts
           fi
+      - name: Publish draft to microCMS
+        id: microcms_publish
+        continue-on-error: true
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+          MICROCMS_BLOG_CATEGORY_ID: ${{ secrets.MICROCMS_BLOG_CATEGORY_ID }}
+        run: npx tsx scripts/publish-blog-to-microcms.ts --draft
+      - name: Warn if microCMS publish skipped or failed
+        if: steps.microcms_publish.outcome != 'success'
+        run: |
+          echo "::warning::microCMS 下書きに失敗したか、Secrets（MICROCMS_SERVICE_DOMAIN / MICROCMS_API_KEY 等）が未設定です。docs/GITHUB_SECRETS.md を参照して登録してください。"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
@@ -44,11 +56,14 @@ jobs:
           body: |
             ## AI コンテンツ部 週次ブログ記事
 
+            microCMS のブログ API には **下書き** で入稿済み（Secrets 設定時）。管理画面で公開設定を確認してください。
+
             - [ ] 内容・事実確認
             - [ ] トーン確認
             - [ ] CTA リンク確認
+            - [ ] microCMS で下書きレビュー・公開
 
-            *承認してマージすると Vercel が自動デプロイします。*
+            *承認してマージするとリポジトリの MDX が更新され、Vercel が自動デプロイします。*
           branch: "ai/content-${{ github.run_number }}"
           base: main
           labels: "AI-Content,blog"
