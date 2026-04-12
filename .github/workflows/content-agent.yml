@@ -1,0 +1,54 @@
+name: "AI Content Agent"
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+    inputs:
+      keyword:
+        description: "ターゲットキーワード（省略時はAIが選定）"
+        required: false
+        default: ""
+
+jobs:
+  generate-blog-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - run: pnpm install
+      - name: Generate blog post
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          KEYWORD="${{ github.event.inputs.keyword }}"
+          if [ -n "$KEYWORD" ]; then
+            npx tsx scripts/generate-blog-post.ts --keyword "$KEYWORD"
+          else
+            npx tsx scripts/generate-blog-post.ts
+          fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "feat(blog): AI週次ブログ記事を追加"
+          title: "[AI-Content] 週次ブログ記事 ${{ github.run_number }}"
+          body: |
+            ## AI コンテンツ部 週次ブログ記事
+
+            - [ ] 内容・事実確認
+            - [ ] トーン確認
+            - [ ] CTA リンク確認
+
+            *承認してマージすると Vercel が自動デプロイします。*
+          branch: "ai/content-${{ github.run_number }}"
+          base: main
+          labels: "AI-Content,blog"

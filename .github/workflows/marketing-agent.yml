@@ -1,0 +1,45 @@
+name: "AI Marketing Agent"
+
+on:
+  schedule:
+    - cron: "30 0 * * 1"
+  workflow_dispatch:
+
+jobs:
+  generate-marketing:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - run: pnpm install
+      - name: Get week
+        id: week
+        run: echo "week=$(date +%Y-W%V)" >> $GITHUB_OUTPUT
+      - name: Generate SNS posts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MARKETING_WEEK: ${{ steps.week.outputs.week }}
+        run: npx tsx scripts/generate-marketing-sns.ts
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs(marketing): ${{ steps.week.outputs.week }} SNS投稿文案"
+          title: "[AI-Marketing] ${{ steps.week.outputs.week }} SNS投稿文案"
+          body: |
+            ## AI マーケティング部 週次 SNS 投稿文案
+
+            - [ ] トーン・内容確認
+            - [ ] ハッシュタグ確認
+            - [ ] 競合言及がないか確認
+          branch: "ai/marketing-${{ github.run_number }}"
+          base: main
+          labels: "AI-Marketing,sns"

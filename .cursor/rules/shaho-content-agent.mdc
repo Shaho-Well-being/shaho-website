@@ -1,0 +1,13 @@
+---
+description: 社宝サイトの AI コンテンツ部（ブログ）作業時は SOP と憲章に従う
+globs: content/blog/**,agents/content/**,scripts/generate-blog-post.ts,.github/workflows/content-agent.yml
+alwaysApply: false
+---
+
+# AI コンテンツ部
+
+- 上位: リポジトリ直下の `CLAUDE.md`（組織憲章・トーン）。
+- 手順・品質・PR 形式: `agents/content/CLAUDE.md` に従う。
+- 記事は `content/blog/YYYY-MM-DD-{slug}.mdx`、frontmatter は同 SOP の形式。
+- PR タイトルは `[AI-Content] …`、ブランチ例 `ai/content-YYYYMMDD`、ラベル `AI-Content`, `blog`。
+- 医療・法律は断定せず、統計は出典または公知の事実のみ。

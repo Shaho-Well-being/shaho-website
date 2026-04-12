@@ -53,8 +53,8 @@ AI CEO（このファイル）
 
 ### 次にやること
 1. python3 /Users/user/Documents/shaho-web/shaho-website-ai-org/setup.py を実行
-2. pnpm add @anthropic-ai/sdk && pnpm add -D tsx
-3. GitHub SecretsにANTHROPIC_API_KEY設定
+2. `pnpm add @google/generative-ai` と `tsx`（済なら省略）
+3. GitHub Secrets に `GEMINI_API_KEY` 設定（ブログ・SNS 生成スクリプト用）
 4. micropost機能とAI記事投稿フロー統合
 
 ### 環境
