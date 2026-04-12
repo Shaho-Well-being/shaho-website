@@ -103,7 +103,7 @@ PR ボディに含める:
 
 - **スケジュール**: 月曜 00:00 UTC（= 月曜 09:00 JST 前後）。
 - **手動実行**: `workflow_dispatch` でキーワード入力可。
-- **処理**: `generate-blog-post.ts` 実行 → **Pull Request 作成**（MDX のみ）。microCMS 連携なし。
+- **処理**: `generate-blog-post.ts` → **`publish-blog-to-microcms.ts --draft`**（`MICROCMS_*` Secrets がある場合）→ **Pull Request 作成**。Secrets 未設定や投稿失敗時は警告のみで PR は作成される。手順は [`docs/GITHUB_SECRETS.md`](../../docs/GITHUB_SECRETS.md)。
 
 ### 生成ファイルの注意
 
