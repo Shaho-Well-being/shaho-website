@@ -3,6 +3,7 @@
  * 環境変数: GEMINI_API_KEY（必須）
  */
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { generateContentWithRetry } from "./gemini-retry";
 import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
@@ -53,7 +54,7 @@ async function main() {
     generationConfig: { maxOutputTokens: 4096 },
   });
 
-  const result = await model.generateContent(userPrompt);
+  const result = await generateContentWithRetry(model, userPrompt);
   const text = result.response.text().trim();
   if (!text) {
     console.error("❌ 生成失敗");

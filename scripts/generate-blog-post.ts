@@ -9,6 +9,7 @@
  * 環境変数: GEMINI_API_KEY（必須）。任意で GEMINI_MODEL（既定: gemini-2.5-flash／AI Studio の上限表示と揃える）
  */
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { generateContentWithRetry } from "./gemini-retry";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -86,7 +87,7 @@ async function main() {
     generationConfig: { maxOutputTokens: 8192 },
   });
 
-  const result = await model.generateContent(prompt);
+  const result = await generateContentWithRetry(model, prompt);
   const response = result.response;
   const content = response.text().trim();
   if (!content) {
