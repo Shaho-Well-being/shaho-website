@@ -20,7 +20,7 @@ export function BlogPreview({ posts: postsProp }: BlogPreviewProps = {}) {
               ブログ
             </h2>
             <p className="mt-2 text-lg text-muted-foreground">
-              健康経営・福利厚生に関する最新情報をお届け
+              健康経営・福利厚生に関する最新情報をお届けします。
             </p>
           </div>
           <Button variant="outline" asChild>
