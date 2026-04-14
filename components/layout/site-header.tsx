@@ -24,26 +24,28 @@ export function SiteHeader() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground">
-            <span className="text-sm font-bold text-background">社</span>
+    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/85 backdrop-blur-xl">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary shadow-sm">
+            <span className="text-sm font-bold">社</span>
           </div>
-          <span className="text-lg font-semibold tracking-tight text-foreground">社宝</span>
+          <div>
+            <div className="text-lg font-semibold tracking-tight text-foreground">社宝</div>
+            <div className="text-xs text-muted-foreground">福利厚生 x 健康経営</div>
+          </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-border/80 bg-background/80 px-2 py-1 shadow-sm lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                 isActive(item.href)
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "bg-primary/18 text-foreground"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
             >
               {item.label}
@@ -52,17 +54,16 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button variant="ghost" size="sm" asChild>
+          <Button variant="outline" size="sm" className="rounded-full bg-background/70" asChild>
             <Link href="/contact">お問い合わせ</Link>
           </Button>
-          <Button size="sm" asChild>
+          <Button size="sm" className="rounded-full px-5 shadow-sm" asChild>
             <Link href="/contact?type=demo">無料デモを予約</Link>
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
-          className="inline-flex items-center justify-center rounded-md p-2 text-foreground lg:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-border bg-background/80 p-2.5 text-foreground shadow-sm lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
         >
@@ -70,16 +71,15 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div className="border-t border-border bg-background/95 backdrop-blur lg:hidden">
           <nav className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
             <div className="flex flex-col gap-1">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
@@ -87,10 +87,10 @@ export function SiteHeader() {
               ))}
             </div>
             <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-              <Button variant="outline" size="sm" asChild>
+              <Button variant="outline" size="sm" className="rounded-full" asChild>
                 <Link href="/contact">お問い合わせ</Link>
               </Button>
-              <Button size="sm" asChild>
+              <Button size="sm" className="rounded-full" asChild>
                 <Link href="/contact?type=demo">無料デモを予約</Link>
               </Button>
             </div>

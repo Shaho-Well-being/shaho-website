@@ -1,92 +1,182 @@
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUpRight, Gift, Heart, ClipboardCheck, BarChart3, Smartphone } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ClipboardCheck,
+  Gift,
+  HeartHandshake,
+  LayoutDashboard,
+  Smartphone,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const features = [
+const steps = [
   {
-    icon: Gift,
-    title: "電子マネー福利厚生",
-    description: "ポイントをPayPay・Amazonギフト券・QUOカードPayなどの電子マネーに即交換。カタログ不要で全員が使える制度設計。",
-    href: "/features",
-    highlights: ["PayPay・Amazon即交換", "正社員・パート・外国籍対応", "在庫ゼロ・管理工数ゼロ"],
+    step: "STEP 1",
+    title: "人事が制度をかんたん設計",
+    description:
+      "対象者、付与条件、利用期間までまとめて設定。制度ごとにバラバラだった運用を一つの導線に整理します。",
+    icon: LayoutDashboard,
+    points: ["制度ごとの条件設計", "拠点・雇用形態にも対応", "管理画面で一元運用"],
   },
   {
-    icon: Heart,
-    title: "スマートフォン健康連携",
-    description: "iPhoneのヘルスケアアプリ・Google Fitと連携。入力不要で歩数・睡眠・体重データが自動集積されます。",
-    href: "/features",
-    highlights: ["Apple Health連携", "Google Fit対応", "パッシブデータ収集"],
+    step: "STEP 2",
+    title: "従業員がアプリで迷わず確認",
+    description:
+      "従業員は自分に使える制度だけをスマホで確認。福利厚生、健診、ストレスチェックも一つの導線で届きます。",
+    icon: Smartphone,
+    points: ["制度一覧をわかりやすく表示", "通知で利用を後押し", "健康施策と同じアプリで完結"],
+  },
+  {
+    step: "STEP 3",
+    title: "日常の中で自然に使われる",
+    description:
+      "使われたかどうかまで把握できるので、制度を配るだけで終わりません。利用率を見ながら改善し続けられます。",
+    icon: CheckCircle2,
+    points: ["利用率を可視化", "施策改善につなげやすい", "公平性のある制度運用"],
+  },
+];
+
+const menus = [
+  "食事補助",
+  "育児支援",
+  "部活動手当",
+  "資格取得補助",
+  "健康促進手当",
+  "ストレスチェック",
+  "健診管理",
+  "リモート勤務支援",
+  "表彰ポイント",
+  "オンボーディング施策",
+  "エンゲージメント施策",
+  "独自制度の設計",
+];
+
+const reasons = [
+  {
+    icon: Gift,
+    title: "制度が使われやすい",
+    description: "使い方が直感的で、従業員が日常の中で自然に活用しやすい体験に整えます。",
+  },
+  {
+    icon: HeartHandshake,
+    title: "福利厚生と健康経営をつなげられる",
+    description: "福利厚生だけでなく、健診やストレスチェックも含めた従業員体験に拡張できます。",
   },
   {
     icon: ClipboardCheck,
-    title: "健診・ストレスチェック",
-    description: "厚労省推奨の57設問フォーマット完全準拠。健診結果はOCRで自動取込・端末内保存でセキュアに管理。",
-    href: "/features",
-    highlights: ["57設問完全対応", "OCR健診結果取込", "労基署提出書類自動生成"],
-  },
-  {
-    icon: BarChart3,
-    title: "人事・管理者向け（Web）",
-    description: "受診率・ストレス状況・ポイント利用状況をひとつの画面で把握。法定帳票もワンクリックで出力。",
-    href: "/features/admin-web",
-    highlights: ["健康経営ダッシュボード", "集団分析レポート", "部署別リスク可視化"],
-  },
-  {
-    icon: Smartphone,
-    title: "従業員向け（アプリ）",
-    description: "健康記録・ポイント交換・AIメンタルケアを1アプリに集約。毎日開きたくなるシンプルなUX。",
-    href: "/features/employee-app",
-    highlights: ["AIチャット24時間対応", "電子マネー即時交換", "iOSおよびAndroid対応"],
+    title: "人事の運用負担を減らせる",
+    description: "通知、管理、可視化までをまとめて扱えるので、制度ごとの個別対応を減らせます。",
   },
 ];
 
 export function FeaturesOverview() {
   return (
-    <section className="border-t border-border bg-muted/30 py-24 lg:py-32">
+    <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f7fcfb_100%)] py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            すべてが、ひとつに
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+            Flow
+          </div>
+          <h2 className="mt-4 text-balance text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            社宝なら、福利厚生を
+            <span className="text-primary">3ステップで使われる仕組み</span>
+            にできます
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            福利厚生・健診・ストレスチェック・AIメンタルケアがひとつのアプリに。
-            人事の管理工数を削減しながら、従業員の使いやすさを両立します。
+          <p className="mt-4 text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
+            難しい制度説明よりも、利用される導線づくりが大切です。社宝は人事と従業員の両方にとって
+            わかりやすい流れをつくります。
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {features.map((feature) => (
-            <Link key={feature.title} href={feature.href} className="group">
-              <Card className="h-full transition-all hover:border-foreground/20 hover:shadow-lg">
-                <CardContent className="flex h-full flex-col p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-muted">
-                      <feature.icon className="h-6 w-6 text-foreground" />
-                    </div>
-                    <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold text-foreground">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {feature.description}
-                  </p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {feature.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="rounded-full bg-secondary px-2.5 py-0.5 text-xs text-secondary-foreground"
-                      >
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </Link>
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {steps.map((step) => (
+            <div
+              key={step.step}
+              className="rounded-[34px] border border-border/80 bg-white p-7 shadow-[0_25px_70px_-40px_rgba(28,92,95,0.35)]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-[0.18em] text-primary-foreground">
+                  {step.step}
+                </span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary">
+                  <step.icon className="h-6 w-6" />
+                </div>
+              </div>
+              <h3 className="mt-6 text-2xl font-black tracking-tight text-foreground">
+                {step.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
+                {step.description}
+              </p>
+              <ul className="mt-6 space-y-3">
+                {step.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-sm text-foreground">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
+        </div>
+
+        <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-[36px] bg-[#6fd6cf] px-6 py-8 text-white shadow-[0_25px_80px_-45px_rgba(28,92,95,0.5)] sm:px-8 sm:py-10">
+            <div className="text-sm font-semibold uppercase tracking-[0.22em] text-white/80">
+              Menu Ideas
+            </div>
+            <h3 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl">
+              設計できる福利厚生メニューも、やわらかく自由に
+            </h3>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85 sm:text-base">
+              既存の制度をデジタル化するだけでなく、採用や定着につながる独自メニューも設計できます。
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {menus.map((menu) => (
+                <span
+                  key={menu}
+                  className="rounded-full border border-white/30 bg-white/18 px-4 py-2 text-sm font-medium backdrop-blur"
+                >
+                  {menu}
+                </span>
+              ))}
+            </div>
+            <Button
+              variant="secondary"
+              className="mt-8 rounded-full bg-white text-foreground hover:bg-white/90"
+              asChild
+            >
+              <Link href="/features">
+                できることを詳しく見る
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="rounded-[36px] border border-border/80 bg-white px-6 py-8 shadow-[0_25px_70px_-40px_rgba(28,92,95,0.28)] sm:px-8 sm:py-10">
+            <div className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+              Why Shaho
+            </div>
+            <h3 className="mt-4 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+              おしゃれに見せるだけでなく、
+              <br />
+              実務でも使いやすい
+            </h3>
+            <div className="mt-8 space-y-5">
+              {reasons.map((reason) => (
+                <div key={reason.title} className="rounded-[26px] bg-secondary px-5 py-5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-primary shadow-sm">
+                      <reason.icon className="h-5 w-5" />
+                    </div>
+                    <div className="text-lg font-bold text-foreground">{reason.title}</div>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{reason.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
