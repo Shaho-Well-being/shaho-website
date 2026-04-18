@@ -1,11 +1,12 @@
 # 共通定義は組織リポ Shaho-Well-being/.github の再利用ワークフローを参照
+# Issue 作成直後は起動しない。本文に @claude があり、かつ Labels に ready-for-claude を付けたとき（または @claude コメント時）に起動
 name: Claude Assistant
 
 on:
   issue_comment:
     types: [created]
   issues:
-    types: [opened]
+    types: [labeled]
 
 permissions:
   contents: write
@@ -16,6 +17,6 @@ jobs:
   assist:
     if: |
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+      (github.event_name == 'issues' && github.event.action == 'labeled' && github.event.label.name == 'ready-for-claude' && contains(github.event.issue.body, '@claude'))
     uses: Shaho-Well-being/.github/.github/workflows/claude-assistant.yml@main
     secrets: inherit
