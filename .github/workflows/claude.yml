@@ -1,5 +1,6 @@
 # private の組織リポ Shaho-Well-being/.github 上の再利用ワークフローは、組織設定により他リポから参照できず "workflow was not found" になることがあるため、各リポに本体を定義する
 # Issue 作成直後は起動しない。本文に @claude があり、かつ Labels に ready-for-claude を付けたとき（または @claude コメント時）に起動
+# OIDC 注入に失敗する場合があるため github.token を明示（https://github.com/anthropics/claude-code-action/issues/649）
 name: Claude Assistant
 
 on:
@@ -8,20 +9,20 @@ on:
   issues:
     types: [labeled]
 
-permissions:
-  contents: write
-  pull-requests: write
-  issues: write
-  id-token: write
-
 jobs:
   assist:
     if: |
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'issues' && github.event.action == 'labeled' && github.event.label.name == 'ready-for-claude' && contains(github.event.issue.body, '@claude'))
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
