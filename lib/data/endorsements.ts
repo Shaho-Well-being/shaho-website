@@ -33,7 +33,7 @@ export const endorsements: Endorsement[] = [
     quote:
       "企業が抱える福利厚生や従業員の健康管理の課題に、社宝は的確に応えていると考えます。私が企業診断で感じる多くの問題点——例えば従業員満足度の向上、法定対応の煩雑さ、コストパフォーマンスの低さ——を一つのプラットフォームで解決できるのは画期的です。企業の成長と従業員の幸福を同時に実現する、非常に優れたサービスだと信じています。",
     photo: "/images/experts/nakayama.jpg",
-    photoPosition: "center 100%",
+    photoPosition: "center 20%",
   },
   {
     id: "seki",
@@ -53,14 +53,14 @@ export const endorsements: Endorsement[] = [
     quote:
       "福利厚生費は、企業の税務負担を軽減しつつ、従業員に喜ばれる施策として有効です。さらに、これらの費用は法人税計算上、損金として計上可能であり、課税所得を減らすことができます。社宝は、コスト管理と従業員満足度の向上を両立する強力なプラットフォームです。",
     photo: "/images/experts/katayama.jpg",
-    photoPosition: "center 100%",
+    photoPosition: "center 10%",
   },
   {
     id: "taniguchi",
     heading: "企業のブランド価値向上に",
     name: "谷口 大介",
     title: "Webマーケティングコンサルタント",
-    organization: "中小企業診断士養成課程",
+    organization: "中小企業診断士",
     quote:
       "従業員に愛される福利厚生は、企業のブランド価値そのものです。社宝を導入することで、社員が企業から大切にされていると実感できる環境を整え、結果的に採用力や定着率の向上につながります。特にUI/UXの美しさや、即時性の高いポイント管理は、企業が最新のWebトレンドを理解していることを示す大きなアピールポイントとなるでしょう。",
     photo: "/images/experts/taniguchi.jpg",
