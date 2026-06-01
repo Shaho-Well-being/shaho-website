@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 
 const footerLinks = {
   製品: [
@@ -31,9 +32,7 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-                <span className="text-lg font-bold text-primary-foreground">社</span>
-              </div>
+              <BrandLogo size={36} />
               <span className="text-xl font-bold text-foreground">社宝</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">

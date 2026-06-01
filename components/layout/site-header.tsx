@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BrandLogo } from "@/components/brand-logo";
 
 const navItems = [
   { label: "機能", href: "/features" },
@@ -27,9 +28,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/85 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/20 text-primary shadow-sm">
-            <span className="text-sm font-bold">社</span>
-          </div>
+          <BrandLogo size={40} priority />
           <div>
             <div className="text-lg font-semibold tracking-tight text-foreground">社宝</div>
             <div className="text-xs text-muted-foreground">福利厚生 x 健康経営</div>

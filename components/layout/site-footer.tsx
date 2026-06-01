@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 
 const footerLinks = {
   product: {
@@ -50,9 +51,7 @@ export function SiteFooter() {
           {/* Logo and Description */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground">
-                <span className="text-sm font-bold text-background">社</span>
-              </div>
+              <BrandLogo size={32} />
               <span className="text-lg font-semibold tracking-tight text-foreground">社宝</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">

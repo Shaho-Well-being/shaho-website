@@ -20,21 +20,8 @@ export const metadata: Metadata = {
   description: '社宝は、福利厚生、健康管理、健診、ストレスチェックを一つにまとめた企業向けプラットフォームです。',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/SHAHO.png',
+    apple: '/SHAHO.png',
   },
 }
 
