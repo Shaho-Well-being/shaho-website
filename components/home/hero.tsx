@@ -14,20 +14,19 @@ export function Hero() {
     <section className="relative h-[calc(100vh-72px)] min-h-[640px] max-h-[920px] overflow-hidden bg-background">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/Hero-image.png"
-          alt="福利厚生サービスのヒーロービジュアル"
+          src="/Home-hero.png"
+          alt="オフィスで社宝アプリを紹介するビジネスパーソン"
           fill
           sizes="100vw"
-          quality={95}
+          unoptimized
           className="object-cover object-[72%_center]"
           priority
         />
       </div>
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-white/72 via-white/45 to-white/4 sm:from-white/68 sm:via-white/36 sm:to-transparent" />
 
       <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl pb-16 pt-10 sm:pb-20">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-white/85 px-5 py-2.5 text-base font-medium text-foreground shadow-sm backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-white px-5 py-2.5 text-base font-medium text-foreground shadow-sm">
               <Sparkles className="h-5 w-5 text-primary" />
               使われる福利厚生をつくる、やさしいSaaS
             </div>
@@ -38,7 +37,7 @@ export function Hero() {
               <span className="text-primary">使いたくなる体験に。</span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-pretty text-xl leading-9 text-muted-foreground sm:text-2xl">
+            <p className="mt-7 max-w-2xl text-pretty text-xl leading-9 text-white drop-shadow-md sm:text-2xl">
               社宝は、福利厚生、健康経営、健診、ストレスチェックを一つにつなぐプラットフォーム。
               制度を配るだけで終わらず、従業員にきちんと使われる仕組みまで設計できます。
             </p>
