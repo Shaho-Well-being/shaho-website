@@ -8,6 +8,8 @@ type ExpertAvatarProps = {
   name: string;
   /** Tailwind の幅・高さクラス（例: "h-20 w-20"） */
   sizeClassName?: string;
+  /** CSS object-position 値（例: "center 35%"）。未指定時は上部基準。 */
+  objectPosition?: string;
 };
 
 /**
@@ -18,6 +20,7 @@ export function ExpertAvatar({
   src,
   name,
   sizeClassName = "h-20 w-20",
+  objectPosition = "center top",
 }: ExpertAvatarProps) {
   const [failed, setFailed] = useState(false);
   const initial = name.trim().charAt(0);
@@ -32,7 +35,8 @@ export function ExpertAvatar({
           alt={`${name}様`}
           fill
           sizes="96px"
-          className="object-cover object-top"
+          className="object-cover"
+          style={{ objectPosition }}
           onError={() => setFailed(true)}
         />
       ) : (

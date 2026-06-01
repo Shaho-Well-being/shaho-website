@@ -16,6 +16,7 @@ export function EndorsementCard({ endorsement }: { endorsement: Endorsement }) {
         <ExpertAvatar
           src={endorsement.photo}
           name={endorsement.name}
+          objectPosition={endorsement.photoPosition}
           sizeClassName="h-20 w-20 sm:h-24 sm:w-24"
         />
         <div className="min-w-0 flex-1">

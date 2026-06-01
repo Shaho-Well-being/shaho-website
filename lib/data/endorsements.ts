@@ -15,6 +15,12 @@ export type Endorsement = {
    * 未設定の場合はイニシャルのアバターでフォールバック表示する。
    */
   photo?: string;
+  /**
+   * 円形クロップ内での写真の表示位置（CSS object-position 値）。
+   * 縦長写真で顔の位置を微調整したいときに使う。例: "center 30%"
+   * 未設定時は "center top"（上部基準）。
+   */
+  photoPosition?: string;
 };
 
 export const endorsements: Endorsement[] = [
@@ -27,6 +33,7 @@ export const endorsements: Endorsement[] = [
     quote:
       "企業が抱える福利厚生や従業員の健康管理の課題に、社宝は的確に応えていると考えます。私が企業診断で感じる多くの問題点——例えば従業員満足度の向上、法定対応の煩雑さ、コストパフォーマンスの低さ——を一つのプラットフォームで解決できるのは画期的です。企業の成長と従業員の幸福を同時に実現する、非常に優れたサービスだと信じています。",
     photo: "/images/experts/nakayama.jpg",
+    photoPosition: "center 35%",
   },
   {
     id: "seki",
