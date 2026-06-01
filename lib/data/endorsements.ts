@@ -33,7 +33,7 @@ export const endorsements: Endorsement[] = [
     quote:
       "企業が抱える福利厚生や従業員の健康管理の課題に、社宝は的確に応えていると考えます。私が企業診断で感じる多くの問題点——例えば従業員満足度の向上、法定対応の煩雑さ、コストパフォーマンスの低さ——を一つのプラットフォームで解決できるのは画期的です。企業の成長と従業員の幸福を同時に実現する、非常に優れたサービスだと信じています。",
     photo: "/images/experts/nakayama.jpg",
-    photoPosition: "center 85%",
+    photoPosition: "center 100%",
   },
   {
     id: "seki",
@@ -53,7 +53,7 @@ export const endorsements: Endorsement[] = [
     quote:
       "福利厚生費は、企業の税務負担を軽減しつつ、従業員に喜ばれる施策として有効です。さらに、これらの費用は法人税計算上、損金として計上可能であり、課税所得を減らすことができます。社宝は、コスト管理と従業員満足度の向上を両立する強力なプラットフォームです。",
     photo: "/images/experts/katayama.jpg",
-    photoPosition: "center 80%",
+    photoPosition: "center 100%",
   },
   {
     id: "taniguchi",
