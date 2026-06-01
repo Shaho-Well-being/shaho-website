@@ -167,6 +167,71 @@ export default function StressCheckPage() {
         </div>
       </section>
 
+      {/* Features */}
+      <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">
+            社宝のストレスチェック機能
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            法令要件をすべてカバーしながら、担当者の負担を最小化します。
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <figcaption className="border-b border-border bg-muted/30 px-5 py-4">
+              <p className="text-sm font-semibold text-foreground">個人結果・レーダーチャート</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                領域別スコアの可視化と、結果開示・医師相談まで同一画面で対応
+              </p>
+            </figcaption>
+            <div className="relative aspect-video w-full bg-muted/20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/ストレスチェック個人結果.png"
+                alt="ストレスチェック個人結果画面（レーダーチャート・領域別スコア）"
+                className="h-full w-full object-contain object-top p-2"
+              />
+            </div>
+          </figure>
+
+          <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <figcaption className="border-b border-border bg-muted/30 px-5 py-4">
+              <p className="text-sm font-semibold text-foreground">集団分析</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                部署別の傾向把握と、労基署提出に必要な集団分析レポートの作成
+              </p>
+            </figcaption>
+            <div className="relative aspect-video w-full bg-muted/20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/ストレスチェック集団分析結果.png"
+                alt="ストレスチェック集団分析画面（レーダーチャート・部署別分析）"
+                className="h-full w-full object-contain object-top p-2"
+              />
+            </div>
+          </figure>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className="flex items-start gap-4 rounded-xl border border-border bg-card p-6"
+            >
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
+              <div>
+                <h3 className="font-semibold text-foreground">{feature.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Risk section */}
       <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -190,34 +255,6 @@ export default function StressCheckPage() {
                 </p>
               </CardContent>
             </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">
-            社宝のストレスチェック機能
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            法令要件をすべてカバーしながら、担当者の負担を最小化します。
-          </p>
-        </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="flex items-start gap-4 rounded-xl border border-border bg-card p-6"
-            >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
-              <div>
-                <h3 className="font-semibold text-foreground">{feature.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </p>
-              </div>
-            </div>
           ))}
         </div>
       </section>
