@@ -19,7 +19,7 @@ const footerLinks = {
     title: "リソース",
     links: [
       { label: "お役立ち資料", href: "/resources" },
-      { label: "導入事例", href: "/case-studies" },
+      { label: "専門家の推薦", href: "/case-studies" },
       { label: "ブログ", href: "/blog" },
     ],
   },

@@ -5,6 +5,7 @@ import { FeaturesOverview } from "@/components/home/features-overview";
 import { KenkoKeiei } from "@/components/home/kenko-keiei";
 import { Comparison } from "@/components/home/comparison";
 import { Testimonials } from "@/components/home/testimonials";
+import { ExpertEndorsements } from "@/components/home/expert-endorsements";
 import { PricingTeaser } from "@/components/home/pricing-teaser";
 import { FAQ } from "@/components/home/faq";
 import { BlogPreview } from "@/components/home/blog-preview";
@@ -31,6 +32,7 @@ export default async function HomePage() {
       <KenkoKeiei />
       <Comparison />
       <Testimonials />
+      <ExpertEndorsements />
       <PricingTeaser />
       <FAQ />
       <BlogPreview posts={blogPosts} />
