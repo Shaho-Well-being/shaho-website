@@ -23,8 +23,8 @@ export function CTA() {
               使いたくなる制度へ。
             </h2>
             <p className="mt-5 text-lg leading-8 text-background/80">
-              福利厚生、健康経営、健診、ストレスチェックを切り分けず、
-              一つの体験として整えたい企業さま向けに、社宝の設計思想と画面イメージをご案内します。
+              福利厚生・健康経営・ストレスチェックを切り分けず、
+              日常の利用が申請の証跡として残る——そんな体験を整えたい企業さま向けに、社宝の設計思想と画面イメージをご案内します。
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button

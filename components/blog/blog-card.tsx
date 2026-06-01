@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import type { BlogPost } from "@/lib/microcms";
-import { formatDate } from "@/lib/utils";
+import { formatDate, normalizeCategoryName } from "@/lib/utils";
 
 type BlogCardProps = {
   post: BlogPost;
@@ -33,7 +33,7 @@ export function BlogCard({
               />
             ) : (
               <div className="flex h-full items-center justify-center text-4xl text-muted-foreground/20">
-                {post.category?.name?.slice(0, 1) ?? "?"}
+                {normalizeCategoryName(post.category?.name).slice(0, 1) || "?"}
               </div>
             )}
           </div>
@@ -41,7 +41,7 @@ export function BlogCard({
           <div className="flex flex-1 flex-col p-6">
             <div className="flex items-center gap-3 text-sm">
               <span className="rounded-full bg-secondary px-2.5 py-0.5 text-secondary-foreground">
-                {post.category?.name ?? "—"}
+                {normalizeCategoryName(post.category?.name) || "—"}
               </span>
               {showDate && (
                 <span className="flex items-center gap-1 text-muted-foreground">

@@ -1,7 +1,12 @@
 import { Hero } from "@/components/home/hero";
+import { SocialProof } from "@/components/home/social-proof";
 import { Stats } from "@/components/home/stats";
 import { FeaturesOverview } from "@/components/home/features-overview";
+import { KenkoKeiei } from "@/components/home/kenko-keiei";
+import { Comparison } from "@/components/home/comparison";
 import { Testimonials } from "@/components/home/testimonials";
+import { PricingTeaser } from "@/components/home/pricing-teaser";
+import { FAQ } from "@/components/home/faq";
 import { BlogPreview } from "@/components/home/blog-preview";
 import { CTA } from "@/components/home/cta";
 import { isMicroCMSConfigured, getBlogPosts } from "@/lib/microcms";
@@ -20,9 +25,14 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <SocialProof />
       <Stats />
       <FeaturesOverview />
+      <KenkoKeiei />
+      <Comparison />
       <Testimonials />
+      <PricingTeaser />
+      <FAQ />
       <BlogPreview posts={blogPosts} />
       <CTA />
     </>

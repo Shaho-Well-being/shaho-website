@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Building2, Factory, HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const caseStudies = [
@@ -12,7 +11,7 @@ const caseStudies = [
     result: "利用率 90%超を目指せる運用へ",
     summary:
       "拠点ごとに制度の届け方が違っていた状態から、全社員に公平に伝わるデジタル運用へ。福利厚生と健康施策を同じ導線で案内できるようになりました。",
-    image: "/images/features/features-benefits.jpg",
+    icon: Factory,
     href: "/case-studies/1",
   },
   {
@@ -23,7 +22,7 @@ const caseStudies = [
     result: "制度の見え方と満足度を改善",
     summary:
       "福利厚生を単なる補助ではなく、組織文化の一部として設計。制度の見つけやすさと利用のしやすさを高めることで、従業員への浸透を後押しします。",
-    image: "/images/features/features-admin.jpg",
+    icon: Building2,
     href: "/case-studies/2",
   },
   {
@@ -33,8 +32,8 @@ const caseStudies = [
     title: "福利厚生と健康経営を一つの体験に統合",
     result: "人事の管理導線をすっきり一元化",
     summary:
-      "福利厚生の訴求と健診・ストレスチェックの導線が分断されていた課題を、従業員目線のアプリ体験に統合。人事側の説明コストも減らせます。",
-    image: "/images/features/features-health.jpg",
+      "福利厚生の訴求とストレスチェック・活動ログの導線が分断されていた課題を、従業員目線のアプリ体験に統合。人事側の説明コストも減らせます。",
+    icon: HeartPulse,
     href: "/case-studies/3",
   },
 ];
@@ -69,37 +68,41 @@ export function Testimonials() {
           {caseStudies.map((item) => (
             <article
               key={item.company}
-              className="overflow-hidden rounded-[34px] border border-border/80 bg-white shadow-[0_25px_80px_-45px_rgba(28,92,95,0.35)]"
+              className="flex flex-col overflow-hidden rounded-[34px] border border-border/80 bg-white shadow-[0_25px_80px_-45px_rgba(28,92,95,0.35)]"
             >
-              <div className="relative h-60 overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent" />
-                <div className="absolute left-5 right-5 top-5 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-foreground">
-                    企業規模 {item.size}
-                  </span>
-                  <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-                    {item.industry}
-                  </span>
+              {/* 実在企業の事例カードにストック写真を流用しないよう、ブランドのグラフィックパネルで表現する */}
+              <div className="relative overflow-hidden bg-[linear-gradient(135deg,#204753_0%,#2e6774_50%,#4f98a0_100%)] px-6 py-8">
+                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
+                <div className="absolute -bottom-12 left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                <div className="relative flex items-start justify-between gap-3">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-foreground">
+                      企業規模 {item.size}
+                    </span>
+                    <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                      {item.industry}
+                    </span>
+                  </div>
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-white backdrop-blur">
+                    <item.icon className="h-5 w-5" />
+                  </div>
                 </div>
-                <div className="absolute bottom-5 left-5 right-5">
-                  <div className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">
+                <div className="relative mt-8">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+                    Result
+                  </div>
+                  <div className="mt-2 text-xl font-black leading-snug text-white sm:text-2xl">
                     {item.result}
                   </div>
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <div className="text-sm font-semibold text-primary">{item.company}</div>
                 <h3 className="mt-3 text-2xl font-black tracking-tight text-foreground">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
+                <p className="mt-4 flex-1 text-sm leading-7 text-muted-foreground sm:text-base">
                   {item.summary}
                 </p>
                 <Link
