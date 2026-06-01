@@ -37,7 +37,8 @@ const companyInfo = [
   { label: "英語表記", value: "Mobile App Systems Inc." },
   { label: "設立", value: "2022年8月" },
   { label: "代表取締役", value: "小林 慎吾" },
-  { label: "所在地", value: "〒107-0062 東京都港区南青山2-2-15 WIN青山531" },
+  { label: "取引銀行", value: "三井住友銀行" },
+  { label: "所在地", value: "〒104-0061 東京都中央区銀座1丁目12 N&E BLD. 6F" },
   {
     label: "事業内容",
     value:
@@ -138,8 +139,8 @@ export default function AboutPage() {
           </div>
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-muted">
             <img
-              src="/images/hero-office-1.jpg"
-              alt="社宝開発チームの様子"
+              src="/モバシス-頑張ってます！.png"
+              alt="モバイルアプリシステムズのチーム"
               className="h-full w-full object-cover"
             />
           </div>
@@ -156,9 +157,11 @@ export default function AboutPage() {
             <CardContent className="p-8">
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
                 <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-muted">
-                  <span className="flex h-full w-full items-center justify-center text-3xl font-semibold text-muted-foreground">
-                    小
-                  </span>
+                  <img
+                    src="/images/team/ceo-kobayashi.jpg"
+                    alt="小林 慎吾"
+                    className="h-full w-full object-cover object-[center_22%]"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-foreground">小林 慎吾</h3>
