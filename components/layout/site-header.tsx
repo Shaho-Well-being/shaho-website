@@ -13,7 +13,7 @@ const navItems = [
   { label: "課題別", href: "/solutions" },
   { label: "ブログ", href: "/blog" },
   { label: "お役立ち", href: "/resources" },
-  { label: "導入事例", href: "/case-studies" },
+  { label: "専門家の推薦", href: "/case-studies" },
   { label: "料金", href: "/pricing" },
   { label: "会社概要", href: "/about" },
 ];

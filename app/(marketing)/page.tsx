@@ -1,7 +1,7 @@
 import { Hero } from "@/components/home/hero";
 import { Stats } from "@/components/home/stats";
 import { FeaturesOverview } from "@/components/home/features-overview";
-import { Testimonials } from "@/components/home/testimonials";
+import { ExpertEndorsements } from "@/components/home/expert-endorsements";
 import { BlogPreview } from "@/components/home/blog-preview";
 import { CTA } from "@/components/home/cta";
 import { isMicroCMSConfigured, getBlogPosts } from "@/lib/microcms";
@@ -22,7 +22,7 @@ export default async function HomePage() {
       <Hero />
       <Stats />
       <FeaturesOverview />
-      <Testimonials />
+      <ExpertEndorsements />
       <BlogPreview posts={blogPosts} />
       <CTA />
     </>
