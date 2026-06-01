@@ -32,7 +32,7 @@ export function ExpertAvatar({
           alt={`${name}様`}
           fill
           sizes="96px"
-          className="object-cover"
+          className="object-cover object-top"
           onError={() => setFailed(true)}
         />
       ) : (
