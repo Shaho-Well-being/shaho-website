@@ -97,10 +97,12 @@ export default function AdminWebPage() {
               </Link>
             </Button>
           </div>
-          <div className="relative aspect-video overflow-hidden rounded-2xl bg-muted lg:aspect-[4/3]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <BarChart3 className="h-24 w-24 text-muted-foreground/30" />
-            </div>
+          <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-muted/30 lg:aspect-[4/3]">
+            <img
+              src="/kanri_gamen.png"
+              alt="社宝の管理画面ダッシュボード"
+              className="h-full w-full object-contain object-center p-2"
+            />
           </div>
         </div>
       </section>
