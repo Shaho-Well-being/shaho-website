@@ -15,8 +15,9 @@ const features = [
     icon: Gift,
     title: "福利厚生",
     description: "ポイント制福利厚生で、従業員一人ひとりに合わせた柔軟な制度設計が可能に。10,000以上のギフト・体験から自由に選択できます。",
-    href: "/features/benefits",
-    image: "/images/features/features-benefits.jpg",
+    href: "/solutions/engagement",
+    image: "/images/features/features-benefits-quo.jpg",
+    imageFit: "contain" as const,
     features: [
       "ポイント付与・管理機能",
       "10,000以上のギフト・体験カタログ",
@@ -29,8 +30,13 @@ const features = [
     icon: Heart,
     title: "健康管理",
     description: "従業員の健康データを一元管理。予防医療の推進と健康リスクの早期発見をサポートします。",
-    href: "/features/health",
-    image: "/images/features/features-health.jpg",
+    href: "/solutions/health-management",
+    image: "/スクリーンショット 0008-06-02 1.57.28.png",
+    imageFit: "contain" as const,
+    imageAspect: "aspect-[4/3]" as const,
+    imagePadding: "p-0" as const,
+    imageColumnWide: true,
+    unoptimized: true,
     features: [
       "健康データダッシュボード",
       "ウェアラブル連携",
@@ -43,8 +49,9 @@ const features = [
     icon: ClipboardCheck,
     title: "健診・ストレスチェック",
     description: "健康診断の予約から結果管理、ストレスチェックまで、法令遵守をワンストップで対応。",
-    href: "/features/checkup",
-    image: "/images/features/features-checkup.jpg",
+    href: "/solutions/stress-check",
+    image: "/ストレスチェック.jpg",
+    imageFit: "contain" as const,
     features: [
       "オンライン健診予約",
       "健診結果の自動取込",
@@ -58,7 +65,8 @@ const features = [
     title: "人事・管理者向け（Web）",
     description: "人事・総務担当者のための管理ダッシュボード。組織管理、ストレスチェック、ポイント・通知、分析を一元管理。",
     href: "/features/admin-web",
-    image: "/images/features/features-admin.jpg",
+    image: "/kanri_gamen.png",
+    imageFit: "contain" as const,
     features: [
       "組織・従業員・権限管理",
       "ストレスチェック配信・集計・労基署提出",
@@ -71,7 +79,9 @@ const features = [
     title: "従業員向け（アプリ）",
     description: "健康記録、ポイント交換、コンテンツ、メンタルケアまで。毎日使いたくなるひとつのアプリで。",
     href: "/features/employee-app",
-    image: "/images/features/features-health.jpg",
+    image: "/images/features/app-intro.png",
+    imageFit: "contain" as const,
+    unoptimized: true,
     features: [
       "健康管理・フィットネス記録",
       "福利厚生ポイントで商品・サブスク交換",
@@ -149,7 +159,13 @@ export default function FeaturesPage() {
               }`}
             >
               {/* Feature Content */}
-              <div className="flex-1">
+              <div
+                className={
+                  "imageColumnWide" in feature && feature.imageColumnWide
+                    ? "flex-1 lg:flex-[0.85]"
+                    : "flex-1"
+                }
+              >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-muted">
                   <feature.icon className="h-7 w-7 text-foreground" />
                 </div>
@@ -176,17 +192,34 @@ export default function FeaturesPage() {
               </div>
 
               {/* Feature Visual */}
-              <div className="flex-1">
+              <div
+                className={
+                  "imageColumnWide" in feature && feature.imageColumnWide
+                    ? "w-full flex-1 lg:flex-[1.15]"
+                    : "flex-1"
+                }
+              >
                 <Card className="overflow-hidden">
                   <CardContent className="p-0">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted/50">
+                    <div
+                      className={`relative w-full overflow-hidden bg-muted/30 ${
+                        "imageAspect" in feature && feature.imageAspect
+                          ? feature.imageAspect
+                          : "aspect-[4/3]"
+                      }`}
+                    >
                       {feature.image ? (
                         <Image
                           src={feature.image}
                           alt={feature.title}
                           fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          unoptimized={"unoptimized" in feature && feature.unoptimized}
+                          className={
+                            "imageFit" in feature && feature.imageFit === "contain"
+                              ? `object-contain ${"imagePadding" in feature && feature.imagePadding ? feature.imagePadding : "p-4"}`
+                              : "object-cover"
+                          }
+                          sizes="(max-width: 1024px) 100vw, 55vw"
                         />
                       ) : (
                         <div className="flex h-full items-center justify-center">
