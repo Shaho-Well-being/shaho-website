@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const usagePoints = [
   "利用率が上がる制度設計",
   "拠点差を抑えるデジタル運用",
-  "健康施策まで一つに統合",
+  "活動ログが申請の証跡に",
 ];
 
 export function Hero() {
@@ -38,8 +38,8 @@ export function Hero() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-pretty text-xl leading-9 text-white drop-shadow-md sm:text-2xl">
-              社宝は、福利厚生、健康経営、健診、ストレスチェックを一つにつなぐプラットフォーム。
-              制度を配るだけで終わらず、従業員にきちんと使われる仕組みまで設計できます。
+              社宝は、福利厚生・健康経営・ストレスチェックを一つにまとめるプラットフォーム。
+              制度を配るだけで終わらず、従業員にきちんと使われ、その活動が記録として残る仕組みまで設計できます。
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3.5">

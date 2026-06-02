@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Clock } from "lucide-react";
 import { BlogCard } from "@/components/blog/blog-card";
 import { fetchBlogPosts } from "@/lib/data/blog";
-import { formatDate } from "@/lib/utils";
+import { formatDate, normalizeCategoryName } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "ブログ | 社宝",
@@ -48,7 +48,7 @@ export default async function BlogPage() {
                     />
                   ) : (
                     <div className="text-6xl text-muted-foreground/20">
-                      {featuredPost.category?.name?.slice(0, 1) ?? "?"}
+                      {normalizeCategoryName(featuredPost.category?.name).slice(0, 1) || "?"}
                     </div>
                   )}
                 </div>
@@ -56,7 +56,7 @@ export default async function BlogPage() {
                 <div className="flex flex-col justify-center p-6 lg:p-8">
                   <div className="flex items-center gap-3 text-sm">
                     <span className="rounded-full bg-accent px-3 py-1 text-accent-foreground">
-                      {featuredPost.category?.name ?? "—"}
+                      {normalizeCategoryName(featuredPost.category?.name) || "—"}
                     </span>
                     <span className="flex items-center gap-1 text-muted-foreground">
                       <Clock className="h-4 w-4" />

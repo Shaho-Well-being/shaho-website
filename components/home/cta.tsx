@@ -14,17 +14,14 @@ export function CTA() {
           <div className="absolute bottom-0 left-0 -z-10 h-56 w-56 rounded-full bg-primary/25 blur-3xl" />
 
           <div className="mx-auto max-w-2xl text-center">
-            <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white/85 backdrop-blur">
-              Final CTA
-            </div>
-            <h2 className="mt-6 text-balance text-3xl font-black tracking-tight text-background sm:text-4xl lg:text-5xl">
+            <h2 className="text-balance text-3xl font-black tracking-tight text-background sm:text-4xl lg:text-5xl">
               使われない福利厚生を、
               <br />
               使いたくなる制度へ。
             </h2>
             <p className="mt-5 text-lg leading-8 text-background/80">
-              福利厚生、健康経営、健診、ストレスチェックを切り分けず、
-              一つの体験として整えたい企業さま向けに、社宝の設計思想と画面イメージをご案内します。
+              福利厚生・健康経営・ストレスチェックを切り分けず、
+              日常の利用が申請の証跡として残る——そんな体験を整えたい企業さま向けに、社宝の設計思想と画面イメージをご案内します。
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button

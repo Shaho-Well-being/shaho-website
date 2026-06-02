@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Clock, Share2, Twitter, Linkedin } from "lucide-react";
 import { BlogCard } from "@/components/blog/blog-card";
 import { fetchBlogPost, fetchBlogPosts, fetchBlogStaticParams } from "@/lib/data/blog";
-import { formatDate } from "@/lib/utils";
+import { formatDate, normalizeCategoryName } from "@/lib/utils";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -61,7 +61,7 @@ export default async function BlogDetailPage({ params }: Props) {
         <header>
           <div className="flex items-center gap-3 text-sm">
             <span className="rounded-full bg-secondary px-3 py-1 text-secondary-foreground">
-              {post.category?.name ?? "—"}
+              {normalizeCategoryName(post.category?.name) || "—"}
             </span>
             <span className="flex items-center gap-1 text-muted-foreground">
               <Clock className="h-4 w-4" />
@@ -100,7 +100,7 @@ export default async function BlogDetailPage({ params }: Props) {
               />
             ) : (
               <div className="flex h-full items-center justify-center text-6xl text-muted-foreground/20">
-                {post.category?.name?.slice(0, 1) ?? "?"}
+                {normalizeCategoryName(post.category?.name).slice(0, 1) || "?"}
               </div>
             )}
           </div>

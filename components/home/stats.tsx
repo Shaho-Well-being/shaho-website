@@ -1,12 +1,7 @@
 const problems = [
-  "制度の利用率が低い",
-  "管理・運用が煩雑",
-  "拠点差や雇用形態の差が出やすい",
-  "福利厚生が採用訴求につながらない",
-  "健康施策と制度が分断している",
-  "従業員が制度を把握しきれない",
-  "紙や個別対応が残っている",
-  "使われているか可視化できない",
+  "用意したのに使われない福利厚生",
+  "バラバラで運用が重い健康施策と法定対応",
+  "「ちゃんと効いているか」が見えない",
 ];
 
 const outcomes = [
@@ -33,11 +28,11 @@ export function Stats() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {problems.map((problem) => (
               <div
                 key={problem}
-                className="rounded-[24px] border border-white/70 bg-white/90 px-5 py-4 text-center text-sm font-semibold text-foreground shadow-sm backdrop-blur sm:text-base"
+                className="rounded-[24px] border border-white/70 bg-white/90 px-5 py-5 text-center text-sm font-semibold text-foreground shadow-sm backdrop-blur sm:text-base"
               >
                 {problem}
               </div>
@@ -50,9 +45,9 @@ export function Stats() {
                 Solution
               </div>
               <p className="mt-3 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
-                これらの悩みを、社宝なら
-                <span className="text-primary">「使われる仕組み」</span>
-                に変えられます。
+                社宝は、この3つを
+                <span className="text-primary">「使われて・回って・記録に残る」</span>
+                状態に変えます。
               </p>
             </div>
 
