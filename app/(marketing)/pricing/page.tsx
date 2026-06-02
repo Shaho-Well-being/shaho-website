@@ -221,7 +221,12 @@ export default function PricingPage() {
 
       {/* CTA */}
       <section className="mx-auto mt-24 max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-foreground px-6 py-16 text-center sm:px-12">
+        <div className="relative overflow-hidden rounded-3xl bg-[linear-gradient(135deg,#123247_0%,#1f5061_48%,#2e6c78_100%)] px-6 py-16 text-center shadow-[0_28px_80px_-40px_rgba(17,57,70,0.8)] sm:px-12">
+          <div className="absolute inset-0 -z-10 opacity-15">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
+          </div>
+          <div className="absolute -right-16 top-8 -z-10 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -bottom-16 left-0 -z-10 h-56 w-56 rounded-full bg-cyan-300/20 blur-3xl" />
           <h2 className="text-2xl font-bold text-background sm:text-3xl">
             まずは無料デモをお試しください
           </h2>
