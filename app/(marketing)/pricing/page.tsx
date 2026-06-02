@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -9,6 +10,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  MarketingCtaPanel,
+  marketingCtaButtonPrimary,
+  marketingCtaButtonSecondary,
+} from "@/components/marketing/cta-panel";
 
 export const metadata: Metadata = {
   title: "料金プラン | 社宝",
@@ -221,40 +227,32 @@ export default function PricingPage() {
 
       {/* CTA */}
       <section className="mx-auto mt-24 max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-[linear-gradient(135deg,#123247_0%,#1f5061_48%,#2e6c78_100%)] px-6 py-16 text-center shadow-[0_28px_80px_-40px_rgba(17,57,70,0.8)] sm:px-12">
-          <div className="absolute inset-0 -z-10 opacity-15">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
-          </div>
-          <div className="absolute -right-16 top-8 -z-10 h-44 w-44 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute -bottom-16 left-0 -z-10 h-56 w-56 rounded-full bg-cyan-300/20 blur-3xl" />
-          <h2 className="text-2xl font-bold text-background sm:text-3xl">
-            まずは無料デモをお試しください
-          </h2>
-          <p className="mt-4 text-background/80">
-            14日間の無料トライアルで、社宝のすべての機能をご体験いただけます。
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <MarketingCtaPanel
+          compact
+          title="まずは無料デモをお試しください"
+          description="14日間の無料トライアルで、社宝のすべての機能をご体験いただけます。"
+        >
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <Button
               size="lg"
-              variant="secondary"
-              className="w-full bg-background text-foreground hover:bg-background/90 sm:w-auto"
+              className={cn("w-full sm:w-auto", marketingCtaButtonPrimary)}
               asChild
             >
               <Link href="/contact?type=demo">
                 無料デモを予約
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="w-full border-background/30 bg-transparent text-background hover:bg-background/10 sm:w-auto"
+              className={cn("w-full sm:w-auto", marketingCtaButtonSecondary)}
               asChild
             >
               <Link href="/contact">お問い合わせ</Link>
             </Button>
           </div>
-        </div>
+        </MarketingCtaPanel>
       </section>
     </div>
   );

@@ -3,6 +3,10 @@ import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Target, Heart, Users, Sparkles, Award, Shield, BadgeCheck } from "lucide-react";
+import {
+  MarketingCtaPanel,
+  marketingCtaButtonPrimary,
+} from "@/components/marketing/cta-panel";
 
 export const metadata: Metadata = {
   title: "会社概要 | 社宝",
@@ -247,25 +251,22 @@ export default function AboutPage() {
 
       {/* Contact CTA */}
       <section className="mx-auto mt-24 max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-foreground px-6 py-16 text-center sm:px-12">
-          <h2 className="text-2xl font-bold text-background sm:text-3xl">
-            お気軽にお問い合わせください
-          </h2>
-          <p className="mt-4 text-background/80">
-            社宝の導入についてのご相談、デモのご依頼など、まずはお気軽にご連絡ください。
-          </p>
+        <MarketingCtaPanel
+          compact
+          title="お気軽にお問い合わせください"
+          description="社宝の導入についてのご相談、デモのご依頼など、まずはお気軽にご連絡ください。"
+        >
           <Button
             size="lg"
-            variant="secondary"
-            className="mt-8 bg-background text-foreground hover:bg-background/90"
+            className={`mt-8 ${marketingCtaButtonPrimary}`}
             asChild
           >
             <Link href="/contact">
               お問い合わせ
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
-        </div>
+        </MarketingCtaPanel>
       </section>
     </div>
   );
