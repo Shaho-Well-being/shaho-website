@@ -2,12 +2,12 @@ import { CalendarClock, FolderX, Users } from "lucide-react";
 
 const problems = [
   {
-    icon: CalendarClock,
-    keyword: "毎年追われるストレスチェック",
-    description: "集計・産業医連携・報告書提出まで、年1回の法定対応なのに工数がかかりすぎる。",
-    iconColor: "text-sky-800",
-    iconBg: "bg-sky-100",
-    border: "border-l-sky-400",
+    icon: Users,
+    keyword: "使う人と使わない人の差",
+    description: "福利厚生を導入しても、利用率にばらつきが出て「制度を作っただけ」になってしまう。",
+    iconColor: "text-yellow-700",
+    iconBg: "bg-yellow-100",
+    border: "border-l-yellow-400",
   },
   {
     icon: FolderX,
@@ -18,22 +18,22 @@ const problems = [
     border: "border-l-emerald-400",
   },
   {
-    icon: Users,
-    keyword: "使う人と使わない人の差",
-    description: "福利厚生を導入しても、利用率にばらつきが出て「制度を作っただけ」になってしまう。",
-    iconColor: "text-yellow-700",
-    iconBg: "bg-yellow-100",
-    border: "border-l-yellow-400",
+    icon: CalendarClock,
+    keyword: "毎年追われるストレスチェック",
+    description: "集計・産業医連携・報告書提出まで、年1回の法定対応なのに工数がかかりすぎる。",
+    iconColor: "text-sky-800",
+    iconBg: "bg-sky-100",
+    border: "border-l-sky-400",
   },
 ];
 
 const outcomes = [
   {
-    label: "ストレスチェック",
-    sub: "実施から労基署への報告まで、ひとつの管理画面で完結します。",
-    bg: "bg-sky-50",
-    text: "text-sky-900",
-    sub_text: "text-sky-700/80",
+    label: "ポイント福利厚生",
+    sub: "役職・拠点に関わらず全員が同じ機会を得られる仕組みを設計できます。",
+    bg: "bg-yellow-50",
+    text: "text-yellow-900",
+    sub_text: "text-yellow-700/80",
   },
   {
     label: "セルフヘルスケア × 認定支援",
@@ -43,11 +43,11 @@ const outcomes = [
     sub_text: "text-emerald-700/80",
   },
   {
-    label: "ポイント福利厚生",
-    sub: "役職・拠点に関わらず全員が同じ機会を得られる仕組みを設計できます。",
-    bg: "bg-yellow-50",
-    text: "text-yellow-900",
-    sub_text: "text-yellow-700/80",
+    label: "ストレスチェック",
+    sub: "実施から労基署への報告まで、ひとつの管理画面で完結します。",
+    bg: "bg-sky-50",
+    text: "text-sky-900",
+    sub_text: "text-sky-700/80",
   },
 ];
 
