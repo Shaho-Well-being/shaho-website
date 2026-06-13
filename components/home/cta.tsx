@@ -20,12 +20,12 @@ export function CTA() {
         <MarketingCtaPanel
           title={
             <>
-              使われない福利厚生を、
+              2028年の義務化に、
               <br />
-              使いたくなる制度へ。
+              今から備える。
             </>
           }
-          description="福利厚生・健康経営・ストレスチェックを一つの体験に。日常の健康行動が活動記録として蓄積される仕組みを、企業さま向けにご案内します。"
+          description="ストレスチェック・健康経営認定・ポイント福利厚生の3本柱を、社宝ひとつで整えます。法定対応から従業員体験の改善まで、まずはお気軽にご相談ください。"
           footer={
             <div className="flex flex-wrap items-center justify-center gap-3">
               {trustBadges.map((label) => (

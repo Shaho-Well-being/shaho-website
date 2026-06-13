@@ -6,6 +6,7 @@ const points = [
   "人数制限なし",
   "最短1週間で全社展開",
   "ポイント付与額で選ぶシンプル設計",
+  "IT導入補助金の対象（申請状況は要確認）",
 ];
 
 export function PricingTeaser() {
@@ -26,8 +27,9 @@ export function PricingTeaser() {
                 <span className="text-xl font-bold text-foreground">/人〜</span>
               </h2>
               <p className="mt-4 max-w-xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
-                福利厚生から始めて、健康経営・ストレスチェックまで段階的に拡張できます。
-                プラットフォーム利用料は別途。詳細はお見積りでご案内します。
+                福利厚生から始めて、ストレスチェック・健康経営認定支援まで段階的に拡張できます。
+                プラットフォーム利用料は別途。IT導入補助金の活用でコストを抑えた導入も可能です。
+                詳細はお見積りでご案内します。
               </p>
               <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
                 {points.map((point) => (
