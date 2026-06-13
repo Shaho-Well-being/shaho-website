@@ -16,7 +16,7 @@ const flow = [
   {
     icon: FileOutput,
     title: "出力する",
-    description: "貯まった記録を、認定申請の証跡として出力できます。",
+    description: "ストレスチェック実施率・歩数目標達成率など、活動記録をダッシュボードで確認できます。",
   },
 ];
 
@@ -41,7 +41,7 @@ export function KenkoKeiei() {
 
             <p className="mt-6 text-pretty text-base leading-8 text-muted-foreground sm:text-lg">
               健康経営優良法人の申請でつまずくのは、施策そのものより「やった証拠を集めること」。
-              社宝なら、従業員が普段アプリを使うだけで、申請に必要な活動記録がそのまま蓄積・出力できます。
+              社宝なら、従業員が普段アプリを使うだけで、ストレスチェック実施率や歩数目標達成率などの活動記録が蓄積されます。
               中小企業が無理なく認定を狙える状態をつくります。
             </p>
 
@@ -58,7 +58,7 @@ export function KenkoKeiei() {
                 className="h-14 rounded-full border-primary/20 bg-white px-8 text-base"
                 asChild
               >
-                <Link href="/contact?type=demo">認定取得を相談する</Link>
+                <Link href="/contact">認定取得を相談する</Link>
               </Button>
             </div>
           </div>
