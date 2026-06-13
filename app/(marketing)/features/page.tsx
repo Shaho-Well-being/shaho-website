@@ -14,22 +14,23 @@ const features = [
   {
     icon: Gift,
     title: "福利厚生",
-    description: "ポイント制福利厚生で、従業員一人ひとりに合わせた柔軟な制度設計が可能に。10,000以上のギフト・体験から自由に選択できます。",
+    description:
+      "ポイント制福利厚生で、従業員に柔軟なインセンティブを提供。電子マネー交換やカタログ交換で、日常の中で使いやすい体験をつくります。",
     href: "/solutions/engagement",
     image: "/images/features/features-benefits-quo.jpg",
     imageFit: "contain" as const,
     features: [
       "ポイント付与・管理機能",
-      "10,000以上のギフト・体験カタログ",
-      "家族利用オプション",
-      "カフェテリアプラン対応",
+      "ポイント交換カタログ",
+      "電子マネー交換（PayPay・Amazon・QUOカードPay等）",
       "利用状況レポート",
     ],
   },
   {
     icon: Heart,
     title: "健康管理",
-    description: "従業員の健康データを一元管理。予防医療の推進と健康リスクの早期発見をサポートします。",
+    description:
+      "歩数・睡眠などの健康行動を端末内で記録し、達成状況を可視化。センシティブな健康データはサーバーに送らないプライバシー設計です。",
     href: "/solutions/health-management",
     image: "/スクリーンショット 0008-06-02 1.57.28.png",
     imageFit: "contain" as const,
@@ -38,26 +39,25 @@ const features = [
     imageColumnWide: true,
     unoptimized: true,
     features: [
-      "健康データダッシュボード",
-      "ウェアラブル連携",
-      "健康スコアリング",
-      "個別健康アドバイス",
-      "健康増進プログラム",
+      "歩数・睡眠等の端末内記録",
+      "Apple Health / Google Fit 連携",
+      "歩数目標達成イベントの集計",
+      "健康記事・ワークアウトコンテンツ",
     ],
   },
   {
     icon: ClipboardCheck,
     title: "健診・ストレスチェック",
-    description: "健康診断の予約から結果管理、ストレスチェックまで、法令遵守をワンストップで対応。",
+    description:
+      "57設問ストレスチェックの実施から集団分析、労働基準監督署への報告まで、法令対応をワンストップで支援します。",
     href: "/solutions/stress-check",
     image: "/ストレスチェック.jpg",
     imageFit: "contain" as const,
     features: [
-      "オンライン健診予約",
-      "健診結果の自動取込",
-      "ストレスチェック実施",
-      "集団分析レポート",
-      "法定報告書出力",
+      "57設問ストレスチェック実施",
+      "集団分析レポート（10名未満非開示）",
+      "労基署提出用XMLエクスポート",
+      "面接指導フロー（産業医向け）",
     ],
   },
   {
@@ -77,7 +77,7 @@ const features = [
   {
     icon: Smartphone,
     title: "従業員向け（アプリ）",
-    description: "健康記録、ポイント交換、コンテンツ、メンタルケアまで。毎日使いたくなるひとつのアプリで。",
+    description: "健康記録、ポイント交換、コンテンツ、AIチャットまで。毎日使いたくなるひとつのアプリで。",
     href: "/features/employee-app",
     image: "/images/features/app-intro.png",
     imageFit: "contain" as const,
@@ -86,7 +86,7 @@ const features = [
       "健康管理・フィットネス記録",
       "福利厚生ポイントで商品・サブスク交換",
       "健康記事・カタログ閲覧",
-      "AIチャットによるメンタルケア",
+      "AIキャラクターによる健康相談",
     ],
   },
 ];
@@ -239,15 +239,15 @@ export default function FeaturesPage() {
       <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl bg-muted/50 px-6 py-16 text-center sm:px-12 lg:px-24">
           <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            すべての機能を体験する
+            導入のご相談
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            無料デモで社宝の全機能をご確認いただけます。
+            社宝の機能や導入フローについて、お気軽にお問い合わせください。
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
-              <Link href="/contact?type=demo">
-                無料デモを予約
+              <Link href="/contact">
+                お問い合わせ
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
