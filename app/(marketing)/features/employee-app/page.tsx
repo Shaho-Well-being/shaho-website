@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "従業員向けモバイルアプリ機能 | 社宝",
   description:
-    "毎日使いたくなるアプリで、健康と福利厚生をワンストップ。食事・運動記録、ポイント交換、メンタルケアまで。",
+    "毎日使いたくなるアプリで、健康と福利厚生をワンストップ。食事・運動記録、ポイント交換、健康相談まで。",
 };
 
 const featureCategories = [
@@ -48,11 +48,11 @@ const featureCategories = [
     ],
   },
   {
-    title: "メンタルケア",
-    description: "ひとりで抱え込まない。話すだけで、心が軽くなる。",
+    title: "セルフケア・健康相談",
+    description: "ひとりで抱え込まない。気軽に話せる相手がいる安心感を。",
     icon: MessageCircle,
     items: [
-      { label: "AIキャラクターとのチャット", detail: "24時間いつでも、気軽に気持ちを話せる相手がいる" },
+      { label: "AIキャラクターとの健康相談", detail: "気軽に健康や気分について話せるセルフケア支援（医療行為の代替ではありません）" },
       { label: "セルフケアのヒント", detail: "会話に応じて、休息やリフレッシュの提案を受けられる" },
     ],
   },
@@ -69,7 +69,7 @@ const benefits = [
   },
   {
     title: "心のセーフティネット",
-    description: "AIチャットでいつでも話せる窓口があることで、メンタル不調の予防と早期の気づきをサポートします。",
+    description: "AIキャラクターによる健康相談・セルフケア支援で、気軽に話せる窓口を提供します。",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function EmployeeAppPage() {
               <span className="text-accent-strong">健康と福利厚生アプリ。</span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              記録・ポイント・コンテンツ・メンタルケアまで、従業員の「カラダ」と「ココロ」を
+              記録・ポイント・コンテンツ・健康相談まで、従業員の「カラダ」と「ココロ」を
               ひとつのアプリで。シンプルなUIで、忙しい毎日でも無理なく続けられます。
             </p>
             <Button className="mt-8" size="lg" asChild>
@@ -114,7 +114,7 @@ export default function EmployeeAppPage() {
             アプリでできること
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            健康・福利厚生・コンテンツ・メンタルケアを、ひとつのアプリに集約。
+            健康・福利厚生・コンテンツ・セルフケア支援を、ひとつのアプリに集約。
           </p>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-2">

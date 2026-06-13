@@ -5,7 +5,7 @@ import {
   Award,
   ArrowRight,
   ClipboardList,
-  FileOutput,
+  BarChart3,
   Smartphone,
   CheckCircle2,
 } from "lucide-react";
@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "健康経営優良法人サポート | 社宝",
   description:
-    "健康経営優良法人の認定申請でつまずく「証跡集め」を、日常のアプリ利用だけで蓄積・出力。中小企業が無理なく認定を狙える状態をつくります。",
+    "健康経営優良法人の認定申請でつまずく「証跡集め」を、日常のアプリ利用だけで蓄積・可視化。中小企業が無理なく認定を狙える状態をつくります。",
 };
 
 const steps = [
@@ -32,11 +32,11 @@ const steps = [
       "アプリの利用が、申請に必要な活動記録として自動で蓄積されます。「やった証拠」が後から探さずに残ります。",
   },
   {
-    icon: FileOutput,
+    icon: BarChart3,
     step: "STEP 3",
-    title: "出力する",
+    title: "確認する",
     description:
-      "蓄積された活動ログを、認定申請の証跡として出力。申請準備の負担を大きく減らせます。",
+      "蓄積された活動記録をダッシュボードや申請ガイドで確認・整理。申請準備の負担を大きく減らせます。",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function HealthManagementSupportPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-8 text-muted-foreground sm:text-lg">
             健康経営優良法人の申請でつまずくのは、施策そのものより「やった証拠を集めること」。
-            社宝なら、従業員が普段アプリを使うだけで、申請に必要な活動記録がそのまま蓄積・出力できます。
+            社宝なら、従業員が普段アプリを使うだけで、ストレスチェック実施率や歩数目標達成率などの活動記録がダッシュボードに蓄積されます。
             中小企業が無理なく認定を狙える状態をつくります。
           </p>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
@@ -115,7 +115,7 @@ export default function HealthManagementSupportPage() {
               How it works
             </div>
             <h2 className="mt-4 text-balance text-3xl font-black tracking-tight text-foreground sm:text-4xl">
-              使うだけで、証跡が貯まって、出力できる
+              使うだけで、証跡が貯まって、ダッシュボードで確認できる
             </h2>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -161,13 +161,13 @@ export default function HealthManagementSupportPage() {
               </h2>
               <p className="mt-3 text-base leading-8 text-muted-foreground">
                 認定取得を経験したからこそ、申請準備で本当に大変なポイントを理解しています。
-                中小企業診断士によるサポートも含め、認定を目指す企業さまを伴走支援します。
+                導入支援・ご相談に対応し、認定を目指す企業さまをサポートします。
               </p>
               <ul className="mt-5 space-y-2">
                 {[
-                  "活動ログを証跡として蓄積・出力",
+                  "活動記録をダッシュボードで可視化・整理",
                   "認定基準に沿った施策の整理",
-                  "中小企業診断士によるサポート",
+                  "導入時のご相談・導入支援",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm font-medium text-foreground">
                     <CheckCircle2 className="h-4 w-4 text-primary" />

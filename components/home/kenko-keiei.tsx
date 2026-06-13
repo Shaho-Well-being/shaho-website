@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Award, ArrowRight, ClipboardList, FileOutput, Smartphone } from "lucide-react";
+import { Award, ArrowRight, ClipboardList, BarChart3, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const flow = [
@@ -14,8 +14,8 @@ const flow = [
     description: "その利用が、申請に必要な活動記録としてそのまま蓄積されます。",
   },
   {
-    icon: FileOutput,
-    title: "出力する",
+    icon: BarChart3,
+    title: "確認する",
     description: "ストレスチェック実施率・歩数目標達成率など、活動記録をダッシュボードで確認できます。",
   },
 ];
