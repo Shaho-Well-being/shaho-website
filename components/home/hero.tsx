@@ -33,24 +33,19 @@ export function Hero() {
           </div>
 
           <h1
-            className="mt-6 text-5xl font-black tracking-tight text-foreground sm:text-6xl lg:text-7xl lg:leading-[1.08]"
+            className="mt-6 text-[2.6rem] font-black tracking-tight text-foreground leading-[1.18] sm:text-5xl sm:leading-[1.15] lg:text-[3.5rem] lg:leading-[1.15]"
             style={{ textShadow: '0 0 24px rgba(255,255,255,1), 0 0 8px rgba(255,255,255,1), -1px 0 0 rgba(255,255,255,0.9), 1px 0 0 rgba(255,255,255,0.9), 0 -1px 0 rgba(255,255,255,0.9), 0 1px 0 rgba(255,255,255,0.9)' }}
           >
-            ストレスチェックも、
-            <br />
-            健康経営も、
-            <br />
-            福利厚生も。
+            <span className="block">福利厚生も</span>
+            <span className="block">法定義務も</span>
+            <span className="block">ひとつのアプリで</span>
+            <span className="block">働きやすいを実現する</span>
           </h1>
-          <p className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
-            3つの課題を、社宝ひとつで。
-          </p>
-
           <p
-            className="mt-6 max-w-xl text-pretty text-lg leading-8 text-foreground/90"
-            style={{ textShadow: '0 0 16px rgba(255,255,255,1), 0 0 6px rgba(255,255,255,1)' }}
+            className="mt-3 text-lg font-bold text-primary sm:text-xl"
+            style={{ textShadow: '0 0 16px rgba(255,255,255,1)' }}
           >
-            法定対応から健康経営認定支援まで、ひとつのアプリで整えます。
+            従業員が本当に使いたくなる体験を
           </p>
 
           {/* 3 pillar pills */}
