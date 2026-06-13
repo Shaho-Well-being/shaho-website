@@ -155,8 +155,8 @@ export default function StressCheckPage() {
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" asChild>
-              <Link href="/contact?type=demo">
-                無料デモを予約する
+              <Link href="/contact">
+                お問い合わせ
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -343,7 +343,7 @@ export default function StressCheckPage() {
           </h2>
           <p className="mt-4 text-background/80">
             設問設定・配信・集計・書類提出まで、担当者1名でも運用できる仕組みを提供します。
-            まずは無料デモで、実際の管理画面をご覧ください。
+            導入のご相談はお気軽にお問い合わせください。
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button
@@ -352,8 +352,8 @@ export default function StressCheckPage() {
               className="bg-background text-foreground hover:bg-background/90"
               asChild
             >
-              <Link href="/contact?type=demo">
-                無料デモを予約する
+              <Link href="/contact">
+                お問い合わせ
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

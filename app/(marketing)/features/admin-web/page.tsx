@@ -91,7 +91,7 @@ export default function AdminWebPage() {
               権限管理とダッシュボードで、効率とコンプライアンスを両立します。
             </p>
             <Button className="mt-8" size="lg" asChild>
-              <Link href="/contact?type=demo">
+              <Link href="/contact">
                 管理画面を無料で体験する
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -192,7 +192,7 @@ export default function AdminWebPage() {
       <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-2xl bg-foreground px-6 py-16 text-center sm:px-12">
           <h2 className="text-2xl font-bold tracking-tight text-background sm:text-3xl">
-            まずは無料デモで、実際の画面をご覧ください
+            導入のご相談はお気軽にお問い合わせください
           </h2>
           <p className="mt-4 text-background/80">
             管理画面の操作感やストレスチェックの流れを、その場でご説明します。
@@ -203,8 +203,8 @@ export default function AdminWebPage() {
             className="mt-8 bg-background text-foreground hover:bg-background/90"
             asChild
           >
-            <Link href="/contact?type=demo">
-              無料デモを予約する
+            <Link href="/contact">
+              お問い合わせ
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

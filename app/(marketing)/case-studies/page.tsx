@@ -51,15 +51,15 @@ export default function EndorsementsPage() {
             専門家も認める仕組みを、貴社でも。
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-7 text-primary-foreground/85 sm:text-base">
-            福利厚生・健康経営・法定対応を一つに。まずは無料デモで、社宝の体験価値をお確かめください。
+            福利厚生・健康経営・法定対応を一つに。お気軽にお問い合わせください。
           </p>
           <Button
             variant="secondary"
             className="mt-8 rounded-full bg-white text-foreground hover:bg-white/90"
             asChild
           >
-            <Link href="/contact?type=demo">
-              無料デモを予約する
+            <Link href="/contact">
+              お問い合わせ
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
