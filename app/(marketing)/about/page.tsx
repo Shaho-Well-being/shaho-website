@@ -172,7 +172,7 @@ export default function AboutPage() {
                   <p className="text-sm text-accent-strong">代表取締役 CEO ／ データサイエンティスト</p>
                   <div className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
                     <p>
-                      データサイエンティストとして多様な事業開発経験を持ち、東京大学大学院情報理工学系研究科での研究（2026年4月修了予定）と並行して経営を推進。
+                      東京大学大学院 情報理工学系研究科「データサイエンティスト本格養成プログラム」を修了。事業開発の現場経験とデータサイエンスを掛け合わせ、分析から実装まで一貫したプロダクトづくりで経営を牽引している。
                     </p>
                     <p>
                       iOS（Swift）・Android（Kotlin）・Flutterなどのモバイル技術に精通するほか、フィンテック・教育・労働法の知識を融合した事業設計を得意とする。
