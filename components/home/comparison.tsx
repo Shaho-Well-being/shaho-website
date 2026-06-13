@@ -16,18 +16,23 @@ const rows: { axis: string; note: string; cells: Record<string, Cell> }[] = [
   },
   {
     axis: "ヘルスケア連携",
-    note: "ストレスチェックや健康施策まで同じアプリで",
+    note: "健康施策と福利厚生を同じアプリで完結",
     cells: { shaho: "yes", welfare: "partial", healthcare: "yes" },
   },
   {
-    axis: "使いやすさ",
-    note: "従業員がスマホで迷わず使える体験",
-    cells: { shaho: "yes", welfare: "partial", healthcare: "yes" },
-  },
-  {
-    axis: "健康経営優良法人の証跡",
-    note: "日常の活動記録をダッシュボードで可視化",
+    axis: "法定ストレスチェック",
+    note: "実施・集計・報告を自社で一気通貫",
     cells: { shaho: "yes", welfare: "no", healthcare: "no" },
+  },
+  {
+    axis: "健康経営優良法人の認定支援",
+    note: "証跡収集から申請サポートまで",
+    cells: { shaho: "yes", welfare: "no", healthcare: "no" },
+  },
+  {
+    axis: "活動記録の可視化",
+    note: "利用率・実施率をダッシュボードで確認",
+    cells: { shaho: "yes", welfare: "partial", healthcare: "partial" },
   },
 ];
 
@@ -62,11 +67,13 @@ export function Comparison() {
             Comparison
           </div>
           <h2 className="mt-4 text-balance text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            タイプ別に見る、社宝の立ち位置
+            社宝が選ばれる理由は、
+            <br className="hidden sm:block" />
+            <span className="text-primary">「つながっていること」</span>にある。
           </h2>
           <p className="mt-4 text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
-            福利厚生の代行も、ヘルスケアの単体アプリも、それぞれに強みがあります。
-            社宝は、その両方を一つにまとめ、さらに認定に向けた活動記録をダッシュボードで残せることが特長です。
+            福利厚生代行サービスもヘルスケアアプリも、それぞれに強みがあります。
+            しかし法定ストレスチェックと認定申請サポートまで担えるのは、社宝だけです。
           </p>
         </div>
 
