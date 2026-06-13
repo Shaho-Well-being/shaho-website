@@ -26,7 +26,7 @@ const rows: { axis: string; note: string; cells: Record<string, Cell> }[] = [
   },
   {
     axis: "健康経営優良法人の証跡",
-    note: "日常の利用ログを申請の証跡として出力",
+    note: "日常の活動記録をダッシュボードで可視化",
     cells: { shaho: "yes", welfare: "no", healthcare: "no" },
   },
 ];

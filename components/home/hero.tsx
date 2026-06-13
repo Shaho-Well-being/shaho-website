@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const usagePoints = [
   "利用率が上がる制度設計",
   "拠点差を抑えるデジタル運用",
-  "活動ログが申請の証跡に",
+  "活動ログが健康施策の記録に",
 ];
 
 export function Hero() {
@@ -56,8 +56,8 @@ export function Hero() {
 
             <div className="mt-11 flex flex-col gap-4 sm:flex-row">
               <Button size="lg" className="h-16 rounded-full px-10 text-lg shadow-sm" asChild>
-                <Link href="/contact?type=demo">
-                  デモを相談する
+                <Link href="/contact">
+                  お問い合わせ
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>

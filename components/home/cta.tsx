@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, FileText } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import {
   MarketingCtaPanel,
   marketingCtaButtonPrimary,
@@ -25,7 +25,7 @@ export function CTA() {
               使いたくなる制度へ。
             </>
           }
-          description="福利厚生・健康経営・ストレスチェックを切り分けず、日常の利用が申請の証跡として残る——そんな体験を整えたい企業さま向けに、社宝の設計思想と画面イメージをご案内します。"
+          description="福利厚生・健康経営・ストレスチェックを一つの体験に。日常の健康行動が活動記録として蓄積される仕組みを、企業さま向けにご案内します。"
           footer={
             <div className="flex flex-wrap items-center justify-center gap-3">
               {trustBadges.map((label) => (
@@ -41,9 +41,8 @@ export function CTA() {
         >
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
             <Button size="lg" className={marketingCtaButtonPrimary} asChild>
-              <Link href="/contact?type=demo">
-                <Calendar className="h-4 w-4" />
-                無料デモを予約
+              <Link href="/contact">
+                お問い合わせ
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

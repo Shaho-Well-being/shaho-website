@@ -38,6 +38,7 @@ const footerLinks = {
       { label: "プライバシーポリシー", href: "/privacy" },
       { label: "セキュリティポリシー", href: "https://mobile-app-systems.co.jp/security-policy/", external: true },
       { label: "反社会的勢力への対応", href: "https://mobile-app-systems.co.jp/basic-policyagainst-anti-social-forces/", external: true },
+      { label: "よくある質問", href: "/faq" },
       { label: "特定商取引法に基づく表記", href: "/legal" },
     ],
   },

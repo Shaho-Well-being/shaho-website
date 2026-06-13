@@ -7,38 +7,50 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Calendar, FileText, MessageSquare, Check } from "lucide-react";
+import { Mail, MapPin, FileText, MessageSquare, Check } from "lucide-react";
 
 const contactTypes = [
-  {
-    id: "demo",
-    icon: Calendar,
-    title: "無料デモを予約",
-    description: "製品のデモンストレーションをご希望の方",
-  },
   {
     id: "document",
     icon: FileText,
     title: "資料請求",
-    description: "製品資料のダウンロードをご希望の方",
+    description: "製品資料のご請求",
   },
   {
     id: "inquiry",
     icon: MessageSquare,
     title: "お問い合わせ",
-    description: "ご質問・ご相談がある方",
+    description: "ご質問・ご相談・導入のご相談",
   },
 ];
 
 export default function ContactPage() {
   const searchParams = useSearchParams();
-  const initialType = searchParams.get("type") || "demo";
+  const initialType = searchParams.get("type") === "document" ? "document" : "inquiry";
   const [selectedType, setSelectedType] = useState(initialType);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const typeLabel = contactTypes.find((t) => t.id === selectedType)?.title ?? "お問い合わせ";
+    const subject = encodeURIComponent(`[社宝] ${typeLabel} - ${data.get("company")}`);
+    const body = encodeURIComponent(
+      [
+        `お問い合わせ種別: ${typeLabel}`,
+        `会社名: ${data.get("company")}`,
+        `部署名: ${data.get("department") || "—"}`,
+        `お名前: ${data.get("name")}`,
+        `メール: ${data.get("email")}`,
+        `電話: ${data.get("phone") || "—"}`,
+        `従業員数: ${data.get("employees") || "—"}`,
+        "",
+        "お問い合わせ内容:",
+        `${data.get("message") || "—"}`,
+      ].join("\n")
+    );
+    window.location.href = `mailto:contact@shaho-life.com?subject=${subject}&body=${body}`;
     setIsSubmitted(true);
   };
 
@@ -72,7 +84,7 @@ export default function ContactPage() {
             お問い合わせ
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            社宝についてのご質問、デモのご予約、資料請求など、
+            社宝についてのご質問、資料請求、導入のご相談など、
             お気軽にお問い合わせください。
           </p>
         </div>
@@ -84,7 +96,7 @@ export default function ContactPage() {
           {/* Form */}
           <div className="lg:col-span-2">
             {/* Contact Type Selection */}
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2">
               {contactTypes.map((type) => (
                 <button
                   key={type.id}

@@ -81,11 +81,11 @@ export default function SolutionsPage() {
       <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl bg-muted/50 px-6 py-12 text-center sm:px-12">
           <p className="text-lg text-muted-foreground">
-            どの課題からでも、まずは無料デモで社宝の機能をご確認ください。
+            どの課題からでも、お気軽にお問い合わせください。
           </p>
           <Button className="mt-6" size="lg" asChild>
-            <Link href="/contact?type=demo">
-              無料デモを予約
+            <Link href="/contact">
+              お問い合わせ
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

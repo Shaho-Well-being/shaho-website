@@ -178,7 +178,7 @@ export default async function BlogDetailPage({ params }: Props) {
         <div className="rounded-2xl bg-foreground px-6 py-12 text-center sm:px-12">
           <h2 className="text-2xl font-bold text-background">健康経営を始めませんか？</h2>
           <p className="mt-3 text-background/80">
-            社宝で福利厚生と健康管理を一元化。まずは無料デモをお試しください。
+            社宝で福利厚生と健康管理を一元化。導入のご相談はお問い合わせください。
           </p>
           <Button
             size="lg"
@@ -186,8 +186,8 @@ export default async function BlogDetailPage({ params }: Props) {
             className="mt-8 bg-background text-foreground hover:bg-background/90"
             asChild
           >
-            <Link href="/contact?type=demo">
-              無料デモを予約
+            <Link href="/contact">
+              お問い合わせ
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

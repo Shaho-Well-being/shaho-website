@@ -69,7 +69,7 @@ export default function HealthManagementSupportPage() {
           </p>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" className="h-14 rounded-full px-8 text-base" asChild>
-              <Link href="/contact?type=demo">
+              <Link href="/contact">
                 認定取得を相談する
                 <ArrowRight className="h-5 w-5" />
               </Link>
@@ -197,8 +197,8 @@ export default function HealthManagementSupportPage() {
                 className="h-14 rounded-full bg-background px-8 text-base text-foreground hover:bg-background/90"
                 asChild
               >
-                <Link href="/contact?type=demo">
-                  無料デモを予約
+                <Link href="/contact">
+                  お問い合わせ
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>

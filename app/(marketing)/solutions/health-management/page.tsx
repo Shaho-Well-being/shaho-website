@@ -271,8 +271,8 @@ export default function HealthManagementPage() {
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" asChild>
-              <Link href="/contact?type=demo">
-                無料デモを予約する
+              <Link href="/contact">
+                お問い合わせ
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -424,7 +424,7 @@ export default function HealthManagementPage() {
           </h2>
           <p className="mt-4 text-background/80">
             社宝の導入から認定申請まで、専任のカスタマーサクセスがサポートします。
-            まずは無料デモで、社宝がどこまでカバーできるかをご確認ください。
+            導入のご相談はお気軽にお問い合わせください。
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button
@@ -433,8 +433,8 @@ export default function HealthManagementPage() {
               className="bg-background text-foreground hover:bg-background/90"
               asChild
             >
-              <Link href="/contact?type=demo">
-                無料デモを予約する
+              <Link href="/contact">
+                お問い合わせ
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
