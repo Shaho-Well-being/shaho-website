@@ -7,7 +7,7 @@ const problems = [
     description: "集計・産業医連携・報告書提出まで、年1回の法定対応なのに工数がかかりすぎる。",
     iconColor: "text-sky-800",
     iconBg: "bg-sky-100",
-    cardBg: "bg-sky-50/60",
+    border: "border-l-sky-400",
   },
   {
     icon: FolderX,
@@ -15,15 +15,15 @@ const problems = [
     description: "健康経営優良法人を取りたいのに、「やった証拠」を別途かき集める作業で断念してしまう。",
     iconColor: "text-emerald-800",
     iconBg: "bg-emerald-100",
-    cardBg: "bg-emerald-50/60",
+    border: "border-l-emerald-400",
   },
   {
     icon: Users,
     keyword: "使う人と使わない人の差",
     description: "福利厚生を導入しても、利用率にばらつきが出て「制度を作っただけ」になってしまう。",
-    iconColor: "text-yellow-800",
+    iconColor: "text-yellow-700",
     iconBg: "bg-yellow-100",
-    cardBg: "bg-yellow-50/60",
+    border: "border-l-yellow-400",
   },
 ];
 
@@ -72,7 +72,7 @@ export function Stats() {
             {problems.map((p) => (
               <div
                 key={p.keyword}
-                className={`rounded-[24px] border border-white/70 ${p.cardBg} px-6 py-6 shadow-sm backdrop-blur`}
+                className={`rounded-[20px] border-l-4 ${p.border} bg-white px-6 py-6 shadow-sm`}
               >
                 <div className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${p.iconBg}`}>
                   <p.icon className={`h-5 w-5 ${p.iconColor}`} />
