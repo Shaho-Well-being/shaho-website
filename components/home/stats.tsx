@@ -67,40 +67,40 @@ export function Stats() {
             </h2>
           </div>
 
-          {/* Problem cards */}
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          {/* Problem cards ── モバイル: 3列コンパクト / デスクトップ: 詳細カード */}
+          <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4">
             {problems.map((p) => (
               <div
                 key={p.keyword}
-                className={`rounded-[20px] border-l-4 ${p.border} bg-white px-6 py-6 shadow-sm`}
+                className={`rounded-2xl border-l-4 ${p.border} bg-white px-3 py-4 shadow-sm sm:rounded-[20px] sm:px-6 sm:py-6`}
               >
-                <div className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${p.iconBg}`}>
-                  <p.icon className={`h-5 w-5 ${p.iconColor}`} />
+                <div className={`inline-flex h-9 w-9 items-center justify-center rounded-xl ${p.iconBg} sm:h-11 sm:w-11 sm:rounded-2xl`}>
+                  <p.icon className={`h-4 w-4 ${p.iconColor} sm:h-5 sm:w-5`} />
                 </div>
-                <p className="mt-4 text-base font-black leading-snug text-foreground">
+                <p className="mt-3 text-xs font-black leading-snug text-foreground sm:text-base">
                   {p.keyword}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                <p className="mt-1 hidden text-sm leading-6 text-muted-foreground sm:block">
                   {p.description}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Solution */}
-          <div className="mt-10 rounded-[32px] bg-white/90 px-6 py-8 shadow-sm backdrop-blur sm:px-8">
-            <p className="text-center text-lg font-black tracking-tight text-foreground sm:text-xl">
+          {/* Solution ── モバイル: 3列コンパクト / デスクトップ: 詳細カード */}
+          <div className="mt-4 rounded-[24px] bg-white/90 px-4 py-5 shadow-sm backdrop-blur sm:mt-10 sm:rounded-[32px] sm:px-8 sm:py-8">
+            <p className="text-center text-sm font-black tracking-tight text-foreground sm:text-xl">
               社宝の<span className="text-primary">3本柱</span>が、3つの課題に直接応えます。
             </p>
 
-            <div className="mt-6 grid gap-3 lg:grid-cols-3">
+            <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-6 sm:gap-3">
               {outcomes.map((o) => (
                 <div
                   key={o.label}
-                  className={`${o.bg} rounded-[20px] px-5 py-5`}
+                  className={`${o.bg} rounded-xl px-3 py-3 sm:rounded-[20px] sm:px-5 sm:py-5`}
                 >
-                  <p className={`text-sm font-black ${o.text}`}>{o.label}</p>
-                  <p className={`mt-2 text-sm leading-6 ${o.sub_text}`}>{o.sub}</p>
+                  <p className={`text-xs font-black leading-snug ${o.text} sm:text-sm`}>{o.label}</p>
+                  <p className={`mt-1 hidden text-sm leading-6 ${o.sub_text} sm:block`}>{o.sub}</p>
                 </div>
               ))}
             </div>
