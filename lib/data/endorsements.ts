@@ -1,3 +1,8 @@
+export type EndorsementCredential = {
+  label: string;
+  registrationNumber: string;
+};
+
 export type Endorsement = {
   id: string;
   /** 推薦の切り口を表す見出し（例: 企業課題の専門家として） */
@@ -8,6 +13,8 @@ export type Endorsement = {
   title: string;
   /** 所属・補足（例: 四ツ谷診断士会 会長） */
   organization?: string;
+  /** 登録番号などの資格情報（case-studies ページでのみ表示） */
+  credentials?: EndorsementCredential[];
   /** 推薦コメント全文 */
   quote: string;
   /**
@@ -54,6 +61,10 @@ export const endorsements: Endorsement[] = [
       "福利厚生費は、企業の税務負担を軽減しつつ、従業員に喜ばれる施策として有効です。さらに、これらの費用は法人税計算上、損金として計上可能であり、課税所得を減らすことができます。社宝は、コスト管理と従業員満足度の向上を両立する強力なプラットフォームです。",
     photo: "/images/experts/katayama.jpg",
     photoPosition: "center 10%",
+    credentials: [
+      { label: "公認会計士", registrationNumber: "42864" },
+      { label: "税理士", registrationNumber: "151330" },
+    ],
   },
   {
     id: "taniguchi",

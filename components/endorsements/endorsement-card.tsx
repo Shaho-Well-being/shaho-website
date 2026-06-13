@@ -2,7 +2,13 @@ import { Quote } from "lucide-react";
 import { ExpertAvatar } from "@/components/endorsements/expert-avatar";
 import type { Endorsement } from "@/lib/data/endorsements";
 
-export function EndorsementCard({ endorsement }: { endorsement: Endorsement }) {
+export function EndorsementCard({
+  endorsement,
+  showCredentials = false,
+}: {
+  endorsement: Endorsement;
+  showCredentials?: boolean;
+}) {
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-[34px] border border-border/80 bg-white p-7 shadow-[0_25px_80px_-45px_rgba(28,92,95,0.35)] transition-shadow hover:shadow-[0_30px_90px_-40px_rgba(28,92,95,0.45)] sm:p-9">
       {/* 装飾の引用符 */}
@@ -39,6 +45,15 @@ export function EndorsementCard({ endorsement }: { endorsement: Endorsement }) {
               様
             </span>
           </p>
+          {showCredentials && endorsement.credentials && endorsement.credentials.length > 0 && (
+            <ul className="mt-2 space-y-0.5 text-xs text-muted-foreground">
+              {endorsement.credentials.map((credential) => (
+                <li key={`${credential.label}-${credential.registrationNumber}`}>
+                  {credential.label}（登録番号：{credential.registrationNumber}）
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 

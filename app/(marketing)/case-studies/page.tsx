@@ -35,7 +35,11 @@ export default function EndorsementsPage() {
       <section className="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-2">
           {endorsements.map((endorsement) => (
-            <EndorsementCard key={endorsement.id} endorsement={endorsement} />
+            <EndorsementCard
+              key={endorsement.id}
+              endorsement={endorsement}
+              showCredentials
+            />
           ))}
         </div>
       </section>

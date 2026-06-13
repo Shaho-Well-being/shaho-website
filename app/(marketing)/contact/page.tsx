@@ -212,14 +212,9 @@ export default function ContactPage() {
                   className="mt-1 h-4 w-4 rounded border-input"
                 />
                 <label htmlFor="privacy" className="text-sm text-muted-foreground">
-                  <a
-                    href="https://mobile-app-systems.co.jp/privacypolicy/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline"
-                  >
+                  <Link href="/privacy" className="text-accent hover:underline">
                     プライバシーポリシー
-                  </a>
+                  </Link>
                   に同意します <span className="text-destructive">*</span>
                 </label>
               </div>
@@ -239,12 +234,24 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3">
                     <Mail className="mt-0.5 h-5 w-5 text-muted-foreground" />
                     <div>
-                      <p className="text-sm font-medium text-foreground">メール</p>
+                      <p className="text-sm font-medium text-foreground">お問い合わせ（導入・資料請求）</p>
                       <a
-                        href="mailto:contact@shaho.co.jp"
+                        href="mailto:contact@shaho-life.com"
                         className="text-sm text-muted-foreground hover:text-accent"
                       >
-                        contact@shaho.co.jp
+                        contact@shaho-life.com
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Mail className="mt-0.5 h-5 w-5 text-muted-foreground" />
+                    <div>
+                      <p className="text-sm font-medium text-foreground">サポート（既存のお客様）</p>
+                      <a
+                        href="mailto:support@shaho-life.com"
+                        className="text-sm text-muted-foreground hover:text-accent"
+                      >
+                        support@shaho-life.com
                       </a>
                     </div>
                   </div>
@@ -266,7 +273,14 @@ export default function ContactPage() {
                 <div className="mt-8 border-t border-border pt-6">
                   <h3 className="font-semibold text-foreground">サポート</h3>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    既存のお客様は、管理画面内のサポートチャットをご利用ください。
+                    既存のお客様は
+                    <a
+                      href="mailto:support@shaho-life.com"
+                      className="mx-1 text-accent hover:underline"
+                    >
+                      support@shaho-life.com
+                    </a>
+                    または管理画面内のサポートチャットをご利用ください。
                   </p>
                   <Button variant="outline" size="sm" className="mt-4" asChild>
                     <Link href="/help">ヘルプセンター</Link>

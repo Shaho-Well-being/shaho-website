@@ -79,10 +79,8 @@ const sections = [
       <>
         プライバシーポリシーは
         <Link
-          href="https://mobile-app-systems.co.jp/privacypolicy/"
+          href="/privacy"
           className="mx-1 text-primary underline underline-offset-4 hover:text-primary/80"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           こちら
         </Link>

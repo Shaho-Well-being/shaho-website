@@ -32,10 +32,10 @@ const legalItems = [
         <br />
         メール：
         <a
-          href="mailto:contact@shaho.co.jp"
+          href="mailto:contact@shaho-life.com"
           className="text-primary underline underline-offset-4 hover:text-primary/80"
         >
-          contact@shaho.co.jp
+          contact@shaho-life.com
         </a>
         <br />
         <span className="text-muted-foreground">
@@ -113,10 +113,8 @@ export default function LegalPage() {
           <ul className="list-disc space-y-2 pl-5">
             <li>
               <Link
-                href="https://mobile-app-systems.co.jp/privacypolicy/"
+                href="/privacy"
                 className="text-primary underline underline-offset-4 hover:text-primary/80"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 プライバシーポリシー
               </Link>
