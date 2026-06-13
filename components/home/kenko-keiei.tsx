@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Award, ArrowRight, ClipboardList, BarChart3, Smartphone } from "lucide-react";
+import { Award, ArrowRight, ClipboardList, BarChart3, Smartphone, X, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const flow = [
@@ -102,6 +102,57 @@ export function KenkoKeiei() {
                 </li>
               ))}
             </ol>
+          </div>
+        </div>
+
+        {/* バラバラ vs 社宝1本 comparison */}
+        <div className="mt-16 overflow-hidden rounded-[36px] border border-border/60 bg-white shadow-[0_30px_80px_-40px_rgba(28,92,95,0.22)]">
+          <div className="grid lg:grid-cols-2">
+            {/* Left: without Shaho */}
+            <div className="border-b border-border/60 p-8 lg:border-b-0 lg:border-r lg:p-10">
+              <div className="inline-block rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-red-600">
+                Before
+              </div>
+              <h3 className="mt-4 text-xl font-black text-foreground">
+                3つのツールをバラバラに使う場合
+              </h3>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "ストレスチェック・健康アプリ・福利厚生で管理画面が3つ",
+                  "ツール間でデータが連携されず、集計・転記に工数がかかる",
+                  "ベンダーごとに契約・請求・サポート窓口が異なる",
+                  "全体の利用状況が把握できず、施策改善につながらない",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <X className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right: with Shaho */}
+            <div className="bg-[linear-gradient(135deg,#f7fcfb_0%,#eef9f7_100%)] p-8 lg:p-10">
+              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                社宝1本
+              </div>
+              <h3 className="mt-4 text-xl font-black text-foreground">
+                ひとつのプラットフォームに統合
+              </h3>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "ストレスチェック・ヘルスケア・福利厚生がひとつの管理画面",
+                  "データが自動で連携。集計・証跡がそのまま活用できる",
+                  "契約・請求・サポートの窓口が社宝に一本化",
+                  "全機能の利用状況をダッシュボードで一元把握",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-foreground">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={3} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
