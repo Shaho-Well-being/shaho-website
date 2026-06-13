@@ -141,7 +141,7 @@ export default function StressCheckPage() {
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
+          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent-strong">
             ストレスチェック・法令対応
           </span>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -273,7 +273,7 @@ export default function StressCheckPage() {
                 「なぜあの部署の離職率が高いのか」が、データで見えるようになります。
               </p>
               <div className="mt-6 flex items-center gap-3">
-                <BarChart3 className="h-6 w-6 text-accent" />
+                <BarChart3 className="h-6 w-6 text-accent-strong" />
                 <span className="text-sm font-medium text-foreground">
                   経年比較グラフ・部署別ヒートマップ・個人推移グラフ を自動生成
                 </span>
@@ -291,7 +291,7 @@ export default function StressCheckPage() {
                   className="rounded-xl border border-border bg-background p-4 text-center"
                 >
                   <div className="text-2xl font-bold text-foreground">{item.value}</div>
-                  <div className="mt-1 text-xs text-accent">{item.sub}</div>
+                  <div className="mt-1 text-xs text-accent-strong">{item.sub}</div>
                   <div className="mt-1 text-xs text-muted-foreground">{item.label}</div>
                 </div>
               ))}

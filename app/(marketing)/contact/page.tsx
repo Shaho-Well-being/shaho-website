@@ -224,7 +224,7 @@ export default function ContactPage() {
                   className="mt-1 h-4 w-4 rounded border-input"
                 />
                 <label htmlFor="privacy" className="text-sm text-muted-foreground">
-                  <Link href="/privacy" className="text-accent hover:underline">
+                  <Link href="/privacy" className="text-accent-strong hover:underline">
                     プライバシーポリシー
                   </Link>
                   に同意します <span className="text-destructive">*</span>
@@ -249,7 +249,7 @@ export default function ContactPage() {
                       <p className="text-sm font-medium text-foreground">お問い合わせ（導入・資料請求）</p>
                       <a
                         href="mailto:contact@shaho-life.com"
-                        className="text-sm text-muted-foreground hover:text-accent"
+                        className="text-sm text-muted-foreground hover:text-accent-strong"
                       >
                         contact@shaho-life.com
                       </a>
@@ -261,7 +261,7 @@ export default function ContactPage() {
                       <p className="text-sm font-medium text-foreground">サポート（既存のお客様）</p>
                       <a
                         href="mailto:support@shaho-life.com"
-                        className="text-sm text-muted-foreground hover:text-accent"
+                        className="text-sm text-muted-foreground hover:text-accent-strong"
                       >
                         support@shaho-life.com
                       </a>
@@ -288,7 +288,7 @@ export default function ContactPage() {
                     既存のお客様は
                     <a
                       href="mailto:support@shaho-life.com"
-                      className="mx-1 text-accent hover:underline"
+                      className="mx-1 text-accent-strong hover:underline"
                     >
                       support@shaho-life.com
                     </a>

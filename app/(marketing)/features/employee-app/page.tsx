@@ -80,11 +80,11 @@ export default function EmployeeAppPage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="text-sm font-medium text-accent">従業員向けアプリ</p>
+            <p className="text-sm font-medium text-accent-strong">従業員向けアプリ</p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               毎日使いたくなる、
               <br />
-              <span className="text-accent">健康と福利厚生アプリ。</span>
+              <span className="text-accent-strong">健康と福利厚生アプリ。</span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               記録・ポイント・コンテンツ・メンタルケアまで、従業員の「カラダ」と「ココロ」を
@@ -123,7 +123,7 @@ export default function EmployeeAppPage() {
               <CardContent className="p-0">
                 <div className="flex items-start gap-4 p-6">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10">
-                    <category.icon className="h-6 w-6 text-accent" />
+                    <category.icon className="h-6 w-6 text-accent-strong" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-lg font-semibold text-foreground">
@@ -138,7 +138,7 @@ export default function EmployeeAppPage() {
                           key={item.label}
                           className="flex items-start gap-2 text-sm"
                         >
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-strong" />
                           <span>
                             <span className="font-medium text-foreground">
                               {item.label}

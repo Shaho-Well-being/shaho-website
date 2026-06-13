@@ -169,7 +169,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-foreground">小林 慎吾</h3>
-                  <p className="text-sm text-accent">代表取締役 CEO ／ データサイエンティスト</p>
+                  <p className="text-sm text-accent-strong">代表取締役 CEO ／ データサイエンティスト</p>
                   <div className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
                     <p>
                       データサイエンティストとして多様な事業開発経験を持ち、東京大学大学院情報理工学系研究科での研究（2026年4月修了予定）と並行して経営を推進。
@@ -204,7 +204,7 @@ export default function AboutPage() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-muted">
                     <cert.icon className="h-6 w-6 text-foreground" />
                   </div>
-                  <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
+                  <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent-strong">
                     {cert.badge}
                   </span>
                 </div>
@@ -236,7 +236,7 @@ export default function AboutPage() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:underline"
+                    className="text-accent-strong hover:underline"
                   >
                     {item.value}
                   </a>

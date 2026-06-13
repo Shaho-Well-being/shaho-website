@@ -63,7 +63,7 @@ export default async function BlogPage() {
                       {formatDate(featuredPost.publishedAt)}
                     </span>
                   </div>
-                  <h2 className="mt-4 text-2xl font-bold leading-snug text-foreground group-hover:text-accent sm:text-3xl">
+                  <h2 className="mt-4 text-2xl font-bold leading-snug text-foreground group-hover:text-accent-strong sm:text-3xl">
                     {featuredPost.title}
                   </h2>
                   <p className="mt-4 text-muted-foreground">{featuredPost.excerpt}</p>

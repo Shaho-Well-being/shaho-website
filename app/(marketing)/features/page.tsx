@@ -120,7 +120,7 @@ export default function FeaturesPage() {
             >
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-                  <BarChart3 className="h-6 w-6 text-accent" />
+                  <BarChart3 className="h-6 w-6 text-accent-strong" />
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">人事・管理者向け（Web）</p>
@@ -135,7 +135,7 @@ export default function FeaturesPage() {
             >
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-                  <Heart className="h-6 w-6 text-accent" />
+                  <Heart className="h-6 w-6 text-accent-strong" />
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">従業員向け（アプリ）</p>
@@ -178,7 +178,7 @@ export default function FeaturesPage() {
                 <ul className="mt-8 flex flex-col gap-3">
                   {feature.features.map((item) => (
                     <li key={item} className="flex items-center gap-3 text-foreground">
-                      <Check className="h-5 w-5 shrink-0 text-accent" />
+                      <Check className="h-5 w-5 shrink-0 text-accent-strong" />
                       {item}
                     </li>
                   ))}

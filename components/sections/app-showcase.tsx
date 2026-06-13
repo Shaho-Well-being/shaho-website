@@ -114,7 +114,7 @@ export function AppShowcase() {
               </PhoneMockup>
             </div>
             <div>
-              <div className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-sm font-medium text-accent">
+              <div className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-sm font-medium text-accent-strong">
                 ギフト交換
               </div>
               <h3 className="mt-4 text-2xl font-bold text-foreground">
@@ -128,7 +128,7 @@ export function AppShowcase() {
                 {["即時発行のデジタルギフト", "カテゴリ別の検索機能", "お気に入り登録"].map(
                   (item, i) => (
                     <li key={i} className="flex items-center gap-3">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/10 text-accent">
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/10 text-accent-strong">
                         <span className="text-sm">✓</span>
                       </div>
                       <span className="text-muted-foreground">{item}</span>

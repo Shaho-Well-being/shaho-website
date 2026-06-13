@@ -91,7 +91,7 @@ export default function EngagementPage() {
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
+          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent-strong">
             福利厚生の利用率・従業員満足度
           </span>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -134,7 +134,7 @@ export default function EngagementPage() {
               className="rounded-xl border border-border bg-card p-6 text-center"
             >
               <div className="text-5xl font-bold text-foreground">{p.value}</div>
-              <div className="mt-2 text-sm font-medium text-accent">{p.label}</div>
+              <div className="mt-2 text-sm font-medium text-accent-strong">{p.label}</div>
               <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
             </div>
           ))}
@@ -234,7 +234,7 @@ export default function EngagementPage() {
             {healthPoints.map((hp) => (
               <div key={hp.action} className="flex items-center justify-between p-4">
                 <span className="text-sm text-foreground">{hp.action}</span>
-                <span className="rounded-full bg-accent/10 px-3 py-0.5 text-sm font-bold text-accent">
+                <span className="rounded-full bg-accent/10 px-3 py-0.5 text-sm font-bold text-accent-strong">
                   {hp.point}
                 </span>
               </div>

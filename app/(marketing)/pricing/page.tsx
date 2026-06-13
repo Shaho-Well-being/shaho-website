@@ -132,7 +132,7 @@ export default function PricingPage() {
                 <ul className="flex-1 space-y-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent-strong" />
                       <span className="text-sm text-foreground">{feature}</span>
                     </li>
                   ))}
@@ -172,7 +172,7 @@ export default function PricingPage() {
               key={feature}
               className="flex items-center gap-3 rounded-lg border border-border bg-card p-4"
             >
-              <Check className="h-5 w-5 shrink-0 text-accent" />
+              <Check className="h-5 w-5 shrink-0 text-accent-strong" />
               <span className="text-sm text-foreground">{feature}</span>
             </div>
           ))}

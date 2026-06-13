@@ -257,7 +257,7 @@ export default function HealthManagementPage() {
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
+          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent-strong">
             健康経営優良法人 認定サポート
           </span>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -288,10 +288,10 @@ export default function HealthManagementPage() {
         <div className="rounded-2xl border border-accent/20 bg-accent/5 p-6 sm:p-8">
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-accent/10">
-              <Award className="h-7 w-7 text-accent" />
+              <Award className="h-7 w-7 text-accent-strong" />
             </div>
             <div>
-              <p className="text-sm font-medium text-accent">運営会社・実績</p>
+              <p className="text-sm font-medium text-accent-strong">運営会社・実績</p>
               <h3 className="mt-1 text-lg font-semibold text-foreground">
                 社宝の開発元であるモバイルアプリシステムズ株式会社が、健康経営優良法人2026（中小規模法人部門）を取得しました。
               </h3>

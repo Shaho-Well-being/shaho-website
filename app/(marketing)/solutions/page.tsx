@@ -58,15 +58,15 @@ export default function SolutionsPage() {
               <Card className="h-full transition-all hover:border-foreground/20 hover:shadow-lg">
                 <CardContent className="flex h-full flex-col p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-                    <solution.icon className="h-6 w-6 text-accent" />
+                    <solution.icon className="h-6 w-6 text-accent-strong" />
                   </div>
-                  <h2 className="mt-4 text-xl font-semibold text-foreground group-hover:text-accent">
+                  <h2 className="mt-4 text-xl font-semibold text-foreground group-hover:text-accent-strong">
                     {solution.title}
                   </h2>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {solution.description}
                   </p>
-                  <span className="mt-4 inline-flex items-center text-sm font-medium text-accent">
+                  <span className="mt-4 inline-flex items-center text-sm font-medium text-accent-strong">
                     詳しく見る
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </span>

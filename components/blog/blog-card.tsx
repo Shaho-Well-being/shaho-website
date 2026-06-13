@@ -51,7 +51,7 @@ export function BlogCard({
               )}
             </div>
 
-            <h3 className="mt-4 text-lg font-semibold leading-snug text-foreground group-hover:text-accent">
+            <h3 className="mt-4 text-lg font-semibold leading-snug text-foreground group-hover:text-accent-strong">
               {post.title}
             </h3>
 

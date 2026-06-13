@@ -80,11 +80,11 @@ export default function AdminWebPage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="text-sm font-medium text-accent">管理者・人事向け Web</p>
+            <p className="text-sm font-medium text-accent-strong">管理者・人事向け Web</p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               人事業務を、
               <br />
-              <span className="text-accent">ひとつの画面に。</span>
+              <span className="text-accent-strong">ひとつの画面に。</span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               組織管理、ストレスチェック、ポイント付与、通知、分析——バラバラだった業務を社宝の管理画面に集約。
@@ -123,7 +123,7 @@ export default function AdminWebPage() {
               <CardContent className="p-0">
                 <div className="flex items-start gap-4 p-6">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10">
-                    <category.icon className="h-6 w-6 text-accent" />
+                    <category.icon className="h-6 w-6 text-accent-strong" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-lg font-semibold text-foreground">
@@ -138,7 +138,7 @@ export default function AdminWebPage() {
                           key={item.label}
                           className="flex items-start gap-2 text-sm"
                         >
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-strong" />
                           <span>
                             <span className="font-medium text-foreground">
                               {item.label}
