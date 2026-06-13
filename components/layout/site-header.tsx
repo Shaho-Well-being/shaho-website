@@ -53,11 +53,8 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button variant="outline" size="sm" className="rounded-full bg-background/70" asChild>
-            <Link href="/contact">お問い合わせ</Link>
-          </Button>
           <Button size="sm" className="rounded-full px-5 shadow-sm" asChild>
-            <Link href="/contact?type=demo">無料デモを予約</Link>
+            <Link href="/contact">お問い合わせ</Link>
           </Button>
         </div>
 
@@ -86,11 +83,8 @@ export function SiteHeader() {
               ))}
             </div>
             <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-              <Button variant="outline" size="sm" className="rounded-full" asChild>
-                <Link href="/contact">お問い合わせ</Link>
-              </Button>
               <Button size="sm" className="rounded-full" asChild>
-                <Link href="/contact?type=demo">無料デモを予約</Link>
+                <Link href="/contact">お問い合わせ</Link>
               </Button>
             </div>
           </nav>

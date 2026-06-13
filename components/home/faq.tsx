@@ -7,34 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const faqs = [
-  {
-    question: "導入までどのくらいかかりますか？",
-    answer:
-      "最短1週間での全社展開が可能です。従業員リストのCSVアップロードと基本設定を完了後、アプリのダウンロード案内を一斉送付するだけで利用開始できます。",
-  },
-  {
-    question: "料金はどのくらいですか？",
-    answer:
-      "ポイント付与額で選ぶシンプルな料金体系で、月額500円/人〜ご利用いただけます（プラットフォーム利用料は別途）。人数制限はありません。詳細はお見積りにてご案内します。",
-  },
-  {
-    question: "従業員データのセキュリティは？",
-    answer:
-      "AWSインフラ上で構築し、通信・保存データともに暗号化しています。SECURITY ACTION二つ星宣言（IPA）を取得済みで、従業員のプライバシーに配慮した設計です。",
-  },
-  {
-    question: "50名未満の事業所でも使えますか？",
-    answer:
-      "はい、人数制限はありません。ストレスチェックが法的義務となる50名以上の事業所だけでなく、それ以下の事業所でも健康経営の取り組みとして導入いただいています。",
-  },
-  {
-    question: "健康経営優良法人の認定取得もサポートしてもらえますか？",
-    answer:
-      "はい。日常のアプリ利用ログを申請の証跡として蓄積・出力できるほか、認定取得に向けたサポートもご用意しています。中小企業診断士によるサポートも対応可能です。",
-  },
-];
+import { faqs } from "@/lib/faqs";
 
 export function FAQ() {
   return (
@@ -69,8 +42,8 @@ export function FAQ() {
 
         <div className="mt-10 text-center">
           <Button variant="outline" className="rounded-full" asChild>
-            <Link href="/pricing#faq">
-              料金・導入の詳細を見る
+            <Link href="/faq">
+              すべての質問を見る
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
