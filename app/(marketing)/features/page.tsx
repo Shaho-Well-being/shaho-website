@@ -77,7 +77,7 @@ const features = [
   {
     icon: Smartphone,
     title: "従業員向け（アプリ）",
-    description: "健康記録、ポイント交換、コンテンツ、AIチャットまで。毎日使いたくなるひとつのアプリで。",
+    description: "健康記録、ポイント交換、コンテンツ、AIキャラクターによる健康相談まで。毎日使いたくなるひとつのアプリで。",
     href: "/features/employee-app",
     image: "/images/features/app-intro.png",
     imageFit: "contain" as const,
@@ -86,7 +86,7 @@ const features = [
       "健康管理・フィットネス記録",
       "福利厚生ポイントで商品・サブスク交換",
       "健康記事・カタログ閲覧",
-      "AIキャラクターによる健康相談",
+      "AIキャラクターによる健康相談・セルフケア支援",
     ],
   },
 ];

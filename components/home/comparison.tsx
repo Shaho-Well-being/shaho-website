@@ -66,7 +66,7 @@ export function Comparison() {
           </h2>
           <p className="mt-4 text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
             福利厚生の代行も、ヘルスケアの単体アプリも、それぞれに強みがあります。
-            社宝は、その両方を一つにまとめ、さらに認定の証跡まで残せることが特長です。
+            社宝は、その両方を一つにまとめ、さらに認定に向けた活動記録をダッシュボードで残せることが特長です。
           </p>
         </div>
 
