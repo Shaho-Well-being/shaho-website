@@ -1,13 +1,54 @@
+import { CalendarClock, FolderX, Users } from "lucide-react";
+
 const problems = [
-  "用意したのに使われない福利厚生",
-  "バラバラで運用が重い健康施策と法定対応",
-  "「ちゃんと効いているか」が見えない",
+  {
+    icon: CalendarClock,
+    keyword: "毎年追われるストレスチェック",
+    description: "集計・産業医連携・報告書提出まで、年1回の法定対応なのに工数がかかりすぎる。",
+    iconColor: "text-sky-800",
+    iconBg: "bg-sky-100",
+    cardBg: "bg-sky-50/60",
+  },
+  {
+    icon: FolderX,
+    keyword: "証跡集めで挫折する認定申請",
+    description: "健康経営優良法人を取りたいのに、「やった証拠」を別途かき集める作業で断念してしまう。",
+    iconColor: "text-emerald-800",
+    iconBg: "bg-emerald-100",
+    cardBg: "bg-emerald-50/60",
+  },
+  {
+    icon: Users,
+    keyword: "使う人と使わない人の差",
+    description: "福利厚生を導入しても、利用率にばらつきが出て「制度を作っただけ」になってしまう。",
+    iconColor: "text-yellow-800",
+    iconBg: "bg-yellow-100",
+    cardBg: "bg-yellow-50/60",
+  },
 ];
 
 const outcomes = [
-  { value: "01", label: "人事は制度をまとめて設計" },
-  { value: "02", label: "従業員はアプリで迷わず利用" },
-  { value: "03", label: "利用状況まで見える化" },
+  {
+    label: "ストレスチェック",
+    sub: "実施から労基署への報告まで、ひとつの管理画面で完結します。",
+    bg: "bg-sky-50",
+    text: "text-sky-900",
+    sub_text: "text-sky-700/80",
+  },
+  {
+    label: "セルフヘルスケア × 認定支援",
+    sub: "普段のアプリ利用がそのまま証跡として蓄積され、申請を支援します。",
+    bg: "bg-emerald-50",
+    text: "text-emerald-900",
+    sub_text: "text-emerald-700/80",
+  },
+  {
+    label: "ポイント福利厚生",
+    sub: "役職・拠点に関わらず全員が同じ機会を得られる仕組みを設計できます。",
+    bg: "bg-yellow-50",
+    text: "text-yellow-900",
+    sub_text: "text-yellow-700/80",
+  },
 ];
 
 export function Stats() {
@@ -15,53 +56,56 @@ export function Stats() {
     <section className="bg-background py-20 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-[40px] bg-[linear-gradient(180deg,#e9faf7_0%,#dff5f1_100%)] px-6 py-12 shadow-[0_30px_100px_-40px_rgba(28,92,95,0.35)] sm:px-10 lg:px-14 lg:py-16">
-          <div className="mx-auto max-w-3xl text-center">
+
+          {/* Header */}
+          <div className="mx-auto max-w-xl text-center">
             <div className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
               Issues
             </div>
-            <h2 className="mt-4 text-balance text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="mt-3 text-balance text-3xl font-black tracking-tight text-foreground sm:text-4xl">
               こんなお悩み、ありませんか？
             </h2>
-            <p className="mt-4 text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
-              福利厚生は用意しているのに使われない。健康施策はあるのに分断している。
-              そんな状態を、社宝はやさしく整理します。
-            </p>
           </div>
 
+          {/* Problem cards */}
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            {problems.map((problem) => (
+            {problems.map((p) => (
               <div
-                key={problem}
-                className="rounded-[24px] border border-white/70 bg-white/90 px-5 py-5 text-center text-sm font-semibold text-foreground shadow-sm backdrop-blur sm:text-base"
+                key={p.keyword}
+                className={`rounded-[24px] border border-white/70 ${p.cardBg} px-6 py-6 shadow-sm backdrop-blur`}
               >
-                {problem}
+                <div className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${p.iconBg}`}>
+                  <p.icon className={`h-5 w-5 ${p.iconColor}`} />
+                </div>
+                <p className="mt-4 text-base font-black leading-snug text-foreground">
+                  {p.keyword}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  {p.description}
+                </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 rounded-[32px] bg-white/90 px-6 py-8 shadow-sm backdrop-blur sm:px-8">
-            <div className="text-center">
-              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
-                Solution
-              </div>
-              <p className="mt-3 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
-                社宝は、この3つを
-                <span className="text-primary">「使われて・回って・記録に残る」</span>
-                状態に変えます。
-              </p>
-            </div>
+          {/* Solution */}
+          <div className="mt-10 rounded-[32px] bg-white/90 px-6 py-8 shadow-sm backdrop-blur sm:px-8">
+            <p className="text-center text-lg font-black tracking-tight text-foreground sm:text-xl">
+              社宝の<span className="text-primary">3本柱</span>が、3つの課題に直接応えます。
+            </p>
 
-            <div className="mt-8 grid gap-4 lg:grid-cols-3">
-              {outcomes.map((outcome) => (
-                <div key={outcome.value} className="rounded-[24px] bg-secondary px-5 py-5 text-center">
-                  <div className="text-3xl font-black text-primary">{outcome.value}</div>
-                  <div className="mt-2 text-sm font-medium leading-6 text-foreground sm:text-base">
-                    {outcome.label}
-                  </div>
+            <div className="mt-6 grid gap-3 lg:grid-cols-3">
+              {outcomes.map((o) => (
+                <div
+                  key={o.label}
+                  className={`${o.bg} rounded-[20px] px-5 py-5`}
+                >
+                  <p className={`text-sm font-black ${o.text}`}>{o.label}</p>
+                  <p className={`mt-2 text-sm leading-6 ${o.sub_text}`}>{o.sub}</p>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>
