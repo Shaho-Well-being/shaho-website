@@ -156,6 +156,7 @@ export const mockBlogPosts: BlogPost[] = [
     publishedAt: "2024-03-01T10:00:00.000Z",
     updatedAt: "2024-03-01T10:00:00.000Z",
     category: { id: "welfare", name: "福利厚生" },
+    thumbnail: { url: "/images/features/features-benefits.jpg", width: 800, height: 500 },
     author: { name: "田中 健太" },
   },
   {
@@ -166,6 +167,7 @@ export const mockBlogPosts: BlogPost[] = [
     publishedAt: "2024-02-28T10:00:00.000Z",
     updatedAt: "2024-02-28T10:00:00.000Z",
     category: { id: "health", name: "健康経営" },
+    thumbnail: { url: "/images/features/features-health-app.jpg", width: 800, height: 500 },
     author: { name: "佐藤 美咲" },
   },
   {
@@ -176,6 +178,7 @@ export const mockBlogPosts: BlogPost[] = [
     publishedAt: "2024-02-25T10:00:00.000Z",
     updatedAt: "2024-02-25T10:00:00.000Z",
     category: { id: "mental-health", name: "メンタルヘルス" },
+    thumbnail: { url: "/images/features/features-admin.jpg", width: 800, height: 500 },
     author: { name: "山本 直樹" },
   },
   {
@@ -186,6 +189,7 @@ export const mockBlogPosts: BlogPost[] = [
     publishedAt: "2024-02-20T10:00:00.000Z",
     updatedAt: "2024-02-20T10:00:00.000Z",
     category: { id: "health", name: "健康経営" },
+    thumbnail: { url: "/images/wellness.jpg", width: 800, height: 500 },
     author: { name: "田中 健太" },
   },
 ];
