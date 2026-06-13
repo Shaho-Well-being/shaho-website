@@ -292,11 +292,8 @@ export default function ContactPage() {
                     >
                       support@shaho-life.com
                     </a>
-                    または管理画面内のサポートチャットをご利用ください。
+                    までお問い合わせください。
                   </p>
-                  <Button variant="outline" size="sm" className="mt-4" asChild>
-                    <Link href="/help">ヘルプセンター</Link>
-                  </Button>
                 </div>
               </CardContent>
             </Card>

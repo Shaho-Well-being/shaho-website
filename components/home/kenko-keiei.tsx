@@ -47,7 +47,7 @@ export function KenkoKeiei() {
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Button size="lg" className="h-14 rounded-full px-8 text-base" asChild>
-                <Link href="/health-management-support">
+                <Link href="/solutions/health-management">
                   サポート内容を見る
                   <ArrowRight className="h-5 w-5" />
                 </Link>
