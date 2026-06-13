@@ -52,7 +52,7 @@ export function PricingTeaser() {
                 className="h-14 rounded-full border-primary/20 px-8 text-base"
                 asChild
               >
-                <Link href="/contact?type=demo">無料デモを予約</Link>
+                <Link href="/contact">お問い合わせ</Link>
               </Button>
             </div>
           </div>

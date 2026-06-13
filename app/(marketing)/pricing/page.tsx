@@ -47,13 +47,13 @@ const plans = [
     features: [
       "ライトの全機能",
       "57設問ストレスチェック実施・集団分析",
-      "健診受診管理・OCR取込",
-      "Apple Health / Google Fit 連携",
-      "AIメンタルケアチャット",
-      "法定報告書自動生成",
+      "健診受診記録（端末内）・達成イベント集計",
+      "Apple Health / Google Fit 連携（端末内記録）",
+      "AIキャラクターによる健康相談",
+      "ストレスチェック法定報告書（XML）出力",
       "優先サポート",
     ],
-    cta: "無料デモを予約",
+    cta: "お問い合わせ",
     highlighted: true,
   },
   {
@@ -76,32 +76,7 @@ const plans = [
   },
 ];
 
-const faqs = [
-  {
-    question: "導入までどのくらいかかりますか？",
-    answer: "最短1週間での全社展開が可能です。従業員リストのCSVアップロードと基本設定を完了後、アプリのダウンロード案内を一斉送付するだけで利用開始できます。",
-  },
-  {
-    question: "ポイントと利用料金の関係は？",
-    answer: "各プランに記載の「円/人/月」は従業員に付与するポイント相当額です。プラットフォームの利用料（システム費用）は別途発生します。詳細はお見積りにてご案内します。",
-  },
-  {
-    question: "従業員データのセキュリティは？",
-    answer: "AWSインフラ上で構築し、通信・保存データともに暗号化しています。健診データは端末内保存が基本で、クラウドには従業員の同意なくアップロードされません。SECURITY ACTION二つ星宣言（IPA）取得済みです。",
-  },
-  {
-    question: "ストレスチェックのみ利用できますか？",
-    answer: "はい、ストレスチェック単体のご利用も承っています。将来的に福利厚生・健診管理機能を追加することも、プランを変更するだけで対応できます。",
-  },
-  {
-    question: "50名未満の事業所でも使えますか？",
-    answer: "はい、人数制限はありません。ストレスチェックが法的義務となる50名以上の事業所だけでなく、それ以下の事業所でも健康経営の取り組みとして導入いただいています。",
-  },
-  {
-    question: "IT導入補助金は使えますか？",
-    answer: "IT導入補助金のITツール登録を申請中です。登録完了後は補助金を活用した導入が可能になります。詳細は最新情報をお問い合わせください。中小企業診断士によるサポートも対応可能です。",
-  },
-];
+import { pricingFaqs } from "@/lib/faqs";
 
 export default function PricingPage() {
   return (
@@ -114,7 +89,7 @@ export default function PricingPage() {
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             プランはポイント付与額で選ぶシンプル設計。人数制限なし・最短1週間で導入できます。
-            まずは無料デモで、社宝の実際の機能をご体験ください。
+            詳細はお問い合わせください。
           </p>
           <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-2 text-sm text-muted-foreground">
             <span className="font-medium text-foreground">💡 IT導入補助金の対象ツール登録申請中。</span>
@@ -167,7 +142,7 @@ export default function PricingPage() {
                   variant={plan.highlighted ? "default" : "outline"}
                   asChild
                 >
-                  <Link href={plan.highlighted ? "/contact?type=demo" : "/contact"}>
+                  <Link href="/contact">
                     {plan.cta}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -187,7 +162,6 @@ export default function PricingPage() {
           {[
             "SSLによる通信暗号化",
             "データバックアップ",
-            "稼働率99.9%保証",
             "日本語サポート",
             "従業員向けアプリ",
             "管理者ダッシュボード",
@@ -212,7 +186,7 @@ export default function PricingPage() {
           <h2 className="mt-4 text-2xl font-bold text-foreground">よくある質問</h2>
         </div>
         <Accordion type="single" collapsible className="mt-8">
-          {faqs.map((faq, index) => (
+          {pricingFaqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`}>
               <AccordionTrigger className="text-left text-foreground">
                 {faq.question}
@@ -229,8 +203,8 @@ export default function PricingPage() {
       <section className="mx-auto mt-24 max-w-4xl px-4 sm:px-6 lg:px-8">
         <MarketingCtaPanel
           compact
-          title="まずは無料デモをお試しください"
-          description="14日間の無料トライアルで、社宝のすべての機能をご体験いただけます。"
+          title="導入のご相談はお気軽に"
+          description="プラン選びやお見積りなど、担当者がご案内します。"
         >
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <Button
@@ -238,8 +212,8 @@ export default function PricingPage() {
               className={cn("w-full sm:w-auto", marketingCtaButtonPrimary)}
               asChild
             >
-              <Link href="/contact?type=demo">
-                無料デモを予約
+              <Link href="/contact">
+                お問い合わせ
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -249,7 +223,7 @@ export default function PricingPage() {
               className={cn("w-full sm:w-auto", marketingCtaButtonSecondary)}
               asChild
             >
-              <Link href="/contact">お問い合わせ</Link>
+              <Link href="/contact?type=document">資料請求</Link>
             </Button>
           </div>
         </MarketingCtaPanel>
