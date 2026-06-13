@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Award, ArrowRight, ClipboardList, BarChart3, Smartphone, X, Check } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 
 const flow = [
@@ -64,25 +65,14 @@ export function KenkoKeiei() {
           </div>
 
           <div className="rounded-[36px] border border-border/70 bg-white p-7 shadow-[0_30px_90px_-50px_rgba(28,92,95,0.45)] sm:p-9">
-            <div className="flex items-center justify-between gap-4 rounded-[24px] bg-secondary px-5 py-4">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                  <Award className="h-6 w-6" />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-foreground">健康経営優良法人2026</div>
-                  <div className="text-xs text-muted-foreground">社宝も認定を取得しています</div>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  認定番号
-                </div>
-                <div className="text-lg font-black text-primary">139686</div>
-              </div>
-            </div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              How it works
+            </p>
+            <p className="mt-2 text-lg font-black text-foreground">
+              アプリを使うだけで、証跡が自動で積み上がる
+            </p>
 
-            <ol className="mt-7 space-y-5">
+            <ol className="mt-6 space-y-5">
               {flow.map((item, index) => (
                 <li key={item.title} className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-secondary text-primary">

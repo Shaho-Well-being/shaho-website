@@ -18,6 +18,9 @@ export function SocialProof() {
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-foreground shadow-sm ring-1 ring-primary/10">
               <Award className="h-4 w-4 text-primary" />
               健康経営優良法人2026 認定取得
+              <span className="ml-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs font-bold text-primary">
+                認定番号 139686
+              </span>
             </span>
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-foreground shadow-sm ring-1 ring-primary/10">
               <ShieldCheck className="h-4 w-4 text-primary" />
