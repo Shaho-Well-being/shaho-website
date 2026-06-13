@@ -38,18 +38,13 @@ const steps = [
 ];
 
 const menus = [
-  "食事補助",
-  "育児支援",
-  "部活動手当",
-  "資格取得補助",
-  "健康促進手当",
+  "ポイント付与",
+  "電子マネー交換",
   "ストレスチェック",
+  "歩数目標達成",
+  "健康記事・ワークアウト",
   "活動ログ記録",
-  "リモート勤務支援",
-  "表彰ポイント",
-  "オンボーディング施策",
-  "エンゲージメント施策",
-  "独自制度の設計",
+  "年次健康サーベイ",
 ];
 
 const reasons = [
@@ -127,10 +122,10 @@ export function FeaturesOverview() {
               Menu Ideas
             </div>
             <h3 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl">
-              設計できる福利厚生メニューも、やわらかく自由に
+              ポイントで設計できる施策の例
             </h3>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85 sm:text-base">
-              既存の制度をデジタル化するだけでなく、採用や定着につながる独自メニューも設計できます。
+              社宝で実装済みの機能を軸に、福利厚生と健康施策を組み合わせて設計できます。独自制度のご相談も承ります。
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               {menus.map((menu) => (
