@@ -83,7 +83,7 @@ export function SiteFooter() {
         {/* Bottom */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} 社宝 Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} モバイルアプリシステムズ株式会社 All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link href="https://twitter.com" className="text-muted-foreground transition-colors hover:text-foreground">
