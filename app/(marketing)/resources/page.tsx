@@ -20,6 +20,9 @@ export default function ResourcesPage() {
             国内の福利厚生実施状況、社宝のサービス概要、導入事例・料金のご案内など、
             人事・経営者の方にお役立ちいただける資料をダウンロードいただけます。
           </p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            資料一覧ページは現在準備中です。公開までの間は下記より資料請求をご利用ください。
+          </p>
           <Button className="mt-8" size="lg" asChild>
             <Link href="/contact?type=document">
               資料をダウンロード

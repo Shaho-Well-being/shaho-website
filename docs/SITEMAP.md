@@ -1,6 +1,6 @@
-# 社宝サイト サイトマップ・骨組み
+# 社宝サイト サイトマップ・導線
 
-最終更新: 2025年3月（SAAS_STRATEGY に基づく構造）
+最終更新: 2026年6月
 
 ---
 
@@ -8,117 +8,131 @@
 
 ```
 app/
-├── layout.tsx                 # ルートレイアウト（フォント、metadata、Analytics）
+├── layout.tsx
 ├── globals.css
-└── (marketing)/               # マーケティング用レイアウトグループ
-    ├── layout.tsx             # SiteHeader + main + SiteFooter
-    ├── page.tsx               # トップページ /
-    ├── about/
-    │   └── page.tsx           # 会社概要 /about
+└── (marketing)/
+    ├── layout.tsx              # SiteHeader + main + SiteFooter
+    ├── page.tsx                # トップ /
+    ├── about/page.tsx          # 会社概要
     ├── blog/
-    │   ├── page.tsx           # ブログ一覧 /blog
-    │   └── [id]/
-    │       └── page.tsx       # ブログ記事詳細 /blog/:id
-    ├── case-studies/
-    │   ├── page.tsx           # 導入事例一覧 /case-studies
-    │   └── [id]/
-    │       └── page.tsx       # 導入事例詳細 /case-studies/:id
-    ├── contact/
-    │   └── page.tsx           # お問い合わせ /contact
+    │   ├── page.tsx            # ブログ一覧
+    │   └── [id]/page.tsx       # 記事詳細
+    ├── case-studies/page.tsx   # 専門家の推薦（旧・導入事例パス）
+    ├── contact/page.tsx        # お問い合わせ
+    ├── faq/page.tsx            # よくある質問
     ├── features/
-    │   ├── page.tsx           # 機能一覧 /features
-    │   ├── admin-web/
-    │   │   └── page.tsx       # 人事・管理者向け機能 /features/admin-web
-    │   └── employee-app/
-    │       └── page.tsx       # 従業員向けアプリ /features/employee-app
-    ├── pricing/
-    │   └── page.tsx           # 料金 /pricing
-    ├── resources/
-    │   └── page.tsx           # お役立ち資料 /resources
-    └── solutions/             # 課題別訴求
-        ├── stress-check/
-        │   └── page.tsx       # ストレスチェック・法令対応 /solutions/stress-check
-        ├── engagement/
-        │   └── page.tsx       # 福利厚生・従業員満足度 /solutions/engagement
-        └── health-management/
-            └── page.tsx       # 健康経営優良法人認定 /solutions/health-management
+    │   ├── page.tsx            # 機能一覧
+    │   ├── admin-web/page.tsx  # 管理画面
+    │   └── employee-app/page.tsx
+    ├── legal/page.tsx          # 特定商取引法
+    ├── pricing/page.tsx
+    ├── privacy/page.tsx
+    ├── resources/page.tsx      # お役立ち資料（一覧は今後実装）
+    ├── terms/page.tsx
+    └── solutions/
+        ├── page.tsx            # 課題別一覧
+        ├── stress-check/page.tsx
+        ├── engagement/page.tsx
+        └── health-management/page.tsx  # 健康経営優良法人（証跡訴求も含む統合LP）
 ```
 
----
+### リダイレクト（`next.config.mjs`）
 
-## 2. URL 一覧（実装済み）
-
-| URL | ページ名 | ファイル |
-|-----|----------|----------|
-| `/` | トップ | `app/(marketing)/page.tsx` |
-| `/about` | 会社概要 | `app/(marketing)/about/page.tsx` |
-| `/blog` | ブログ一覧 | `app/(marketing)/blog/page.tsx` |
-| `/blog/[id]` | ブログ記事詳細 | `app/(marketing)/blog/[id]/page.tsx` |
-| `/case-studies` | 導入事例一覧 | `app/(marketing)/case-studies/page.tsx` |
-| `/case-studies/[id]` | 導入事例詳細 | `app/(marketing)/case-studies/[id]/page.tsx` |
-| `/contact` | お問い合わせ | `app/(marketing)/contact/page.tsx` |
-| `/features` | 機能一覧 | `app/(marketing)/features/page.tsx` |
-| `/features/admin-web` | 人事・管理者向け機能 | `app/(marketing)/features/admin-web/page.tsx` |
-| `/features/employee-app` | 従業員向けアプリ | `app/(marketing)/features/employee-app/page.tsx` |
-| `/pricing` | 料金 | `app/(marketing)/pricing/page.tsx` |
-| `/resources` | お役立ち資料 | `app/(marketing)/resources/page.tsx` |
-| `/solutions/stress-check` | ストレスチェック・法令対応 | `app/(marketing)/solutions/stress-check/page.tsx` |
-| `/solutions/engagement` | 福利厚生・従業員満足度 | `app/(marketing)/solutions/engagement/page.tsx` |
-| `/solutions/health-management` | 健康経営優良法人認定 | `app/(marketing)/solutions/health-management/page.tsx` |
+| 旧URL | 新URL | 理由 |
+|-------|-------|------|
+| `/health-management-support` | `/solutions/health-management` | 健康経営LPの重複解消（301） |
 
 ---
 
-## 3. リンク先のみ（未実装ページ）
+## 2. URL 一覧
 
-| URL | 想定ページ名 | リンク元 |
-|-----|----------------|----------|
-| `/careers` | 採用情報 | 会社概要、フッター |
+| URL | ページ名 | 導線の主な入口 |
+|-----|----------|----------------|
+| `/` | トップ | ロゴ |
+| `/features` | 機能一覧 | ヘッダー、フッター、TOP |
+| `/features/admin-web` | 管理画面 | フッター、`/features` |
+| `/features/employee-app` | 従業員アプリ | フッター、`/features` |
+| `/solutions` | 課題別一覧 | ヘッダー、フッター |
+| `/solutions/stress-check` | ストレスチェック | フッター、`/solutions`、`/features` |
+| `/solutions/engagement` | 福利厚生・満足度 | フッター、`/solutions`、`/features` |
+| `/solutions/health-management` | 健康経営優良法人 | フッター、`/solutions`、`/features`、TOP（kenko-keiei） |
+| `/pricing` | 料金 | ヘッダー、フッター、TOP |
+| `/resources` | お役立ち資料 | **フッターのみ**（資料一覧は今後実装） |
+| `/case-studies` | 専門家の推薦 | ヘッダー、フッター、TOP |
+| `/blog` | ブログ | ヘッダー、フッター、TOP |
+| `/blog/[id]` | ブログ記事 | `/blog`、TOP |
+| `/about` | 会社概要 | ヘッダー、フッター |
+| `/contact` | お問い合わせ | ヘッダー、フッター、各LPのCTA |
+| `/faq` | よくある質問 | フッター、TOPのFAQ欄 |
 | `/terms` | 利用規約 | フッター |
-| `/privacy` | プライバシーポリシー | フッター |
-| `/security` | セキュリティ | フッター |
-| `/legal` | 特定商取引法に基づく表記 | フッター |
+| `/privacy` | プライバシーポリシー | フッター、お問い合わせフォーム |
+| `/legal` | 特定商取引法 | フッター |
+
+### 意図的にリンクしていないもの
+
+| URL | 備考 |
+|-----|------|
+| `/careers` | 未実装。フッターからリンク削除済み |
+| `/help` | 未実装。お問い合わせからリンク削除済み |
+
+---
+
+## 3. グローバルナビ
+
+### ヘッダー（`site-header.tsx`）
+
+| ラベル | href |
+|--------|------|
+| 機能 | `/features` |
+| 課題別 | `/solutions` |
+| ブログ | `/blog` |
+| 専門家の推薦 | `/case-studies` |
+| 料金 | `/pricing` |
+| 会社概要 | `/about` |
+| お問い合わせ（CTA） | `/contact` |
+
+※ `/resources` は資料一覧実装までヘッダー非掲載（フッターからのみ）
+
+### フッター（`site-footer.tsx`）
+
+- **課題別・機能:** `/solutions`、3課題、`/features`、管理画面、従業員アプリ、`/pricing`
+- **リソース:** `/resources`、`/case-studies`、`/blog`
+- **会社情報:** `/about`、`/contact`
+- **法的情報:** `/terms`、`/privacy`、セキュリティ（外部）、反社（外部）、`/faq`、`/legal`
 
 ---
 
 ## 4. トップページ（/）の構成
 
-- **Hero** … キャッチコピー、CTA（無料デモ・製品紹介）、導入企業
-- **Stats** … 数値・実績
-- **FeaturesOverview** … 機能4つの概要 → `/features` 等へ
-- **Testimonials** … お客様の声（導入事例へのリンク）
-- **BlogPreview** … ブログ記事 3 件（microCMS またはモック）
-- **CTA** … 無料デモ・資料請求
+| セクション | 主なリンク先 |
+|------------|--------------|
+| Hero | `/contact`、資料請求 |
+| SocialProof / Stats | — |
+| FeaturesOverview | `/features` |
+| KenkoKeiei（健康経営） | `/solutions/health-management`、`/contact` |
+| Comparison | — |
+| ExpertEndorsements | `/case-studies` |
+| PricingTeaser | `/pricing`、`/contact` |
+| FAQ | `/faq` |
+| BlogPreview | `/blog` |
+| CTA | `/contact` |
 
 ---
 
-## 5. 共通レイアウト（SAAS_STRATEGY 準拠）
-
-- **SiteHeader**
-  - ロゴ → `/`
-  - ナビ: 課題別 `/solutions/stress-check`、機能 `/features`、お役立ち `/resources`、導入事例 `/case-studies`、ブログ `/blog`、料金 `/pricing`、会社概要 `/about`
-  - お問い合わせ、無料デモを予約 → `/contact`, `/contact?type=demo`
-- **SiteFooter**
-  - 課題別・機能: ストレスチェック、従業員満足度、健康経営認定、機能一覧、管理画面、従業員アプリ、料金
-  - リソース: お役立ち資料 `/resources`、導入事例、ブログ
-  - 会社情報: 会社概要、採用情報、お問い合わせ
-  - 法的情報: 利用規約、プライバシーポリシー、セキュリティ、特定商取引法表記
-
----
-
-## 6. データソース（microCMS）
+## 5. データソース（microCMS）
 
 | エンドポイント | 用途 |
 |----------------|------|
 | `blog` | ブログ一覧・記事詳細 |
-| `categories` | ブログカテゴリ（ブログから参照） |
-| `case-studies` | 導入事例一覧・詳細 |
+| `categories` | ブログカテゴリ |
 
-未設定時は `lib/microcms.ts` の `mockBlogPosts` / `mockCaseStudies` を使用。
+未設定時は `lib/microcms.ts` のモックデータを使用。
 
 ---
 
-## 7. 更新時のチェックリスト
+## 6. 更新時のチェックリスト
 
-- [ ] 新規ページを追加したら、この SITEMAP の「実装済み」に追加
-- [ ] ヘッダー・フッターのリンク先を変えたら、`site-header.tsx` / `site-footer.tsx` とこの SITEMAP を同期
-- [ ] microCMS の API を増やしたら「データソース」を更新
+- [ ] 新規ページ追加 → この SITEMAP の URL 一覧に追記
+- [ ] ヘッダー・フッター変更 → `site-header.tsx` / `site-footer.tsx` と同期
+- [ ] ページ統合・削除 → `next.config.mjs` の `redirects` を更新
+- [ ] 404 リンクがないか `rg 'href="/'` で全件 grep

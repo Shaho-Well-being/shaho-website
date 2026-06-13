@@ -27,7 +27,6 @@ const footerLinks = {
     title: "会社情報",
     links: [
       { label: "会社概要", href: "/about" },
-      { label: "採用情報", href: "/careers" },
       { label: "お問い合わせ", href: "/contact" },
     ],
   },

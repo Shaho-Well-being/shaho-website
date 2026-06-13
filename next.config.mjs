@@ -9,6 +9,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/health-management-support",
+        destination: "/solutions/health-management",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
