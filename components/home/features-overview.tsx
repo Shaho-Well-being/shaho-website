@@ -104,8 +104,38 @@ export function FeaturesOverview() {
           </p>
         </div>
 
-        {/* Pillar cards */}
-        <div className="mt-16 space-y-6">
+        {/* ── モバイル: 3カラムコンパクトグリッド ── */}
+        <div className="mt-8 grid grid-cols-3 gap-2 lg:hidden">
+          {pillars.map((pillar) => (
+            <Link
+              key={pillar.id}
+              href={pillar.href}
+              className="flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-white shadow-sm transition-shadow active:shadow-md"
+            >
+              {/* カラーヘッダー */}
+              <div className={`${pillar.panelBg} flex flex-col items-center gap-2 px-2 py-4`}>
+                <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${pillar.iconBg}`}>
+                  <pillar.icon className={`h-5 w-5 ${pillar.iconColor}`} />
+                </div>
+                <span className={`text-center text-[10px] font-bold uppercase tracking-wider ${pillar.badgeText}`}>
+                  Pillar {pillar.id}
+                </span>
+              </div>
+              {/* ラベル + リンク */}
+              <div className="flex flex-1 flex-col items-center justify-between px-2 py-3 text-center">
+                <p className={`text-xs font-black leading-snug ${pillar.panelText}`}>
+                  {pillar.label}
+                </p>
+                <span className="mt-2 inline-flex items-center gap-0.5 text-[10px] font-semibold text-primary">
+                  詳しく見る <ArrowRight className="h-2.5 w-2.5" />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* ── デスクトップ: 縦積みフルカード ── */}
+        <div className="mt-16 hidden space-y-6 lg:block">
           {pillars.map((pillar) => (
             <div
               key={pillar.id}
@@ -114,7 +144,7 @@ export function FeaturesOverview() {
               <div className="grid lg:grid-cols-[260px_1fr_340px]">
 
                 {/* Left: colored identity panel */}
-                <div className={`${pillar.panelBg} flex flex-col justify-between p-8 lg:p-10`}>
+                <div className={`${pillar.panelBg} flex flex-col justify-between p-10`}>
                   <div>
                     <span className={`inline-block rounded-full ${pillar.badgeBg} px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] ${pillar.badgeText}`}>
                       Pillar {pillar.id}
@@ -132,7 +162,7 @@ export function FeaturesOverview() {
                 </div>
 
                 {/* Center: text content */}
-                <div className="flex flex-col justify-center p-8 lg:p-10">
+                <div className="flex flex-col justify-center p-10">
                   <p className="text-base leading-8 text-muted-foreground">
                     {pillar.description}
                   </p>
@@ -157,8 +187,8 @@ export function FeaturesOverview() {
                   </Button>
                 </div>
 
-                {/* Right: screenshot (desktop only) */}
-                <div className="relative hidden overflow-hidden bg-gray-50 lg:block">
+                {/* Right: screenshot */}
+                <div className="relative overflow-hidden bg-gray-50">
                   <Image
                     src={pillar.image}
                     alt={pillar.imageAlt}
